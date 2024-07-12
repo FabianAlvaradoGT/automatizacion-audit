@@ -15,6 +15,12 @@ export const USER_ROLE_OPTIONS = [
   { value: 'developer', label: 'Desarrollador' },
 ]
 
+export const USER_AREA_OPTIONS = [
+  { value: 'audit', label: 'AUDIT' },
+  { value: 'bps', label: 'BPS' },
+  { value: 'tax', label: 'TAX' },
+]
+
 export const _userAbout = {
   id: _mock.id(1),
   role: _mock.role(1),
@@ -140,6 +146,10 @@ export const _userList = [...Array(10)].map((_, index) => ({
     (index % 3 && USER_ROLE_OPTIONS[1].label) ||
     USER_ROLE_OPTIONS[2].label,
   email: _mock.email(index),
+  area:
+    (index % 2 && USER_AREA_OPTIONS[0].label) ||
+    (index % 3 && USER_AREA_OPTIONS[1].label) ||
+    USER_AREA_OPTIONS[2].label,
   address: _mock.fullAddress(index),
   name: _mock.fullName(index),
   isVerified: _mock.boolean(index),

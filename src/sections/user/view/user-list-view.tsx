@@ -53,6 +53,7 @@ const TABLE_HEAD = [
   { id: 'name', label: 'Nombre' },
   { id: 'email', label: 'Correo' },
   { id: 'role', label: 'Role' },
+  { id: 'area', label: 'Area' },
   { id: 'status', label: 'Status' },
   { id: '', width: 88 },
 ]

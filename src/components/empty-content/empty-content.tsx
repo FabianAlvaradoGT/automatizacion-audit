@@ -30,7 +30,7 @@ export function EmptyContent({
   filled,
   slotProps,
   description,
-  title = 'No data',
+  title = 'Sin contenido',
   ...other
 }: EmptyContentProps) {
   return (

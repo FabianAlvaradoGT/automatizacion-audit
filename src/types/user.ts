@@ -80,6 +80,7 @@ export type IUserItem = {
   city: string
   role: string
   email: string
+  area: string
   state: string
   status: string
   address: string

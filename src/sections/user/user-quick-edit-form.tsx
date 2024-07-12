@@ -15,7 +15,7 @@ import DialogTitle from '@mui/material/DialogTitle'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 
-import { USER_ROLE_OPTIONS, USER_STATUS_OPTIONS } from 'src/_mock'
+import { USER_AREA_OPTIONS, USER_ROLE_OPTIONS, USER_STATUS_OPTIONS } from 'src/_mock'
 
 import { toast } from 'src/components/snackbar'
 import { Form, Field, schemaHelper } from 'src/components/hook-form'
@@ -40,7 +40,7 @@ export const UserQuickEditSchema = zod.object({
   zipCode: zod.string().min(1, { message: 'Zip code is required!' }),
   company: zod.string().min(1, { message: 'Company is required!' }),
   role: zod.string().min(1, { message: 'Role is required!' }),
-  // Not required
+  area: zod.string().min(1, { message: 'Area is required!' }),
   status: zod.string(),
 })
 
@@ -66,6 +66,7 @@ export function UserQuickEditForm({ currentUser, open, onClose }: Props) {
       status: currentUser?.status,
       company: currentUser?.company || '',
       role: currentUser?.role || '',
+      area: currentUser?.area || '',
     }),
     [currentUser]
   )
@@ -114,9 +115,6 @@ export function UserQuickEditForm({ currentUser, open, onClose }: Props) {
       <Form methods={methods} onSubmit={onSubmit}>
         <DialogTitle>Edición Rápida</DialogTitle>
         <DialogContent>
-          {/* <Alert variant="outlined" severity="info" sx={{ mb: 3 }}>
-            Account is waiting for confirmation
-          </Alert> */}
           <Box
             rowGap={3}
             columnGap={2}
@@ -125,10 +123,16 @@ export function UserQuickEditForm({ currentUser, open, onClose }: Props) {
           >
             <Field.Text name="name" label="Nombre" sx={{ marginTop: 1 }} />
             <Field.Text name="email" label="Email" sx={{ marginTop: 1 }} />
-            <Field.Text name="area" label="Area" />
+            <Field.Select name="area" label="Area">
+              {USER_AREA_OPTIONS.map((area) => (
+                <MenuItem key={area.value} value={area.label}>
+                  {area.label}
+                </MenuItem>
+              ))}
+            </Field.Select>
             <Field.Select name="role" label="Rol">
               {USER_ROLE_OPTIONS.map((role) => (
-                <MenuItem key={role.value} value={role.value}>
+                <MenuItem key={role.value} value={role.label}>
                   {role.label}
                 </MenuItem>
               ))}
@@ -147,11 +151,11 @@ export function UserQuickEditForm({ currentUser, open, onClose }: Props) {
 
         <DialogActions>
           <Button variant="outlined" onClick={onClose}>
-            Cancel
+            Cancelar
           </Button>
 
           <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
-            Update
+            Actualizar
           </LoadingButton>
         </DialogActions>
       </Form>
