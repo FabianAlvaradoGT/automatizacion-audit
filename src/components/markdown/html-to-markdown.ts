@@ -22,8 +22,8 @@ const filterTags = htmlTags.filter((item) => !excludeTags.includes(item)) as Fil
  */
 turndownService.addRule('keep', {
   filter: filterTags,
-  replacement(content: string, node: Node) {
-    console.log(content)
+  replacement(_: string, node: Node) {
+    // console.log(content)
     const { isBlock, outerHTML } = node as INode
 
     return node && isBlock ? `\n\n${outerHTML}\n\n` : outerHTML

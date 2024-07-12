@@ -1,3 +1,5 @@
+import type { AuthenticationResult } from '@azure/msal-browser'
+
 import { useMsal } from '@azure/msal-react'
 import React, { useState, useEffect, createContext } from 'react'
 import { InteractionStatus, InteractionRequiredAuthError } from '@azure/msal-browser'
@@ -39,53 +41,75 @@ export const UserProvider = ({ children }: { children: React.ReactElement }) => 
   const { instance, accounts, inProgress } = useMsal()
   const [apiData, setApiData] = useState(null)
 
+  const loginCommon = async (accessTokenResponse: AuthenticationResult) => {
+    const { accessToken } = accessTokenResponse
+
+    localStorage.setItem('webApiAccessToken', accessTokenResponse.idToken)
+
+    const responseGraph = await callMsGraph(accessToken)
+    setApiData(responseGraph)
+
+    const userData = {
+      id: responseGraph.id,
+      email: responseGraph.mail,
+      name: responseGraph.displayName,
+      displayName: responseGraph.displayName,
+      role: 'Desarrollador',
+      area: 'BPS',
+      status: 'Activo',
+      photoURL: '',
+    }
+
+    setUser(userData)
+
+    localStorage.setItem('userData', JSON.stringify(userData))
+
+    setInfoLogin({
+      loading: false,
+      authenticated: true,
+      unauthenticated: false,
+      checkUserSession: async () => {},
+    })
+  }
+
   const login = () => {
     if (!apiData && inProgress === InteractionStatus.None) {
-      instance
-        .acquireTokenSilent({
-          ...loginRequest,
-          account: accounts[0],
-        })
-        .then(async (accessTokenResponse) => {
-          const { accessToken } = accessTokenResponse
-
-          localStorage.setItem('webApiAccessToken', accessTokenResponse.idToken)
-
-          const responseGraph = await callMsGraph(accessToken)
-          setApiData(responseGraph)
-
-          const userData = {
-            id: responseGraph.id,
-            email: responseGraph.mail,
-            name: responseGraph.displayName,
-            displayName: responseGraph.displayName,
-            role: 'Desarrollador',
-            area: 'BPS',
-            status: 'Activo',
-            photoURL: '',
-          }
-
-          setUser(userData)
-
-          localStorage.setItem('userData', JSON.stringify(userData))
-
-          setInfoLogin({
-            loading: false,
-            authenticated: true,
-            unauthenticated: false,
-            checkUserSession: async () => {},
+      if (instance.getAllAccounts().length > 0) {
+        instance
+          .acquireTokenSilent({
+            ...loginRequest,
+            account: accounts[0],
           })
-        })
-        .catch((error) => {
-          if (error instanceof InteractionRequiredAuthError) {
-            const accessTokenResponse: any = instance.acquireTokenRedirect({
-              ...loginRequest,
-              account: accounts[0],
-            })
-            localStorage.setItem('webApiAccessToken', accessTokenResponse?.idToken)
-          }
-          console.log(error)
-        })
+          .then(async (accessTokenResponse) => {
+            loginCommon(accessTokenResponse)
+          })
+          .catch((error) => {
+            if (error instanceof InteractionRequiredAuthError) {
+              const accessTokenResponse: any = instance.acquireTokenRedirect({
+                ...loginRequest,
+                account: accounts[0],
+              })
+              localStorage.setItem('webApiAccessToken', accessTokenResponse?.idToken)
+            }
+            console.log(error)
+          })
+      } else {
+        instance
+          .loginPopup(loginRequest)
+          .then(async (accessTokenResponse) => {
+            loginCommon(accessTokenResponse)
+          })
+          .catch((error) => {
+            if (error instanceof InteractionRequiredAuthError) {
+              const accessTokenResponse: any = instance.acquireTokenRedirect({
+                ...loginRequest,
+                account: accounts[0],
+              })
+              localStorage.setItem('webApiAccessToken', accessTokenResponse?.idToken)
+            }
+            console.log(error)
+          })
+      }
     }
   }
 
