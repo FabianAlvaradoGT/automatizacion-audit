@@ -1,12 +1,12 @@
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
+import Breadcrumbs from '@mui/material/Breadcrumbs'
 
-import { BreadcrumbsLink } from './breadcrumb-link';
+import { BreadcrumbsLink } from './breadcrumb-link'
 
-import type { CustomBreadcrumbsProps } from './types';
+import type { CustomBreadcrumbsProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -20,13 +20,13 @@ export function CustomBreadcrumbs({
   sx,
   ...other
 }: CustomBreadcrumbsProps) {
-  const lastLink = links[links.length - 1].name;
+  const lastLink = links[links.length - 1].name
 
   const renderHeading = (
     <Typography variant="h4" sx={{ mb: 2, ...slotProps?.heading }}>
       {heading}
     </Typography>
-  );
+  )
 
   const renderLinks = (
     <Breadcrumbs separator={<Separator />} sx={slotProps?.breadcrumbs} {...other}>
@@ -39,9 +39,9 @@ export function CustomBreadcrumbs({
         />
       ))}
     </Breadcrumbs>
-  );
+  )
 
-  const renderAction = <Box sx={{ flexShrink: 0, ...slotProps?.action }}> {action} </Box>;
+  const renderAction = <Box sx={{ flexShrink: 0, ...slotProps?.action }}> {action} </Box>
 
   const renderMoreLink = (
     <Box component="ul">
@@ -53,7 +53,7 @@ export function CustomBreadcrumbs({
         </Box>
       ))}
     </Box>
-  );
+  )
 
   return (
     <Stack spacing={2} sx={sx}>
@@ -69,7 +69,7 @@ export function CustomBreadcrumbs({
 
       {!!moreLink && renderMoreLink}
     </Stack>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -85,5 +85,5 @@ function Separator() {
         bgcolor: 'text.disabled',
       }}
     />
-  );
+  )
 }

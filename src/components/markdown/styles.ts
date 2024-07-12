@@ -1,14 +1,14 @@
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from 'react-markdown'
 
-import { styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles'
 
-import { varAlpha, stylesMode } from 'src/theme/styles';
+import { varAlpha, stylesMode } from 'src/theme/styles'
 
-import { markdownClasses } from './classes';
+import { markdownClasses } from './classes'
 
 // ----------------------------------------------------------------------
 
-const MARGIN = '0.75em';
+const MARGIN = '0.75em'
 
 export const StyledRoot = styled(ReactMarkdown)(({ theme }) => ({
   '> * + *': {
@@ -162,4 +162,4 @@ export const StyledRoot = styled(ReactMarkdown)(({ theme }) => ({
       },
     },
   },
-}));
+}))

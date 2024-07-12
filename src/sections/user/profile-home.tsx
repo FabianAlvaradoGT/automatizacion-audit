@@ -1,42 +1,42 @@
-import type { IUserProfile, IUserProfilePost } from 'src/types/user';
+import type { IUserProfile, IUserProfilePost } from 'src/types/user'
 
-import { useRef } from 'react';
+import { useRef } from 'react'
 
-import Fab from '@mui/material/Fab';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import InputBase from '@mui/material/InputBase';
-import Grid from '@mui/material/Unstable_Grid2';
-import CardHeader from '@mui/material/CardHeader';
+import Fab from '@mui/material/Fab'
+import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
+import Card from '@mui/material/Card'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
+import Divider from '@mui/material/Divider'
+import InputBase from '@mui/material/InputBase'
+import Grid from '@mui/material/Unstable_Grid2'
+import CardHeader from '@mui/material/CardHeader'
 
-import { fNumber } from 'src/utils/format-number';
+import { fNumber } from 'src/utils/format-number'
 
-import { _socials } from 'src/_mock';
-import { varAlpha } from 'src/theme/styles';
+import { _socials } from 'src/_mock'
+import { varAlpha } from 'src/theme/styles'
 
-import { Iconify, SocialIcon } from 'src/components/iconify';
+import { Iconify, SocialIcon } from 'src/components/iconify'
 
-import { ProfilePostItem } from './profile-post-item';
+import { ProfilePostItem } from './profile-post-item'
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  info: IUserProfile;
-  posts: IUserProfilePost[];
-};
+  info: IUserProfile
+  posts: IUserProfilePost[]
+}
 
 export function ProfileHome({ info, posts }: Props) {
-  const fileRef = useRef<HTMLInputElement>(null);
+  const fileRef = useRef<HTMLInputElement>(null)
 
   const handleAttach = () => {
     if (fileRef.current) {
-      fileRef.current.click();
+      fileRef.current.click()
     }
-  };
+  }
 
   const renderFollows = (
     <Card sx={{ py: 3, textAlign: 'center', typography: 'h4' }}>
@@ -59,7 +59,7 @@ export function ProfileHome({ info, posts }: Props) {
         </Stack>
       </Stack>
     </Card>
-  );
+  )
 
   const renderAbout = (
     <Card>
@@ -107,7 +107,7 @@ export function ProfileHome({ info, posts }: Props) {
         </Stack>
       </Stack>
     </Card>
-  );
+  )
 
   const renderPostInput = (
     <Card sx={{ p: 3 }}>
@@ -142,7 +142,7 @@ export function ProfileHome({ info, posts }: Props) {
 
       <input ref={fileRef} type="file" style={{ display: 'none' }} />
     </Card>
-  );
+  )
 
   const renderSocials = (
     <Card>
@@ -167,7 +167,7 @@ export function ProfileHome({ info, posts }: Props) {
         ))}
       </Stack>
     </Card>
-  );
+  )
 
   return (
     <Grid container spacing={3}>
@@ -191,5 +191,5 @@ export function ProfileHome({ info, posts }: Props) {
         </Stack>
       </Grid>
     </Grid>
-  );
+  )
 }

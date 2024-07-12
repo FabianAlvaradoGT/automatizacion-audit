@@ -1,10 +1,10 @@
-import { Toaster } from 'sonner';
+import { Toaster } from 'sonner'
 
-import { styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { toasterClasses } from './classes';
+import { toasterClasses } from './classes'
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ export const StyledToaster = styled(Toaster)(({ theme }) => {
       color: theme.vars.palette.text.primary,
       backgroundColor: theme.vars.palette.background.paper,
     },
-  };
+  }
 
   const loadingStyles = {
     top: 0,
@@ -52,7 +52,7 @@ export const StyledToaster = styled(Toaster)(({ theme }) => {
       background: `conic-gradient(${varAlpha(theme.vars.palette.text.primaryChannel, 0)}, ${varAlpha(theme.vars.palette.text.disabledChannel, 0.64)})`,
     },
     [toasterClasses.loaderVisible]: { display: 'flex' },
-  };
+  }
 
   return {
     width: 300,
@@ -174,5 +174,5 @@ export const StyledToaster = styled(Toaster)(({ theme }) => {
         backgroundColor: varAlpha(theme.vars.palette.info.mainChannel, 0.08),
       },
     },
-  };
-});
+  }
+})

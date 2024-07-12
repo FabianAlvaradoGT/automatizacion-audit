@@ -1,25 +1,25 @@
-import type { Transition } from 'framer-motion';
-import type { BoxProps } from '@mui/material/Box';
-import type { AvatarProps } from '@mui/material/Avatar';
+import type { Transition } from 'framer-motion'
+import type { BoxProps } from '@mui/material/Box'
+import type { AvatarProps } from '@mui/material/Avatar'
 
-import { m } from 'framer-motion';
+import { m } from 'framer-motion'
 
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box'
+import Avatar from '@mui/material/Avatar'
 
 // ----------------------------------------------------------------------
 
 export type AnimateAvatarProps = BoxProps & {
   slotProps?: {
-    avatar?: AvatarProps;
-    animate?: { transition?: Transition };
+    avatar?: AvatarProps
+    animate?: { transition?: Transition }
     overlay?: {
-      color?: string;
-      border?: number;
-      spacing?: number;
-    };
-  };
-};
+      color?: string
+      border?: number
+      spacing?: number
+    }
+  }
+}
 
 export function AnimateAvatar({
   sx,
@@ -28,9 +28,9 @@ export function AnimateAvatar({
   width = 40,
   ...other
 }: AnimateAvatarProps) {
-  const borderWidth = slotProps?.overlay?.border ?? 2;
+  const borderWidth = slotProps?.overlay?.border ?? 2
 
-  const spacing = slotProps?.overlay?.spacing ?? 2;
+  const spacing = slotProps?.overlay?.spacing ?? 2
 
   return (
     <Box
@@ -86,5 +86,5 @@ export function AnimateAvatar({
         }}
       />
     </Box>
-  );
+  )
 }

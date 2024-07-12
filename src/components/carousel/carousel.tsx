@@ -1,16 +1,16 @@
-import { Children, isValidElement } from 'react';
+import { Children, isValidElement } from 'react'
 
-import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import { styled } from '@mui/material/styles'
 
-import { carouselClasses } from './classes';
-import { CarouselSlide } from './components/carousel-slide';
+import { carouselClasses } from './classes'
+import { CarouselSlide } from './components/carousel-slide'
 
-import type { CarouselProps, CarouselOptions } from './types';
+import type { CarouselProps, CarouselOptions } from './types'
 
 // ----------------------------------------------------------------------
 
-type StyledProps = Pick<CarouselOptions, 'axis' | 'slideSpacing'>;
+type StyledProps = Pick<CarouselOptions, 'axis' | 'slideSpacing'>
 
 export const StyledRoot = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'axis',
@@ -22,7 +22,7 @@ export const StyledRoot = styled(Box, {
   ...(axis === 'y' && {
     height: '100%',
   }),
-}));
+}))
 
 export const StyledContainer = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'axis' && prop !== 'slideSpacing',
@@ -39,31 +39,31 @@ export const StyledContainer = styled(Box, {
     touchAction: 'pan-x pinch-zoom',
     marginTop: `calc(${slideSpacing} * -1)`,
   }),
-}));
+}))
 
 // ----------------------------------------------------------------------
 
 export function Carousel({ carousel, children, sx, slotProps }: CarouselProps) {
-  const { mainRef, options } = carousel;
+  const { mainRef, options } = carousel
 
-  const axis = options?.axis ?? 'x';
+  const axis = options?.axis ?? 'x'
 
-  const slideSpacing = options?.slideSpacing ?? '0px';
+  const slideSpacing = options?.slideSpacing ?? '0px'
 
-  const direction = options?.direction ?? 'ltr';
+  const direction = options?.direction ?? 'ltr'
 
   const renderChildren = Children.map(children, (child) => {
     if (isValidElement(child)) {
-      const reactChild = child as React.ReactElement<{ key?: React.Key }>;
+      const reactChild = child as React.ReactElement<{ key?: React.Key }>
 
       return (
         <CarouselSlide key={reactChild.key} options={carousel.options} sx={slotProps?.slide}>
           {child}
         </CarouselSlide>
-      );
+      )
     }
-    return null;
-  });
+    return null
+  })
 
   return (
     <StyledRoot sx={sx} axis={axis} ref={mainRef} dir={direction} className={carouselClasses.root}>
@@ -87,5 +87,5 @@ export function Carousel({ carousel, children, sx, slotProps }: CarouselProps) {
         {renderChildren}
       </StyledContainer>
     </StyledRoot>
-  );
+  )
 }

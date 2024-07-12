@@ -1,6 +1,6 @@
-import { fSub } from 'src/utils/format-time';
+import { fSub } from 'src/utils/format-time'
 
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
 import {
   _id,
@@ -31,11 +31,11 @@ import {
   _descriptions,
   _phoneNumbers,
   _countryNames,
-} from './assets';
+} from './assets'
 
 // ----------------------------------------------------------------------
 
-const { assetURL } = CONFIG.site;
+const { assetURL } = CONFIG.site
 
 export const _mock = {
   id: (index: number) => _id[index],
@@ -83,4 +83,4 @@ export const _mock = {
     product: (index: number) => `${assetURL}/assets/images/m-product/product-${index + 1}.webp`,
     portrait: (index: number) => `${assetURL}/assets/images/portrait/portrait-${index + 1}.webp`,
   },
-};
+}

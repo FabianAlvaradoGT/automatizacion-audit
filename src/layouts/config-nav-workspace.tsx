@@ -1,4 +1,4 @@
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
 // ----------------------------------------------------------------------
 
@@ -21,4 +21,4 @@ export const _workspaces = [
     logo: `${CONFIG.site.basePath}/assets/icons/workspaces/logo-3.webp`,
     plan: 'Pro',
   },
-];
+]

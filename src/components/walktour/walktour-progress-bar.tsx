@@ -1,10 +1,10 @@
-import Stack from '@mui/material/Stack';
-import { useTheme } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
+import Stack from '@mui/material/Stack'
+import { useTheme } from '@mui/material/styles'
+import ButtonBase from '@mui/material/ButtonBase'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import type { WalktourProgressBarProps } from './types';
+import type { WalktourProgressBarProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ export function WalktourProgressBar({
   totalSteps,
   currentStep,
 }: WalktourProgressBarProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const barStyles = {
     height: 2,
@@ -22,7 +22,7 @@ export function WalktourProgressBar({
     position: 'absolute',
     width: `calc(100% / ${totalSteps} * ${currentStep})`,
     background: `linear-gradient(135deg, ${theme.vars.palette.primary.light} 0%, ${theme.vars.palette.primary.main} 100%)`,
-  };
+  }
 
   return (
     <Stack
@@ -36,7 +36,7 @@ export function WalktourProgressBar({
       }}
     >
       {[...Array(totalSteps)].map((_, index) => {
-        const stepIndex = index + 1;
+        const stepIndex = index + 1
 
         return (
           <ButtonBase
@@ -44,7 +44,7 @@ export function WalktourProgressBar({
             key={index}
             onClick={() => {
               if (currentStep !== stepIndex) {
-                onGoStep(index);
+                onGoStep(index)
               }
             }}
             sx={{
@@ -61,8 +61,8 @@ export function WalktourProgressBar({
               },
             }}
           />
-        );
+        )
       })}
     </Stack>
-  );
+  )
 }

@@ -1,9 +1,9 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
 
-import { UploadIllustration } from 'src/assets/illustrations';
+import { UploadIllustration } from 'src/assets/illustrations'
 
 // ----------------------------------------------------------------------
 
@@ -34,5 +34,5 @@ export function UploadPlaceholder({ ...other }: BoxProps) {
         </Box>
       </Stack>
     </Box>
-  );
+  )
 }

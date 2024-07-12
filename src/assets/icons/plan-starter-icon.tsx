@@ -1,20 +1,20 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import { memo } from 'react';
+import { memo } from 'react'
 
-import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
 function PlanStarterIcon({ sx, ...other }: BoxProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const PRIMARY_MAIN = theme.vars.palette.primary.main;
+  const PRIMARY_MAIN = theme.vars.palette.primary.main
 
-  const PRIMARY_DARK = theme.vars.palette.primary.dark;
+  const PRIMARY_DARK = theme.vars.palette.primary.dark
 
-  const PRIMARY_DARKER = theme.vars.palette.primary.darker;
+  const PRIMARY_DARKER = theme.vars.palette.primary.darker
 
   return (
     <Box
@@ -70,7 +70,7 @@ function PlanStarterIcon({ sx, ...other }: BoxProps) {
         </g>
       </g>
     </Box>
-  );
+  )
 }
 
-export default memo(PlanStarterIcon);
+export default memo(PlanStarterIcon)

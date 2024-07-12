@@ -1,30 +1,30 @@
-import type { IconButtonProps } from '@mui/material/IconButton';
+import type { IconButtonProps } from '@mui/material/IconButton'
 
-import { m } from 'framer-motion';
-import { useState, useCallback } from 'react';
+import { m } from 'framer-motion'
+import { useState, useCallback } from 'react'
 
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Badge from '@mui/material/Badge';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import SvgIcon from '@mui/material/SvgIcon';
-import Tooltip from '@mui/material/Tooltip';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import Tab from '@mui/material/Tab'
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import Badge from '@mui/material/Badge'
+import Drawer from '@mui/material/Drawer'
+import Button from '@mui/material/Button'
+import SvgIcon from '@mui/material/SvgIcon'
+import Tooltip from '@mui/material/Tooltip'
+import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
 
-import { useBoolean } from 'src/hooks/use-boolean';
+import { useBoolean } from 'src/hooks/use-boolean'
 
-import { Label } from 'src/components/label';
-import { Iconify } from 'src/components/iconify';
-import { varHover } from 'src/components/animate';
-import { Scrollbar } from 'src/components/scrollbar';
-import { CustomTabs } from 'src/components/custom-tabs';
+import { Label } from 'src/components/label'
+import { Iconify } from 'src/components/iconify'
+import { varHover } from 'src/components/animate'
+import { Scrollbar } from 'src/components/scrollbar'
+import { CustomTabs } from 'src/components/custom-tabs'
 
-import { NotificationItem } from './notification-item';
+import { NotificationItem } from './notification-item'
 
-import type { NotificationItemProps } from './notification-item';
+import type { NotificationItemProps } from './notification-item'
 
 // ----------------------------------------------------------------------
 
@@ -32,30 +32,30 @@ const TABS = [
   { value: 'all', label: 'All', count: 22 },
   { value: 'unread', label: 'Unread', count: 12 },
   { value: 'archived', label: 'Archived', count: 10 },
-];
+]
 
 // ----------------------------------------------------------------------
 
 export type NotificationsDrawerProps = IconButtonProps & {
-  data?: NotificationItemProps[];
-};
+  data?: NotificationItemProps[]
+}
 
 export function NotificationsDrawer({ data = [], sx, ...other }: NotificationsDrawerProps) {
-  const drawer = useBoolean();
+  const drawer = useBoolean()
 
-  const [currentTab, setCurrentTab] = useState('all');
+  const [currentTab, setCurrentTab] = useState('all')
 
   const handleChangeTab = useCallback((event: React.SyntheticEvent, newValue: string) => {
-    setCurrentTab(newValue);
-  }, []);
+    setCurrentTab(newValue)
+  }, [])
 
-  const [notifications, setNotifications] = useState(data);
+  const [notifications, setNotifications] = useState(data)
 
-  const totalUnRead = notifications.filter((item) => item.isUnRead === true).length;
+  const totalUnRead = notifications.filter((item) => item.isUnRead === true).length
 
   const handleMarkAllAsRead = () => {
-    setNotifications(notifications.map((notification) => ({ ...notification, isUnRead: false })));
-  };
+    setNotifications(notifications.map((notification) => ({ ...notification, isUnRead: false })))
+  }
 
   const renderHead = (
     <Stack direction="row" alignItems="center" sx={{ py: 2, pl: 2.5, pr: 1, minHeight: 68 }}>
@@ -79,7 +79,7 @@ export function NotificationsDrawer({ data = [], sx, ...other }: NotificationsDr
         <Iconify icon="solar:settings-bold-duotone" />
       </IconButton>
     </Stack>
-  );
+  )
 
   const renderTabs = (
     <CustomTabs variant="fullWidth" value={currentTab} onChange={handleChangeTab}>
@@ -104,7 +104,7 @@ export function NotificationsDrawer({ data = [], sx, ...other }: NotificationsDr
         />
       ))}
     </CustomTabs>
-  );
+  )
 
   const renderList = (
     <Scrollbar>
@@ -116,7 +116,7 @@ export function NotificationsDrawer({ data = [], sx, ...other }: NotificationsDr
         ))}
       </Box>
     </Scrollbar>
-  );
+  )
 
   return (
     <>
@@ -165,5 +165,5 @@ export function NotificationsDrawer({ data = [], sx, ...other }: NotificationsDr
         </Box>
       </Drawer>
     </>
-  );
+  )
 }

@@ -1,34 +1,34 @@
-import type { BoxProps } from '@mui/material/Box';
-import type { CSSObject } from '@mui/material/styles';
-import type { ButtonBaseProps } from '@mui/material/ButtonBase';
+import type { BoxProps } from '@mui/material/Box'
+import type { CSSObject } from '@mui/material/styles'
+import type { ButtonBaseProps } from '@mui/material/ButtonBase'
 
-import { Children, forwardRef, isValidElement } from 'react';
+import { Children, forwardRef, isValidElement } from 'react'
 
-import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
+import ButtonBase from '@mui/material/ButtonBase'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { carouselClasses } from '../classes';
-import { CarouselSlide } from './carousel-slide';
-import { StyledRoot, StyledContainer } from '../carousel';
+import { carouselClasses } from '../classes'
+import { CarouselSlide } from './carousel-slide'
+import { StyledRoot, StyledContainer } from '../carousel'
 
-import type { CarouselOptions, CarouselThumbProps, CarouselThumbsProps } from '../types';
+import type { CarouselOptions, CarouselThumbProps, CarouselThumbsProps } from '../types'
 
 // ----------------------------------------------------------------------
 
 export const CarouselThumbs = forwardRef<HTMLDivElement, BoxProps & CarouselThumbsProps>(
   ({ children, slotProps, options, sx, ...other }, ref) => {
-    const axis = options?.axis ?? 'x';
+    const axis = options?.axis ?? 'x'
 
-    const slideSpacing = options?.slideSpacing ?? '12px';
+    const slideSpacing = options?.slideSpacing ?? '12px'
 
-    const maskStyles = useMaskStyle(axis);
+    const maskStyles = useMaskStyle(axis)
 
     const renderChildren = Children.map(children, (child) => {
       if (isValidElement(child)) {
-        const reactChild = child as React.ReactElement<{ key?: React.Key }>;
+        const reactChild = child as React.ReactElement<{ key?: React.Key }>
 
         return (
           <CarouselSlide
@@ -38,10 +38,10 @@ export const CarouselThumbs = forwardRef<HTMLDivElement, BoxProps & CarouselThum
           >
             {child}
           </CarouselSlide>
-        );
+        )
       }
-      return null;
-    });
+      return null
+    })
 
     return (
       <StyledRoot
@@ -69,9 +69,9 @@ export const CarouselThumbs = forwardRef<HTMLDivElement, BoxProps & CarouselThum
           {renderChildren}
         </StyledContainer>
       </StyledRoot>
-    );
+    )
   }
-);
+)
 
 // ----------------------------------------------------------------------
 
@@ -118,21 +118,21 @@ export function CarouselThumb({
         }}
       />
     </ButtonBase>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
 
 function useMaskStyle(axis: CarouselOptions['axis']): CSSObject {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const baseStyles = {
     zIndex: 9,
     content: '""',
     position: 'absolute',
-  };
+  }
 
-  const bgcolor = `${theme.vars.palette.background.paper} 20%, ${varAlpha(theme.vars.palette.background.paperChannel, 0)} 100%)`;
+  const bgcolor = `${theme.vars.palette.background.paper} 20%, ${varAlpha(theme.vars.palette.background.paperChannel, 0)} 100%)`
 
   if (axis === 'y') {
     return {
@@ -150,7 +150,7 @@ function useMaskStyle(axis: CarouselOptions['axis']): CSSObject {
         bottom: -8,
         background: `linear-gradient(to top, ${bgcolor}`,
       },
-    };
+    }
   }
 
   return {
@@ -168,5 +168,5 @@ function useMaskStyle(axis: CarouselOptions['axis']): CSSObject {
       right: -8,
       background: `linear-gradient(to left, ${bgcolor}`,
     },
-  };
+  }
 }

@@ -1,4 +1,4 @@
-import type { ThemeUpdateOptions } from './types';
+import type { ThemeUpdateOptions } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -23,4 +23,4 @@ export const overridesTheme: ThemeUpdateOptions = {
   shape: { borderRadius: 0 },
  ```
  */
-};
+}

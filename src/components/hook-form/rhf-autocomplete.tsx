@@ -1,24 +1,24 @@
-import type { AutocompleteProps } from '@mui/material/Autocomplete';
+import type { AutocompleteProps } from '@mui/material/Autocomplete'
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form'
 
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField'
+import Autocomplete from '@mui/material/Autocomplete'
 
 // ----------------------------------------------------------------------
 
 export type AutocompleteBaseProps = Omit<
   AutocompleteProps<any, boolean, boolean, boolean>,
   'renderInput'
->;
+>
 
 export type RHFAutocompleteProps = AutocompleteBaseProps & {
-  name: string;
-  label?: string;
-  placeholder?: string;
-  hiddenLabel?: boolean;
-  helperText?: React.ReactNode;
-};
+  name: string
+  label?: string
+  placeholder?: string
+  hiddenLabel?: boolean
+  helperText?: React.ReactNode
+}
 
 export function RHFAutocomplete({
   name,
@@ -28,7 +28,7 @@ export function RHFAutocomplete({
   placeholder,
   ...other
 }: RHFAutocompleteProps) {
-  const { control, setValue } = useFormContext();
+  const { control, setValue } = useFormContext()
 
   return (
     <Controller
@@ -53,5 +53,5 @@ export function RHFAutocomplete({
         />
       )}
     />
-  );
+  )
 }

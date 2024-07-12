@@ -1,36 +1,36 @@
-import type { SwitchProps } from '@mui/material/Switch';
-import type { Theme, SxProps } from '@mui/material/styles';
-import type { FormGroupProps } from '@mui/material/FormGroup';
-import type { FormLabelProps } from '@mui/material/FormLabel';
-import type { FormHelperTextProps } from '@mui/material/FormHelperText';
-import type { FormControlLabelProps } from '@mui/material/FormControlLabel';
+import type { SwitchProps } from '@mui/material/Switch'
+import type { Theme, SxProps } from '@mui/material/styles'
+import type { FormGroupProps } from '@mui/material/FormGroup'
+import type { FormLabelProps } from '@mui/material/FormLabel'
+import type { FormHelperTextProps } from '@mui/material/FormHelperText'
+import type { FormControlLabelProps } from '@mui/material/FormControlLabel'
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form'
 
-import Box from '@mui/material/Box';
-import Switch from '@mui/material/Switch';
-import FormGroup from '@mui/material/FormGroup';
-import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import Box from '@mui/material/Box'
+import Switch from '@mui/material/Switch'
+import FormGroup from '@mui/material/FormGroup'
+import FormLabel from '@mui/material/FormLabel'
+import FormControl from '@mui/material/FormControl'
+import FormHelperText from '@mui/material/FormHelperText'
+import FormControlLabel from '@mui/material/FormControlLabel'
 
 // ----------------------------------------------------------------------
 
 export type RHFSwitchProps = Omit<FormControlLabelProps, 'control'> & {
-  name: string;
-  helperText?: React.ReactNode;
+  name: string
+  helperText?: React.ReactNode
   slotProps?: {
-    wrap?: SxProps<Theme>;
-    switch: SwitchProps;
-    formHelperText?: FormHelperTextProps;
-  };
-};
+    wrap?: SxProps<Theme>
+    switch: SwitchProps
+    formHelperText?: FormHelperTextProps
+  }
+}
 
 export function RHFSwitch({ name, helperText, label, slotProps, ...other }: RHFSwitchProps) {
-  const { control } = useFormContext();
+  const { control } = useFormContext()
 
-  const ariaLabel = `Switch ${name}`;
+  const ariaLabel = `Switch ${name}`
 
   return (
     <Controller
@@ -66,26 +66,26 @@ export function RHFSwitch({ name, helperText, label, slotProps, ...other }: RHFS
         </Box>
       )}
     />
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
 
 type RHFMultiSwitchProps = FormGroupProps & {
-  name: string;
-  label?: string;
-  helperText?: React.ReactNode;
+  name: string
+  label?: string
+  helperText?: React.ReactNode
   options: {
-    label: string;
-    value: string;
-  }[];
+    label: string
+    value: string
+  }[]
   slotProps?: {
-    wrap?: SxProps<Theme>;
-    switch: SwitchProps;
-    formLabel?: FormLabelProps;
-    formHelperText?: FormHelperTextProps;
-  };
-};
+    wrap?: SxProps<Theme>
+    switch: SwitchProps
+    formLabel?: FormLabelProps
+    formHelperText?: FormHelperTextProps
+  }
+}
 
 export function RHFMultiSwitch({
   name,
@@ -95,15 +95,15 @@ export function RHFMultiSwitch({
   slotProps,
   ...other
 }: RHFMultiSwitchProps) {
-  const { control } = useFormContext();
+  const { control } = useFormContext()
 
   const getSelected = (selectedItems: string[], item: string) =>
     selectedItems.includes(item)
       ? selectedItems.filter((value) => value !== item)
-      : [...selectedItems, item];
+      : [...selectedItems, item]
 
-  const accessibility = (val: string) => val;
-  const ariaLabel = (val: string) => `Switch ${val}`;
+  const accessibility = (val: string) => val
+  const ariaLabel = (val: string) => `Switch ${val}`
 
   return (
     <Controller
@@ -150,5 +150,5 @@ export function RHFMultiSwitch({
         </FormControl>
       )}
     />
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
@@ -14,14 +14,14 @@ const MuiDialog: Components<Theme>['MuiDialog'] = {
     }),
     paperFullScreen: { borderRadius: 0 },
   },
-};
+}
 
 const MuiDialogTitle: Components<Theme>['MuiDialogTitle'] = {
   /** **************************************
    * STYLE
    *************************************** */
   styleOverrides: { root: ({ theme }) => ({ padding: theme.spacing(3) }) },
-};
+}
 
 const MuiDialogContent: Components<Theme>['MuiDialogContent'] = {
   /** **************************************
@@ -35,7 +35,7 @@ const MuiDialogContent: Components<Theme>['MuiDialogContent'] = {
       paddingBottom: theme.spacing(3),
     }),
   },
-};
+}
 
 const MuiDialogActions: Components<Theme>['MuiDialogActions'] = {
   /** **************************************
@@ -52,7 +52,7 @@ const MuiDialogActions: Components<Theme>['MuiDialogActions'] = {
       '& > :not(:first-of-type)': { marginLeft: theme.spacing(1.5) },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -61,4 +61,4 @@ export const dialog = {
   MuiDialogTitle,
   MuiDialogContent,
   MuiDialogActions,
-};
+}

@@ -1,16 +1,16 @@
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { Theme, SxProps } from '@mui/material/styles'
 
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow'
+import TableCell from '@mui/material/TableCell'
 
-import { EmptyContent } from '../empty-content';
+import { EmptyContent } from '../empty-content'
 
 // ----------------------------------------------------------------------
 
 export type TableNoDataProps = {
-  notFound: boolean;
-  sx?: SxProps<Theme>;
-};
+  notFound: boolean
+  sx?: SxProps<Theme>
+}
 
 export function TableNoData({ notFound, sx }: TableNoDataProps) {
   return (
@@ -23,5 +23,5 @@ export function TableNoData({ notFound, sx }: TableNoDataProps) {
         <TableCell colSpan={12} sx={{ p: 0 }} />
       )}
     </TableRow>
-  );
+  )
 }

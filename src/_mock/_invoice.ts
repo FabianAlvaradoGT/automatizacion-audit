@@ -1,7 +1,7 @@
-import { fSub, fAdd } from 'src/utils/format-time';
+import { fSub, fAdd } from 'src/utils/format-time'
 
-import { _mock } from './_mock';
-import { _addressBooks } from './_others';
+import { _mock } from './_mock'
+import { _addressBooks } from './_others'
 
 // ----------------------------------------------------------------------
 
@@ -10,16 +10,16 @@ export const INVOICE_STATUS_OPTIONS = [
   { value: 'pending', label: 'Pending' },
   { value: 'overdue', label: 'Overdue' },
   { value: 'draft', label: 'Draft' },
-];
+]
 
 export const INVOICE_SERVICE_OPTIONS = [...Array(8)].map((_, index) => ({
   id: _mock.id(index),
   name: _mock.role(index),
   price: _mock.number.price(index),
-}));
+}))
 
 const ITEMS = [...Array(3)].map((__, index) => {
-  const total = INVOICE_SERVICE_OPTIONS[index].price * _mock.number.nativeS(index);
+  const total = INVOICE_SERVICE_OPTIONS[index].price * _mock.number.nativeS(index)
 
   return {
     id: _mock.id(index),
@@ -29,22 +29,22 @@ const ITEMS = [...Array(3)].map((__, index) => {
     price: INVOICE_SERVICE_OPTIONS[index].price,
     service: INVOICE_SERVICE_OPTIONS[index].name,
     quantity: _mock.number.nativeS(index),
-  };
-});
+  }
+})
 
 export const _invoices = [...Array(20)].map((_, index) => {
-  const taxes = _mock.number.price(index + 1);
+  const taxes = _mock.number.price(index + 1)
 
-  const discount = _mock.number.price(index + 2);
+  const discount = _mock.number.price(index + 2)
 
-  const shipping = _mock.number.price(index + 3);
+  const shipping = _mock.number.price(index + 3)
 
-  const subtotal = ITEMS.reduce((accumulator, item) => accumulator + item.price * item.quantity, 0);
+  const subtotal = ITEMS.reduce((accumulator, item) => accumulator + item.price * item.quantity, 0)
 
-  const totalAmount = subtotal - shipping - discount + taxes;
+  const totalAmount = subtotal - shipping - discount + taxes
 
   const status =
-    (index % 2 && 'paid') || (index % 3 && 'pending') || (index % 4 && 'overdue') || 'draft';
+    (index % 2 && 'paid') || (index % 3 && 'pending') || (index % 4 && 'overdue') || 'draft'
 
   return {
     id: _mock.id(index),
@@ -61,5 +61,5 @@ export const _invoices = [...Array(20)].map((_, index) => {
     sent: _mock.number.nativeS(index),
     createDate: fSub({ days: index }),
     dueDate: fAdd({ days: index + 15, hours: index }),
-  };
-});
+  }
+})

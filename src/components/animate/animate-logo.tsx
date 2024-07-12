@@ -1,18 +1,18 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import { m } from 'framer-motion';
+import { m } from 'framer-motion'
 
-import Box from '@mui/material/Box';
+import Box from '@mui/material/Box'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Logo } from '../logo';
+import { Logo } from '../logo'
 
 // ----------------------------------------------------------------------
 
 export type AnimateLogoProps = BoxProps & {
-  logo?: React.ReactNode;
-};
+  logo?: React.ReactNode
+}
 
 export function AnimateLogo1({ logo, sx, ...other }: AnimateLogoProps) {
   return (
@@ -76,7 +76,7 @@ export function AnimateLogo1({ logo, sx, ...other }: AnimateLogoProps) {
         }}
       />
     </Box>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -119,5 +119,5 @@ export function AnimateLogo2({ logo, sx, ...other }: AnimateLogoProps) {
         }}
       />
     </Box>
-  );
+  )
 }

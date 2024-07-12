@@ -1,40 +1,40 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import { forwardRef, useCallback } from 'react';
+import { forwardRef, useCallback } from 'react'
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import ButtonBase from '@mui/material/ButtonBase';
-import { alpha as hexAlpha } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import ButtonBase from '@mui/material/ButtonBase'
+import { alpha as hexAlpha } from '@mui/material/styles'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Iconify } from '../iconify';
+import { Iconify } from '../iconify'
 
-import type { ColorPickerProps } from './types';
+import type { ColorPickerProps } from './types'
 
 // ----------------------------------------------------------------------
 
 export const ColorPicker = forwardRef<HTMLDivElement, BoxProps & ColorPickerProps>(
   ({ colors, selected, onSelectColor, limit = 'auto', sx, slotProps, ...other }, ref) => {
-    const singleSelect = typeof selected === 'string';
+    const singleSelect = typeof selected === 'string'
 
     const handleSelect = useCallback(
       (color: string) => {
         if (singleSelect) {
           if (color !== selected) {
-            onSelectColor(color);
+            onSelectColor(color)
           }
         } else {
           const newSelected = selected.includes(color)
             ? selected.filter((value) => value !== color)
-            : [...selected, color];
+            : [...selected, color]
 
-          onSelectColor(newSelected);
+          onSelectColor(newSelected)
         }
       },
       [onSelectColor, selected, singleSelect]
-    );
+    )
 
     return (
       <Box
@@ -53,7 +53,7 @@ export const ColorPicker = forwardRef<HTMLDivElement, BoxProps & ColorPickerProp
         {...other}
       >
         {colors.map((color) => {
-          const hasSelected = singleSelect ? selected === color : selected.includes(color);
+          const hasSelected = singleSelect ? selected === color : selected.includes(color)
 
           return (
             <Box component="li" key={color} sx={{ display: 'inline-flex' }}>
@@ -102,9 +102,9 @@ export const ColorPicker = forwardRef<HTMLDivElement, BoxProps & ColorPickerProp
                 </Stack>
               </ButtonBase>
             </Box>
-          );
+          )
         })}
       </Box>
-    );
+    )
   }
-);
+)

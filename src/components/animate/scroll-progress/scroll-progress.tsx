@@ -1,18 +1,18 @@
-import type { MotionValue } from 'framer-motion';
-import type { BoxProps } from '@mui/material/Box';
+import type { MotionValue } from 'framer-motion'
+import type { BoxProps } from '@mui/material/Box'
 
-import { m, useSpring } from 'framer-motion';
+import { m, useSpring } from 'framer-motion'
 
-import Box from '@mui/material/Box';
+import Box from '@mui/material/Box'
 
 // ----------------------------------------------------------------------
 
 export interface ScrollProgressProps extends BoxProps {
-  size?: number;
-  thickness?: number;
-  progress: MotionValue<number>;
-  variant: 'linear' | 'circular';
-  color?: 'inherit' | 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error';
+  size?: number
+  thickness?: number
+  progress: MotionValue<number>
+  variant: 'linear' | 'circular'
+  color?: 'inherit' | 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error'
 }
 
 export function ScrollProgress({
@@ -24,9 +24,9 @@ export function ScrollProgress({
   sx,
   ...other
 }: ScrollProgressProps) {
-  const scaleX = useSpring(progress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+  const scaleX = useSpring(progress, { stiffness: 100, damping: 30, restDelta: 0.001 })
 
-  const progressSize = variant === 'circular' ? size ?? 64 : size ?? 3;
+  const progressSize = variant === 'circular' ? size ?? 64 : size ?? 3
 
   const renderCircular = (
     <Box
@@ -70,7 +70,7 @@ export function ScrollProgress({
         style={{ pathLength: progress }}
       />
     </Box>
-  );
+  )
 
   const renderLinear = (
     <Box
@@ -92,9 +92,9 @@ export function ScrollProgress({
       style={{ scaleX }}
       {...other}
     />
-  );
+  )
 
   return (
     <Box sx={{ overflow: 'hidden' }}>{variant === 'circular' ? renderCircular : renderLinear}</Box>
-  );
+  )
 }

@@ -1,19 +1,19 @@
-import { useDropzone } from 'react-dropzone';
+import { useDropzone } from 'react-dropzone'
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import FormHelperText from '@mui/material/FormHelperText';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
+import FormHelperText from '@mui/material/FormHelperText'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Iconify } from '../iconify';
-import { UploadPlaceholder } from './components/placeholder';
-import { RejectionFiles } from './components/rejection-files';
-import { MultiFilePreview } from './components/preview-multi-file';
-import { DeleteButton, SingleFilePreview } from './components/preview-single-file';
+import { Iconify } from '../iconify'
+import { UploadPlaceholder } from './components/placeholder'
+import { RejectionFiles } from './components/rejection-files'
+import { MultiFilePreview } from './components/preview-multi-file'
+import { DeleteButton, SingleFilePreview } from './components/preview-single-file'
 
-import type { UploadProps } from './types';
+import type { UploadProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -35,15 +35,15 @@ export function Upload({
     multiple,
     disabled,
     ...other,
-  });
+  })
 
-  const isArray = Array.isArray(value) && multiple;
+  const isArray = Array.isArray(value) && multiple
 
-  const hasFile = !isArray && !!value;
+  const hasFile = !isArray && !!value
 
-  const hasFiles = isArray && !!value.length;
+  const hasFiles = isArray && !!value.length
 
-  const hasError = isDragReject || !!error;
+  const hasError = isDragReject || !!error
 
   const renderMultiPreview = hasFiles && (
     <>
@@ -70,7 +70,7 @@ export function Upload({
         </Stack>
       )}
     </>
-  );
+  )
 
   return (
     <Box sx={{ width: 1, position: 'relative', ...sx }}>
@@ -117,5 +117,5 @@ export function Upload({
       {/* Multi files */}
       {renderMultiPreview}
     </Box>
-  );
+  )
 }

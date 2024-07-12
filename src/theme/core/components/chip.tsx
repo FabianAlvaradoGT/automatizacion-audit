@@ -1,11 +1,11 @@
-import type { ChipProps } from '@mui/material/Chip';
-import type { SvgIconProps } from '@mui/material/SvgIcon';
-import type { Theme, CSSObject, Components, ComponentsVariants } from '@mui/material/styles';
+import type { ChipProps } from '@mui/material/Chip'
+import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { Theme, CSSObject, Components, ComponentsVariants } from '@mui/material/styles'
 
-import SvgIcon from '@mui/material/SvgIcon';
-import { chipClasses } from '@mui/material/Chip';
+import SvgIcon from '@mui/material/SvgIcon'
+import { chipClasses } from '@mui/material/Chip'
 
-import { varAlpha, stylesMode } from '../../styles';
+import { varAlpha, stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -22,32 +22,32 @@ export const ChipDeleteIcon = (props: SvgIconProps) => (
       clipRule="evenodd"
     />
   </SvgIcon>
-);
+)
 
 // ----------------------------------------------------------------------
 
 // NEW VARIANT
 declare module '@mui/material/Chip' {
   interface ChipPropsVariantOverrides {
-    soft: true;
+    soft: true
   }
 }
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const;
+const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const
 
-type ColorType = (typeof COLORS)[number];
+type ColorType = (typeof COLORS)[number]
 
 // ----------------------------------------------------------------------
 
 function styleColors(ownerState: ChipProps, styles: (val: ColorType) => CSSObject) {
   const outputStyle = COLORS.reduce((acc, color) => {
     if (!ownerState.disabled && ownerState.color === color) {
-      acc = styles(color);
+      acc = styles(color)
     }
-    return acc;
-  }, {});
+    return acc
+  }, {})
 
-  return outputStyle;
+  return outputStyle
 }
 
 const softVariant: Record<string, ComponentsVariants<Theme>['MuiChip']> = {
@@ -70,7 +70,7 @@ const softVariant: Record<string, ComponentsVariants<Theme>['MuiChip']> = {
       }),
     },
   ],
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -119,9 +119,9 @@ const MuiChip: Components<Theme>['MuiChip'] = {
             }),
           },
         },
-      };
+      }
 
-      return { ...styled.colors, ...styled.disabled };
+      return { ...styled.colors, ...styled.disabled }
     },
     label: ({ theme }) => ({ fontWeight: theme.typography.fontWeightMedium }),
     icon: { color: 'currentColor' },
@@ -150,8 +150,8 @@ const MuiChip: Components<Theme>['MuiChip'] = {
               },
             }),
         },
-      };
-      return { ...styled.defaultColor };
+      }
+      return { ...styled.defaultColor }
     },
     /**
      * @variant outlined
@@ -164,12 +164,12 @@ const MuiChip: Components<Theme>['MuiChip'] = {
               borderColor: varAlpha(theme.vars.palette.grey['500Channel'], 0.32),
             }),
         },
-      };
-      return { ...styled.defaultColor };
+      }
+      return { ...styled.defaultColor }
     },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const chip = { MuiChip };
+export const chip = { MuiChip }

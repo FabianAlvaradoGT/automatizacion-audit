@@ -1,8 +1,8 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import { memo } from 'react';
+import { memo } from 'react'
 
-import Box from '@mui/material/Box';
+import Box from '@mui/material/Box'
 
 // ----------------------------------------------------------------------
 
@@ -24,7 +24,7 @@ function AvatarShape({ sx, ...other }: BoxProps) {
         fillRule="evenodd"
       />
     </Box>
-  );
+  )
 }
 
-export default memo(AvatarShape);
+export default memo(AvatarShape)

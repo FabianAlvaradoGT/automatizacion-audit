@@ -1,13 +1,13 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import { styled } from '@mui/material/styles'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { carouselClasses } from '../classes';
+import { carouselClasses } from '../classes'
 
-import type { CarouselProgressBarProps } from '../types';
+import type { CarouselProgressBarProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ const StyledRoot = styled(Box)(({ theme }) => ({
   position: 'relative',
   color: theme.vars.palette.text.primary,
   backgroundColor: varAlpha(theme.vars.palette.grey['500Channel'], 0.2),
-}));
+}))
 
 const StyledProgress = styled(Box)(() => ({
   top: 0,
@@ -29,7 +29,7 @@ const StyledProgress = styled(Box)(() => ({
   left: '-100%',
   position: 'absolute',
   backgroundColor: 'currentColor',
-}));
+}))
 
 // ----------------------------------------------------------------------
 
@@ -43,5 +43,5 @@ export function CarouselProgressBar({ value, sx, ...other }: BoxProps & Carousel
         }}
       />
     </StyledRoot>
-  );
+  )
 }

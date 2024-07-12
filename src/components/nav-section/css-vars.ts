@@ -1,18 +1,18 @@
-import type { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
 // ----------------------------------------------------------------------
 
 export const bulletColor = {
   dark: '#282F37',
   light: '#EDEFF2',
-};
+}
 
 function colorVars(theme: Theme, variant?: 'vertical' | 'mini' | 'horizontal') {
   const {
     vars: { palette },
-  } = theme;
+  } = theme
 
   return {
     '--nav-item-color': palette.text.secondary,
@@ -35,13 +35,13 @@ function colorVars(theme: Theme, variant?: 'vertical' | 'mini' | 'horizontal') {
       '--nav-subheader-color': palette.text.disabled,
       '--nav-subheader-hover-color': palette.text.primary,
     }),
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
 
 function verticalVars(theme: Theme) {
-  const { shape, spacing } = theme;
+  const { shape, spacing } = theme
 
   return {
     ...colorVars(theme, 'vertical'),
@@ -62,13 +62,13 @@ function verticalVars(theme: Theme) {
     '--nav-bullet-size': '12px',
     '--nav-bullet-light-color': bulletColor.light,
     '--nav-bullet-dark-color': bulletColor.dark,
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
 
 function miniVars(theme: Theme) {
-  const { shape, spacing } = theme;
+  const { shape, spacing } = theme
 
   return {
     ...colorVars(theme, 'mini'),
@@ -84,13 +84,13 @@ function miniVars(theme: Theme) {
     '--nav-icon-size': '22px',
     '--nav-icon-root-margin': spacing(0, 0, 0.75, 0),
     '--nav-icon-sub-margin': spacing(0, 1, 0, 0),
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
 
 function horizontalVars(theme: Theme) {
-  const { shape, spacing } = theme;
+  const { shape, spacing } = theme
 
   return {
     ...colorVars(theme, 'horizontal'),
@@ -107,7 +107,7 @@ function horizontalVars(theme: Theme) {
     '--nav-icon-size': '22px',
     '--nav-icon-sub-margin': spacing(0, 1, 0, 0),
     '--nav-icon-root-margin': spacing(0, 1, 0, 0),
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
@@ -116,4 +116,4 @@ export const navSectionCssVars = {
   mini: miniVars,
   vertical: verticalVars,
   horizontal: horizontalVars,
-};
+}

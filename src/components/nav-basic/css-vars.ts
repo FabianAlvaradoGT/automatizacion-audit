@@ -1,6 +1,6 @@
-import type { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
 // ----------------------------------------------------------------------
 
@@ -9,7 +9,7 @@ function desktopVars(theme: Theme) {
     shape,
     spacing,
     vars: { palette },
-  } = theme;
+  } = theme
 
   return {
     '--nav-item-gap': spacing(3),
@@ -31,7 +31,7 @@ function desktopVars(theme: Theme) {
     // icon
     '--nav-icon-size': '22px',
     '--nav-icon-margin': spacing(0, 1, 0, 0),
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
@@ -41,7 +41,7 @@ function mobileVars(theme: Theme) {
     shape,
     spacing,
     vars: { palette },
-  } = theme;
+  } = theme
 
   return {
     '--nav-item-gap': spacing(0.5),
@@ -70,7 +70,7 @@ function mobileVars(theme: Theme) {
     // icon
     '--nav-icon-size': '24px',
     '--nav-icon-margin': spacing(0, 2, 0, 0),
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
@@ -78,4 +78,4 @@ function mobileVars(theme: Theme) {
 export const navBasicCssVars = {
   desktop: desktopVars,
   mobile: mobileVars,
-};
+}

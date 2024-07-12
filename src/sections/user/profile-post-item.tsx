@@ -1,62 +1,62 @@
-import type { IUserProfilePost } from 'src/types/user';
+import type { IUserProfilePost } from 'src/types/user'
 
-import { useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback } from 'react'
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Card from '@mui/material/Card';
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
-import Checkbox from '@mui/material/Checkbox';
-import InputBase from '@mui/material/InputBase';
-import IconButton from '@mui/material/IconButton';
-import CardHeader from '@mui/material/CardHeader';
-import Typography from '@mui/material/Typography';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import AvatarGroup, { avatarGroupClasses } from '@mui/material/AvatarGroup';
+import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
+import Card from '@mui/material/Card'
+import Paper from '@mui/material/Paper'
+import Stack from '@mui/material/Stack'
+import Avatar from '@mui/material/Avatar'
+import Checkbox from '@mui/material/Checkbox'
+import InputBase from '@mui/material/InputBase'
+import IconButton from '@mui/material/IconButton'
+import CardHeader from '@mui/material/CardHeader'
+import Typography from '@mui/material/Typography'
+import InputAdornment from '@mui/material/InputAdornment'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import AvatarGroup, { avatarGroupClasses } from '@mui/material/AvatarGroup'
 
-import { fDate } from 'src/utils/format-time';
-import { fShortenNumber } from 'src/utils/format-number';
+import { fDate } from 'src/utils/format-time'
+import { fShortenNumber } from 'src/utils/format-number'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Image } from 'src/components/image';
-import { Iconify } from 'src/components/iconify';
+import { Image } from 'src/components/image'
+import { Iconify } from 'src/components/iconify'
 
-import { useMockedUser } from 'src/auth/hooks';
+import { useMockedUser } from 'src/auth/hooks'
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  post: IUserProfilePost;
-};
+  post: IUserProfilePost
+}
 
 export function ProfilePostItem({ post }: Props) {
-  const { user } = useMockedUser();
+  const { user } = useMockedUser()
 
-  const commentRef = useRef<HTMLInputElement>(null);
+  const commentRef = useRef<HTMLInputElement>(null)
 
-  const fileRef = useRef<HTMLInputElement>(null);
+  const fileRef = useRef<HTMLInputElement>(null)
 
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState('')
 
   const handleChangeMessage = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setMessage(event.target.value);
-  }, []);
+    setMessage(event.target.value)
+  }, [])
 
   const handleAttach = useCallback(() => {
     if (fileRef.current) {
-      fileRef.current.click();
+      fileRef.current.click()
     }
-  }, []);
+  }, [])
 
   const handleClickComment = useCallback(() => {
     if (commentRef.current) {
-      commentRef.current.focus();
+      commentRef.current.focus()
     }
-  }, []);
+  }, [])
 
   const renderHead = (
     <CardHeader
@@ -82,7 +82,7 @@ export function ProfilePostItem({ post }: Props) {
         </IconButton>
       }
     />
-  );
+  )
 
   const renderCommentList = (
     <Stack spacing={1.5} sx={{ px: 3, pb: 2 }}>
@@ -109,7 +109,7 @@ export function ProfilePostItem({ post }: Props) {
         </Stack>
       ))}
     </Stack>
-  );
+  )
 
   const renderInput = (
     <Stack
@@ -150,7 +150,7 @@ export function ProfilePostItem({ post }: Props) {
 
       <input type="file" ref={fileRef} style={{ display: 'none' }} />
     </Stack>
-  );
+  )
 
   const renderActions = (
     <Stack direction="row" alignItems="center" sx={{ p: (theme) => theme.spacing(2, 3, 3, 3) }}>
@@ -186,7 +186,7 @@ export function ProfilePostItem({ post }: Props) {
         <Iconify icon="solar:share-bold" />
       </IconButton>
     </Stack>
-  );
+  )
 
   return (
     <Card>
@@ -206,5 +206,5 @@ export function ProfilePostItem({ post }: Props) {
 
       {renderInput}
     </Card>
-  );
+  )
 }

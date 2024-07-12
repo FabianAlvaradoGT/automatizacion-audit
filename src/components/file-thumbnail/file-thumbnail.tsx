@@ -1,12 +1,12 @@
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Tooltip from '@mui/material/Tooltip';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import Tooltip from '@mui/material/Tooltip'
 
-import { fileThumbnailClasses } from './classes';
-import { fileData, fileThumb, fileFormat } from './utils';
-import { RemoveButton, DownloadButton } from './action-buttons';
+import { fileThumbnailClasses } from './classes'
+import { fileData, fileThumb, fileFormat } from './utils'
+import { RemoveButton, DownloadButton } from './action-buttons'
 
-import type { FileThumbnailProps } from './types';
+import type { FileThumbnailProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -20,11 +20,11 @@ export function FileThumbnail({
   onDownload,
   ...other
 }: FileThumbnailProps) {
-  const previewUrl = typeof file === 'string' ? file : URL.createObjectURL(file);
+  const previewUrl = typeof file === 'string' ? file : URL.createObjectURL(file)
 
-  const { name, path } = fileData(file);
+  const { name, path } = fileData(file)
 
-  const format = fileFormat(path || previewUrl);
+  const format = fileFormat(path || previewUrl)
 
   const renderImg = (
     <Box
@@ -39,7 +39,7 @@ export function FileThumbnail({
         ...slotProps?.img,
       }}
     />
-  );
+  )
 
   const renderIcon = (
     <Box
@@ -48,7 +48,7 @@ export function FileThumbnail({
       className={fileThumbnailClasses.icon}
       sx={{ width: 1, height: 1, ...slotProps?.icon }}
     />
-  );
+  )
 
   const renderContent = (
     <Stack
@@ -85,7 +85,7 @@ export function FileThumbnail({
         />
       )}
     </Stack>
-  );
+  )
 
   if (tooltip) {
     return (
@@ -96,8 +96,8 @@ export function FileThumbnail({
       >
         {renderContent}
       </Tooltip>
-    );
+    )
   }
 
-  return renderContent;
+  return renderContent
 }

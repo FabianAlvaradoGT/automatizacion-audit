@@ -1,15 +1,15 @@
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
+import Stack from '@mui/material/Stack'
+import Divider from '@mui/material/Divider'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { editorClasses } from './classes';
-import { LinkBlock } from './components/link-block';
-import { ImageBlock } from './components/image-block';
-import { ToolbarItem } from './components/toolbar-item';
-import { HeadingBlock } from './components/heading-block';
+import { editorClasses } from './classes'
+import { LinkBlock } from './components/link-block'
+import { ImageBlock } from './components/image-block'
+import { ToolbarItem } from './components/toolbar-item'
+import { HeadingBlock } from './components/heading-block'
 
-import type { EditorToolbarProps } from './types';
+import type { EditorToolbarProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ import type { EditorToolbarProps } from './types';
 
 export function Toolbar({ editor, fullItem, fullScreen, onToggleFullScreen }: EditorToolbarProps) {
   if (!editor) {
-    return null;
+    return null
   }
 
   return (
@@ -234,5 +234,5 @@ export function Toolbar({ editor, fullItem, fullScreen, onToggleFullScreen }: Ed
         />
       </Stack>
     </Stack>
-  );
+  )
 }

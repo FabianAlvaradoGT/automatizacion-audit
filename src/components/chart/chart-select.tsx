@@ -1,29 +1,29 @@
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { Theme, SxProps } from '@mui/material/styles'
 
-import MenuItem from '@mui/material/MenuItem';
-import MenuList from '@mui/material/MenuList';
-import ButtonBase from '@mui/material/ButtonBase';
+import MenuItem from '@mui/material/MenuItem'
+import MenuList from '@mui/material/MenuList'
+import ButtonBase from '@mui/material/ButtonBase'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Iconify } from 'src/components/iconify';
+import { Iconify } from 'src/components/iconify'
 
-import { usePopover, CustomPopover } from '../custom-popover';
+import { usePopover, CustomPopover } from '../custom-popover'
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  options: string[];
-  value: string;
-  onChange: (newValue: string) => void;
+  options: string[]
+  value: string
+  onChange: (newValue: string) => void
   slotProps?: {
-    button?: SxProps<Theme>;
-    popover?: SxProps<Theme>;
-  };
-};
+    button?: SxProps<Theme>
+    popover?: SxProps<Theme>
+  }
+}
 
 export function ChartSelect({ options, value, onChange, slotProps, ...other }: Props) {
-  const popover = usePopover();
+  const popover = usePopover()
 
   return (
     <>
@@ -56,8 +56,8 @@ export function ChartSelect({ options, value, onChange, slotProps, ...other }: P
               key={option}
               selected={option === value}
               onClick={() => {
-                popover.onClose();
-                onChange(option);
+                popover.onClose()
+                onChange(option)
               }}
             >
               {option}
@@ -66,5 +66,5 @@ export function ChartSelect({ options, value, onChange, slotProps, ...other }: P
         </MenuList>
       </CustomPopover>
     </>
-  );
+  )
 }

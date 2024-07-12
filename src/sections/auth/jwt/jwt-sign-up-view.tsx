@@ -1,31 +1,31 @@
-import { z as zod } from 'zod';
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { z as zod } from 'zod'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 
-import Link from '@mui/material/Link';
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import LoadingButton from '@mui/lab/LoadingButton';
-import InputAdornment from '@mui/material/InputAdornment';
+import Link from '@mui/material/Link'
+import Alert from '@mui/material/Alert'
+import Stack from '@mui/material/Stack'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import LoadingButton from '@mui/lab/LoadingButton'
+import InputAdornment from '@mui/material/InputAdornment'
 
-import { paths } from 'src/routes/paths';
-import { useRouter } from 'src/routes/hooks';
-import { RouterLink } from 'src/routes/components';
+import { paths } from 'src/routes/paths'
+import { useRouter } from 'src/routes/hooks'
+import { RouterLink } from 'src/routes/components'
 
-import { useBoolean } from 'src/hooks/use-boolean';
+import { useBoolean } from 'src/hooks/use-boolean'
 
-import { Iconify } from 'src/components/iconify';
-import { Form, Field } from 'src/components/hook-form';
+import { Iconify } from 'src/components/iconify'
+import { Form, Field } from 'src/components/hook-form'
 
-import { signUp } from 'src/auth/context/jwt';
-import { useAuthContext } from 'src/auth/hooks';
+import { signUp } from 'src/auth/context/jwt'
+import { useAuthContext } from 'src/auth/hooks'
 
 // ----------------------------------------------------------------------
 
-export type SignUpSchemaType = zod.infer<typeof SignUpSchema>;
+export type SignUpSchemaType = zod.infer<typeof SignUpSchema>
 
 export const SignUpSchema = zod.object({
   firstName: zod.string().min(1, { message: 'First name is required!' }),
@@ -38,35 +38,35 @@ export const SignUpSchema = zod.object({
     .string()
     .min(1, { message: 'Password is required!' })
     .min(6, { message: 'Password must be at least 6 characters!' }),
-});
+})
 
 // ----------------------------------------------------------------------
 
 export function JwtSignUpView() {
-  const { checkUserSession } = useAuthContext();
+  const { checkUserSession } = useAuthContext()
 
-  const router = useRouter();
+  const router = useRouter()
 
-  const password = useBoolean();
+  const password = useBoolean()
 
-  const [errorMsg, setErrorMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState('')
 
   const defaultValues = {
     firstName: 'Hello',
     lastName: 'Friend',
     email: 'hello@gmail.com',
     password: '@demo1',
-  };
+  }
 
   const methods = useForm<SignUpSchemaType>({
     resolver: zodResolver(SignUpSchema),
     defaultValues,
-  });
+  })
 
   const {
     handleSubmit,
     formState: { isSubmitting },
-  } = methods;
+  } = methods
 
   const onSubmit = handleSubmit(async (data) => {
     try {
@@ -75,15 +75,15 @@ export function JwtSignUpView() {
         password: data.password,
         firstName: data.firstName,
         lastName: data.lastName,
-      });
-      await checkUserSession?.();
+      })
+      await checkUserSession?.()
 
-      router.refresh();
+      router.refresh()
     } catch (error) {
-      console.error(error);
-      setErrorMsg(error instanceof Error ? error.message : error);
+      console.error(error)
+      setErrorMsg(error instanceof Error ? error.message : error)
     }
-  });
+  })
 
   const renderHead = (
     <Stack spacing={1.5} sx={{ mb: 5 }}>
@@ -99,7 +99,7 @@ export function JwtSignUpView() {
         </Link>
       </Stack>
     </Stack>
-  );
+  )
 
   const renderForm = (
     <Stack spacing={3}>
@@ -139,7 +139,7 @@ export function JwtSignUpView() {
         Create account
       </LoadingButton>
     </Stack>
-  );
+  )
 
   const renderTerms = (
     <Typography
@@ -161,7 +161,7 @@ export function JwtSignUpView() {
       </Link>
       .
     </Typography>
-  );
+  )
 
   return (
     <>
@@ -179,5 +179,5 @@ export function JwtSignUpView() {
 
       {renderTerms}
     </>
-  );
+  )
 }

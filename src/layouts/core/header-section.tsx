@@ -1,19 +1,19 @@
-import type { Breakpoint } from '@mui/material/styles';
-import type { AppBarProps } from '@mui/material/AppBar';
-import type { ToolbarProps } from '@mui/material/Toolbar';
-import type { ContainerProps } from '@mui/material/Container';
+import type { Breakpoint } from '@mui/material/styles'
+import type { AppBarProps } from '@mui/material/AppBar'
+import type { ToolbarProps } from '@mui/material/Toolbar'
+import type { ContainerProps } from '@mui/material/Container'
 
-import Box from '@mui/material/Box';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Container from '@mui/material/Container';
-import { styled, useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import Container from '@mui/material/Container'
+import { styled, useTheme } from '@mui/material/styles'
 
-import { useScrollOffSetTop } from 'src/hooks/use-scroll-offset-top';
+import { useScrollOffSetTop } from 'src/hooks/use-scroll-offset-top'
 
-import { bgBlur, varAlpha } from 'src/theme/styles';
+import { bgBlur, varAlpha } from 'src/theme/styles'
 
-import { layoutClasses } from '../classes';
+import { layoutClasses } from '../classes'
 
 // ----------------------------------------------------------------------
 
@@ -29,30 +29,30 @@ const StyledElevation = styled('span')(({ theme }) => ({
   position: 'absolute',
   width: `calc(100% - 48px)`,
   boxShadow: theme.customShadows.z8,
-}));
+}))
 
 // ----------------------------------------------------------------------
 
 export type HeaderSectionProps = AppBarProps & {
-  layoutQuery: Breakpoint;
-  disableOffset?: boolean;
-  disableElevation?: boolean;
+  layoutQuery: Breakpoint
+  disableOffset?: boolean
+  disableElevation?: boolean
   slots?: {
-    leftArea?: React.ReactNode;
-    leftAreaEnd?: React.ReactNode;
-    leftAreaStart?: React.ReactNode;
-    rightArea?: React.ReactNode;
-    rightAreaEnd?: React.ReactNode;
-    rightAreaStart?: React.ReactNode;
-    topArea?: React.ReactNode;
-    centerArea?: React.ReactNode;
-    bottomArea?: React.ReactNode;
-  };
+    leftArea?: React.ReactNode
+    leftAreaEnd?: React.ReactNode
+    leftAreaStart?: React.ReactNode
+    rightArea?: React.ReactNode
+    rightAreaEnd?: React.ReactNode
+    rightAreaStart?: React.ReactNode
+    topArea?: React.ReactNode
+    centerArea?: React.ReactNode
+    bottomArea?: React.ReactNode
+  }
   slotProps?: {
-    toolbar?: ToolbarProps;
-    container?: ContainerProps;
-  };
-};
+    toolbar?: ToolbarProps
+    container?: ContainerProps
+  }
+}
 
 export function HeaderSection({
   sx,
@@ -63,9 +63,9 @@ export function HeaderSection({
   layoutQuery = 'md',
   ...other
 }: HeaderSectionProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const { offsetTop } = useScrollOffSetTop();
+  const { offsetTop } = useScrollOffSetTop()
 
   const toolbarStyles = {
     default: {
@@ -85,7 +85,7 @@ export function HeaderSection({
     offset: {
       ...bgBlur({ color: varAlpha(theme.vars.palette.background.defaultChannel, 0.8) }),
     },
-  };
+  }
 
   return (
     <AppBar
@@ -131,5 +131,5 @@ export function HeaderSection({
 
       {!disableElevation && offsetTop && <StyledElevation />}
     </AppBar>
-  );
+  )
 }

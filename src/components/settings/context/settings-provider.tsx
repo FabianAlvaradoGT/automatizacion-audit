@@ -1,31 +1,31 @@
-import { useMemo, useState, useCallback, createContext } from 'react';
+import { useMemo, useState, useCallback, createContext } from 'react'
 
-import { useLocalStorage } from 'src/hooks/use-local-storage';
+import { useLocalStorage } from 'src/hooks/use-local-storage'
 
-import { STORAGE_KEY } from '../config-settings';
+import { STORAGE_KEY } from '../config-settings'
 
-import type { SettingsState, SettingsContextValue, SettingsProviderProps } from '../types';
+import type { SettingsState, SettingsContextValue, SettingsProviderProps } from '../types'
 
 // ----------------------------------------------------------------------
 
-export const SettingsContext = createContext<SettingsContextValue | undefined>(undefined);
+export const SettingsContext = createContext<SettingsContextValue | undefined>(undefined)
 
-export const SettingsConsumer = SettingsContext.Consumer;
+export const SettingsConsumer = SettingsContext.Consumer
 
 // ----------------------------------------------------------------------
 
 export function SettingsProvider({ children, settings }: SettingsProviderProps) {
-  const values = useLocalStorage<SettingsState>(STORAGE_KEY, settings);
+  const values = useLocalStorage<SettingsState>(STORAGE_KEY, settings)
 
-  const [openDrawer, setOpenDrawer] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false)
 
   const onToggleDrawer = useCallback(() => {
-    setOpenDrawer((prev) => !prev);
-  }, []);
+    setOpenDrawer((prev) => !prev)
+  }, [])
 
   const onCloseDrawer = useCallback(() => {
-    setOpenDrawer(false);
-  }, []);
+    setOpenDrawer(false)
+  }, [])
 
   const memoizedValue = useMemo(
     () => ({
@@ -48,7 +48,7 @@ export function SettingsProvider({ children, settings }: SettingsProviderProps) 
       onCloseDrawer,
       onToggleDrawer,
     ]
-  );
+  )
 
-  return <SettingsContext.Provider value={memoizedValue}>{children}</SettingsContext.Provider>;
+  return <SettingsContext.Provider value={memoizedValue}>{children}</SettingsContext.Provider>
 }

@@ -1,13 +1,13 @@
-import Box from '@mui/material/Box';
-import NoSsr from '@mui/material/NoSsr';
-import { useTheme } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
+import Box from '@mui/material/Box'
+import NoSsr from '@mui/material/NoSsr'
+import { useTheme } from '@mui/material/styles'
+import ButtonBase from '@mui/material/ButtonBase'
 
-import { varAlpha, stylesMode } from 'src/theme/styles';
+import { varAlpha, stylesMode } from 'src/theme/styles'
 
-import { carouselClasses } from '../classes';
+import { carouselClasses } from '../classes'
 
-import type { CarouselDotButtonsProps } from '../types';
+import type { CarouselDotButtonsProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -23,18 +23,18 @@ export function CarouselDotButtons({
   fallback = false,
   ...other
 }: CarouselDotButtonsProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const GAPS = {
     number: gap ?? 6,
     rounded: gap ?? 2,
     circular: gap ?? 2,
-  };
+  }
 
   const SIZES = {
     circular: slotProps?.dot?.size ?? 18,
     number: slotProps?.dot?.size ?? 28,
-  };
+  }
 
   const renderFallback = (
     <Box
@@ -47,7 +47,7 @@ export function CarouselDotButtons({
         }),
       }}
     />
-  );
+  )
 
   const dotStyles = {
     circular: (selected: boolean) => ({
@@ -98,7 +98,7 @@ export function CarouselDotButtons({
         [stylesMode.dark]: { color: 'grey.800' },
       }),
     }),
-  };
+  }
 
   return (
     <NoSsr fallback={fallback ? renderFallback : null}>
@@ -116,7 +116,7 @@ export function CarouselDotButtons({
         {...other}
       >
         {scrollSnaps.map((_, index) => {
-          const selected = index === selectedIndex;
+          const selected = index === selectedIndex
 
           return (
             <Box component="li" key={index} sx={{ display: 'inline-flex' }}>
@@ -140,9 +140,9 @@ export function CarouselDotButtons({
                 {variant === 'number' && index + 1}
               </ButtonBase>
             </Box>
-          );
+          )
         })}
       </Box>
     </NoSsr>
-  );
+  )
 }

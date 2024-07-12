@@ -1,25 +1,25 @@
-import type { ToggleButtonProps } from '@mui/material/ToggleButton';
-import type { Theme, CSSObject, Components } from '@mui/material/styles';
+import type { ToggleButtonProps } from '@mui/material/ToggleButton'
+import type { Theme, CSSObject, Components } from '@mui/material/styles'
 
-import { toggleButtonClasses } from '@mui/material/ToggleButton';
+import { toggleButtonClasses } from '@mui/material/ToggleButton'
 
-import { varAlpha } from '../../styles';
+import { varAlpha } from '../../styles'
 
 // ----------------------------------------------------------------------
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const;
+const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const
 
-type ColorType = (typeof COLORS)[number];
+type ColorType = (typeof COLORS)[number]
 
 function styleColors(ownerState: ToggleButtonProps, styles: (val: ColorType) => CSSObject) {
   const outputStyle = COLORS.reduce((acc, color) => {
     if (!ownerState.disabled && ownerState.color === color) {
-      acc = styles(color);
+      acc = styles(color)
     }
-    return acc;
-  }, {});
+    return acc
+  }, {})
 
-  return outputStyle;
+  return outputStyle
 }
 
 // ----------------------------------------------------------------------
@@ -55,12 +55,12 @@ const MuiToggleButton: Components<Theme>['MuiToggleButton'] = {
             },
           }),
         },
-      };
+      }
 
-      return { ...styled.colors, ...styled.selected, ...styled.disabled };
+      return { ...styled.colors, ...styled.selected, ...styled.disabled }
     },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -79,8 +79,8 @@ const MuiToggleButtonGroup: Components<Theme>['MuiToggleButtonGroup'] = {
       [`&.${toggleButtonClasses.selected}`]: { boxShadow: 'none' },
     },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const toggleButton = { MuiToggleButton, MuiToggleButtonGroup };
+export const toggleButton = { MuiToggleButton, MuiToggleButtonGroup }

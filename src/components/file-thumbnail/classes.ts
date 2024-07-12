@@ -6,4 +6,4 @@ export const fileThumbnailClasses = {
   icon: 'mnl__file__thumbnail__icon',
   removeBtn: 'mnl__file__thumbnail__remove__button',
   downloadBtn: 'mnl__file__thumbnail__download__button',
-};
+}

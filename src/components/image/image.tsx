@@ -1,14 +1,14 @@
-import { forwardRef } from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { forwardRef } from 'react'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
-import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import { styled } from '@mui/material/styles'
 
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
-import { imageClasses } from './classes';
+import { imageClasses } from './classes'
 
-import type { ImageProps } from './types';
+import type { ImageProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ const ImageWrapper = styled(Box)({
     verticalAlign: 'bottom',
     backgroundSize: 'cover !important',
   },
-});
+})
 
 const Overlay = styled('span')({
   top: 0,
@@ -32,7 +32,7 @@ const Overlay = styled('span')({
   width: '100%',
   height: '100%',
   position: 'absolute',
-});
+})
 
 // ----------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ export const Image = forwardRef<HTMLSpanElement, ImageProps>(
           aspectRatio: ratio,
         }}
       />
-    );
+    )
 
     return (
       <ImageWrapper
@@ -105,6 +105,6 @@ export const Image = forwardRef<HTMLSpanElement, ImageProps>(
 
         {content}
       </ImageWrapper>
-    );
+    )
   }
-);
+)

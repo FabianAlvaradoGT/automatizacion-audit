@@ -1,15 +1,15 @@
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import ListItemText from '@mui/material/ListItemText';
+import Box from '@mui/material/Box'
+import IconButton from '@mui/material/IconButton'
+import ListItemText from '@mui/material/ListItemText'
 
-import { fData } from 'src/utils/format-number';
+import { fData } from 'src/utils/format-number'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Iconify } from '../../iconify';
-import { fileData, FileThumbnail } from '../../file-thumbnail';
+import { Iconify } from '../../iconify'
+import { fileData, FileThumbnail } from '../../file-thumbnail'
 
-import type { MultiFilePreviewProps } from '../types';
+import type { MultiFilePreviewProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -34,7 +34,7 @@ export function MultiFilePreview({
     >
       {firstNode}
     </Box>
-  );
+  )
 
   const renderLastNode = lastNode && (
     <Box
@@ -45,7 +45,7 @@ export function MultiFilePreview({
     >
       {lastNode}
     </Box>
-  );
+  )
 
   return (
     <Box
@@ -64,7 +64,7 @@ export function MultiFilePreview({
       {renderFirstNode}
 
       {files.map((file) => {
-        const { name, size } = fileData(file);
+        const { name, size } = fileData(file)
 
         if (thumbnail) {
           return (
@@ -84,7 +84,7 @@ export function MultiFilePreview({
                 {...slotProps?.thumbnail}
               />
             </Box>
-          );
+          )
         }
 
         return (
@@ -117,10 +117,10 @@ export function MultiFilePreview({
               </IconButton>
             )}
           </Box>
-        );
+        )
       })}
 
       {renderLastNode}
     </Box>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-import { _mock } from './_mock';
-import { _tags, _fileNames } from './assets';
+import { _mock } from './_mock'
+import { _tags, _fileNames } from './assets'
 
 // ----------------------------------------------------------------------
 
-const GB = 1000000000 * 24;
+const GB = 1000000000 * 24
 
-const FOLDERS = ['Docs', 'Projects', 'Work', 'Training', 'Sport', 'Foods'];
+const FOLDERS = ['Docs', 'Projects', 'Work', 'Training', 'Sport', 'Foods']
 
 const URLS = [
   _mock.image.cover(1),
@@ -32,7 +32,7 @@ const URLS = [
   _mock.image.cover(11),
   _mock.image.cover(17),
   'https://www.cloud.com/s/c218bo6kjuqyv66/xl_david-blaine_component_tanzania_books.pdf',
-];
+]
 
 const SHARED_PERSONS = [...Array(20)].map((_, index) => ({
   id: _mock.id(index),
@@ -40,7 +40,7 @@ const SHARED_PERSONS = [...Array(20)].map((_, index) => ({
   email: _mock.email(index),
   avatarUrl: _mock.image.avatar(index),
   permission: index % 2 ? 'view' : 'edit',
-}));
+}))
 
 export const FILE_TYPE_OPTIONS = [
   'folder',
@@ -55,7 +55,7 @@ export const FILE_TYPE_OPTIONS = [
   'pdf',
   'photoshop',
   'illustrator',
-];
+]
 
 // ----------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ const shared = (index: number) =>
   (index === 1 && SHARED_PERSONS.slice(5, 9)) ||
   (index === 2 && SHARED_PERSONS.slice(9, 11)) ||
   (index === 3 && SHARED_PERSONS.slice(11, 12)) ||
-  [];
+  []
 
 export const _folders = FOLDERS.map((name, index) => ({
   id: `${_mock.id(index)}_folder`,
@@ -78,7 +78,7 @@ export const _folders = FOLDERS.map((name, index) => ({
   createdAt: _mock.time(index),
   modifiedAt: _mock.time(index),
   isFavorited: _mock.boolean(index + 1),
-}));
+}))
 
 export const _files = _fileNames.map((name, index) => ({
   id: `${_mock.id(index)}_file`,
@@ -91,6 +91,6 @@ export const _files = _fileNames.map((name, index) => ({
   modifiedAt: _mock.time(index),
   type: `${name.split('.').pop()}`,
   isFavorited: _mock.boolean(index + 1),
-}));
+}))
 
-export const _allFiles = [..._folders, ..._files];
+export const _allFiles = [..._folders, ..._files]

@@ -1,4 +1,4 @@
-import { info, error, primary, success, warning, secondary } from 'src/theme/core/palette';
+import { info, error, primary, success, warning, secondary } from 'src/theme/core/palette'
 
 // ----------------------------------------------------------------------
 
@@ -11,4 +11,4 @@ export const CALENDAR_COLOR_OPTIONS = [
   warning.main,
   error.main,
   error.darker,
-];
+]

@@ -1,30 +1,30 @@
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemButton from '@mui/material/ListItemButton';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
+import Avatar from '@mui/material/Avatar'
+import Typography from '@mui/material/Typography'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemAvatar from '@mui/material/ListItemAvatar'
+import ListItemButton from '@mui/material/ListItemButton'
 
-import { fToNow } from 'src/utils/format-time';
+import { fToNow } from 'src/utils/format-time'
 
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
-import { Label } from 'src/components/label';
-import { FileThumbnail } from 'src/components/file-thumbnail';
+import { Label } from 'src/components/label'
+import { FileThumbnail } from 'src/components/file-thumbnail'
 
 // ----------------------------------------------------------------------
 
 export type NotificationItemProps = {
-  id: string;
-  type: string;
-  title: string;
-  category: string;
-  isUnRead: boolean;
-  avatarUrl: string | null;
-  createdAt: string | number | null;
-};
+  id: string
+  type: string
+  title: string
+  category: string
+  isUnRead: boolean
+  avatarUrl: string | null
+  createdAt: string | number | null
+}
 
 export function NotificationItem({ notification }: { notification: NotificationItemProps }) {
   const renderAvatar = (
@@ -45,7 +45,7 @@ export function NotificationItem({ notification }: { notification: NotificationI
         </Stack>
       )}
     </ListItemAvatar>
-  );
+  )
 
   const renderText = (
     <ListItemText
@@ -73,7 +73,7 @@ export function NotificationItem({ notification }: { notification: NotificationI
         </Stack>
       }
     />
-  );
+  )
 
   const renderUnReadBadge = notification.isUnRead && (
     <Box
@@ -87,7 +87,7 @@ export function NotificationItem({ notification }: { notification: NotificationI
         position: 'absolute',
       }}
     />
-  );
+  )
 
   const friendAction = (
     <Stack spacing={1} direction="row" sx={{ mt: 1.5 }}>
@@ -98,7 +98,7 @@ export function NotificationItem({ notification }: { notification: NotificationI
         Decline
       </Button>
     </Stack>
-  );
+  )
 
   const projectAction = (
     <Stack alignItems="flex-start">
@@ -120,7 +120,7 @@ export function NotificationItem({ notification }: { notification: NotificationI
         Reply
       </Button>
     </Stack>
-  );
+  )
 
   const fileAction = (
     <Stack
@@ -172,7 +172,7 @@ export function NotificationItem({ notification }: { notification: NotificationI
         </Button>
       </Stack>
     </Stack>
-  );
+  )
 
   const tagsAction = (
     <Stack direction="row" spacing={0.75} flexWrap="wrap" sx={{ mt: 1.5 }}>
@@ -184,7 +184,7 @@ export function NotificationItem({ notification }: { notification: NotificationI
       </Label>
       <Label variant="outlined">Design system</Label>
     </Stack>
-  );
+  )
 
   const paymentAction = (
     <Stack direction="row" spacing={1} sx={{ mt: 1.5 }}>
@@ -195,7 +195,7 @@ export function NotificationItem({ notification }: { notification: NotificationI
         Decline
       </Button>
     </Stack>
-  );
+  )
 
   return (
     <ListItemButton
@@ -219,7 +219,7 @@ export function NotificationItem({ notification }: { notification: NotificationI
         {notification.type === 'payment' && paymentAction}
       </Stack>
     </ListItemButton>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -235,5 +235,5 @@ function reader(data: string) {
         '& strong': { typography: 'subtitle2' },
       }}
     />
-  );
+  )
 }

@@ -1,11 +1,11 @@
-import type { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles'
 
-import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import { styled } from '@mui/material/styles'
 
-import { varAlpha, stylesMode } from 'src/theme/styles';
+import { varAlpha, stylesMode } from 'src/theme/styles'
 
-import type { LabelColor, LabelVariant } from './types';
+import type { LabelColor, LabelVariant } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -13,11 +13,11 @@ export const StyledLabel = styled(Box)(({
   theme,
   ownerState: { color, variant },
 }: {
-  theme: Theme;
+  theme: Theme
   ownerState: {
-    color: LabelColor;
-    variant: LabelVariant;
-  };
+    color: LabelColor
+    variant: LabelVariant
+  }
 }) => {
   const defaultColor = {
     ...(color === 'default' && {
@@ -52,7 +52,7 @@ export const StyledLabel = styled(Box)(({
         backgroundColor: theme.vars.palette.grey[300],
       }),
     }),
-  };
+  }
 
   const styleColors = {
     ...(color !== 'default' && {
@@ -87,7 +87,7 @@ export const StyledLabel = styled(Box)(({
         backgroundColor: theme.vars.palette[color].lighter,
       }),
     }),
-  };
+  }
 
   return {
     height: 24,
@@ -107,5 +107,5 @@ export const StyledLabel = styled(Box)(({
     }),
     ...defaultColor,
     ...styleColors,
-  };
-});
+  }
+})

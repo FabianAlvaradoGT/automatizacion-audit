@@ -1,6 +1,6 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { paper, varAlpha, stylesMode } from '../../styles';
+import { paper, varAlpha, stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -28,8 +28,8 @@ const MuiDrawer: Components<Theme>['MuiDrawer'] = {
       }),
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const drawer = { MuiDrawer };
+export const drawer = { MuiDrawer }

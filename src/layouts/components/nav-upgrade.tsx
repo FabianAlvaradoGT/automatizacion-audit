@@ -1,27 +1,27 @@
-import type { StackProps } from '@mui/material/Stack';
+import type { StackProps } from '@mui/material/Stack'
 
-import { m } from 'framer-motion';
+import { m } from 'framer-motion'
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-import { alpha as hexAlpha } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
+import Avatar from '@mui/material/Avatar'
+import Typography from '@mui/material/Typography'
+import { alpha as hexAlpha } from '@mui/material/styles'
 
-import { paths } from 'src/routes/paths';
+import { paths } from 'src/routes/paths'
 
-import { CONFIG } from 'src/config-global';
-import { varAlpha, bgGradient } from 'src/theme/styles';
+import { CONFIG } from 'src/config-global'
+import { varAlpha, bgGradient } from 'src/theme/styles'
 
-import { Label } from 'src/components/label';
+import { Label } from 'src/components/label'
 
-import { useMockedUser } from 'src/auth/hooks';
+import { useMockedUser } from 'src/auth/hooks'
 
 // ----------------------------------------------------------------------
 
 export function NavUpgrade({ sx, ...other }: StackProps) {
-  const { user } = useMockedUser();
+  const { user } = useMockedUser()
 
   return (
     <Stack sx={{ px: 2, py: 5, textAlign: 'center', ...sx }} {...other}>
@@ -70,7 +70,7 @@ export function NavUpgrade({ sx, ...other }: StackProps) {
         </Button>
       </Stack>
     </Stack>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -134,5 +134,5 @@ export function UpgradeBlock({ sx, ...other }: StackProps) {
         </Button>
       </Stack>
     </Stack>
-  );
+  )
 }

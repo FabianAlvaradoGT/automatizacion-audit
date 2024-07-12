@@ -1,11 +1,11 @@
-import type { SvgIconProps } from '@mui/material/SvgIcon';
-import type { Theme, Components } from '@mui/material/styles';
+import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { Theme, Components } from '@mui/material/styles'
 
-import SvgIcon from '@mui/material/SvgIcon';
-import { buttonClasses } from '@mui/material/Button';
-import { dialogActionsClasses } from '@mui/material/DialogActions';
+import SvgIcon from '@mui/material/SvgIcon'
+import { buttonClasses } from '@mui/material/Button'
+import { dialogActionsClasses } from '@mui/material/DialogActions'
 
-import { stylesMode } from '../../styles';
+import { stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ export const PickerSwitchIcon = (props: SvgIconProps) => (
       d="M12 15.5a1 1 0 0 1-.71-.29l-4-4a1 1 0 1 1 1.42-1.42L12 13.1l3.3-3.18a1 1 0 1 1 1.38 1.44l-4 3.86a1 1 0 0 1-.68.28"
     />
   </SvgIcon>
-);
+)
 
 /* https://icon-sets.iconify.design/eva/arrow-ios-back-fill */
 export const PickerLeftIcon = (props: SvgIconProps) => (
@@ -30,7 +30,7 @@ export const PickerLeftIcon = (props: SvgIconProps) => (
       d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64"
     />
   </SvgIcon>
-);
+)
 
 /* https://icon-sets.iconify.design/eva/arrow-ios-forward-fill */
 export const PickerRightIcon = (props: SvgIconProps) => (
@@ -40,7 +40,7 @@ export const PickerRightIcon = (props: SvgIconProps) => (
       d="M10 19a1 1 0 0 1-.64-.23a1 1 0 0 1-.13-1.41L13.71 12L9.39 6.63a1 1 0 0 1 .15-1.41a1 1 0 0 1 1.46.15l4.83 6a1 1 0 0 1 0 1.27l-5 6A1 1 0 0 1 10 19"
     />
   </SvgIcon>
-);
+)
 
 /* https://icon-sets.iconify.design/solar/calendar-mark-bold-duotone */
 export const PickerCalendarIcon = (props: SvgIconProps) => (
@@ -56,7 +56,7 @@ export const PickerCalendarIcon = (props: SvgIconProps) => (
     />
     <path fill="currentColor" d="M18 16.5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0" />
   </SvgIcon>
-);
+)
 
 /* https://icon-sets.iconify.design/solar/clock-circle-outline */
 export const PickerClockIcon = (props: SvgIconProps) => (
@@ -68,7 +68,7 @@ export const PickerClockIcon = (props: SvgIconProps) => (
       clipRule="evenodd"
     />
   </SvgIcon>
-);
+)
 
 const defaultProps = {
   date: {
@@ -82,84 +82,84 @@ const defaultProps = {
     rightArrowIcon: PickerRightIcon,
     switchViewIcon: PickerSwitchIcon,
   },
-};
+}
 
 const MuiDatePicker: Components<Theme>['MuiDatePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.date },
-};
+}
 
 const MuiDateTimePicker: Components<Theme>['MuiDateTimePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.date },
-};
+}
 
 const MuiStaticDatePicker: Components<Theme>['MuiStaticDatePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.date },
-};
+}
 
 const MuiDesktopDatePicker: Components<Theme>['MuiDesktopDatePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.date },
-};
+}
 
 const MuiDesktopDateTimePicker: Components<Theme>['MuiDesktopDateTimePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.date },
-};
+}
 
 const MuiMobileDatePicker: Components<Theme>['MuiMobileDatePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.date },
-};
+}
 
 const MuiMobileDateTimePicker: Components<Theme>['MuiMobileDateTimePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.date },
-};
+}
 
 const MuiTimePicker: Components<Theme>['MuiTimePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.time },
-};
+}
 
 const MuiMobileTimePicker: Components<Theme>['MuiMobileTimePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.time },
-};
+}
 
 const MuiStaticTimePicker: Components<Theme>['MuiStaticTimePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.time },
-};
+}
 
 const MuiDesktopTimePicker: Components<Theme>['MuiDesktopTimePicker'] = {
   /** **************************************
    * DEFAULT PROPS
    *************************************** */
   defaultProps: { slots: defaultProps.time },
-};
+}
 
 const MuiPickersLayout: Components<Theme>['MuiPickersLayout'] = {
   /** **************************************
@@ -178,7 +178,7 @@ const MuiPickersLayout: Components<Theme>['MuiPickersLayout'] = {
       },
     }),
   },
-};
+}
 
 const MuiPickersPopper: Components<Theme>['MuiPickersPopper'] = {
   /** **************************************
@@ -190,7 +190,7 @@ const MuiPickersPopper: Components<Theme>['MuiPickersPopper'] = {
       borderRadius: theme.shape.borderRadius * 1.5,
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -210,4 +210,4 @@ export const datePicker = {
   MuiMobileTimePicker,
   MuiStaticTimePicker,
   MuiDesktopTimePicker,
-};
+}

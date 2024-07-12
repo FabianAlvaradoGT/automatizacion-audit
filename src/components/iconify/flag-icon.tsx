@@ -1,18 +1,18 @@
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { Theme, SxProps } from '@mui/material/styles'
 
-import { forwardRef } from 'react';
+import { forwardRef } from 'react'
 
-import Box from '@mui/material/Box';
-import NoSsr from '@mui/material/NoSsr';
+import Box from '@mui/material/Box'
+import NoSsr from '@mui/material/NoSsr'
 
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
 // ----------------------------------------------------------------------
 
 export type FlagIconProps = {
-  code?: string;
-  sx?: SxProps<Theme>;
-};
+  code?: string
+  sx?: SxProps<Theme>
+}
 
 export const FlagIcon = forwardRef<HTMLSpanElement, FlagIconProps>(
   ({ code, sx, ...other }, ref) => {
@@ -24,12 +24,12 @@ export const FlagIcon = forwardRef<HTMLSpanElement, FlagIconProps>(
       borderRadius: '5px',
       display: 'inline-flex',
       bgcolor: 'background.neutral',
-    };
+    }
 
-    const renderFallback = <Box component="span" sx={{ ...baseStyles, ...sx }} />;
+    const renderFallback = <Box component="span" sx={{ ...baseStyles, ...sx }} />
 
     if (!code) {
-      return null;
+      return null
     }
 
     return (
@@ -43,6 +43,6 @@ export const FlagIcon = forwardRef<HTMLSpanElement, FlagIconProps>(
           />
         </Box>
       </NoSsr>
-    );
+    )
   }
-);
+)

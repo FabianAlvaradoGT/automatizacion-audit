@@ -1,16 +1,16 @@
-import { forwardRef } from 'react';
+import { forwardRef } from 'react'
 
-import Box from '@mui/material/Box';
-import Tooltip from '@mui/material/Tooltip';
-import { styled } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
+import Box from '@mui/material/Box'
+import Tooltip from '@mui/material/Tooltip'
+import { styled } from '@mui/material/styles'
+import ButtonBase from '@mui/material/ButtonBase'
 
-import { stylesMode } from 'src/theme/styles';
+import { stylesMode } from 'src/theme/styles'
 
-import { Iconify } from '../../iconify';
-import { useNavItem, stateClasses, sharedStyles, navSectionClasses } from '../../nav-section';
+import { Iconify } from '../../iconify'
+import { useNavItem, stateClasses, sharedStyles, navSectionClasses } from '../../nav-section'
 
-import type { NavItemProps, NavItemStateProps } from '../types';
+import type { NavItemProps, NavItemStateProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
       hasChild,
       externalLink,
       enabledRootRedirect,
-    });
+    })
 
     return (
       <StyledNavItem
@@ -103,9 +103,9 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
           />
         )}
       </StyledNavItem>
-    );
+    )
   }
-);
+)
 
 // ----------------------------------------------------------------------
 
@@ -113,9 +113,9 @@ const StyledNavItem = styled(ButtonBase, {
   shouldForwardProp: (prop) =>
     prop !== 'active' && prop !== 'open' && prop !== 'disabled' && prop !== 'depth',
 })<NavItemStateProps>(({ active, open, disabled, depth, theme }) => {
-  const rootItem = depth === 1;
+  const rootItem = depth === 1
 
-  const subItem = !rootItem;
+  const subItem = !rootItem
 
   const baseStyles = {
     item: {
@@ -156,7 +156,7 @@ const StyledNavItem = styled(ButtonBase, {
     info: {
       ...sharedStyles.info,
     },
-  } as const;
+  } as const
 
   return {
     /**
@@ -232,5 +232,5 @@ const StyledNavItem = styled(ButtonBase, {
      * Disabled
      */
     ...(disabled && sharedStyles.disabled),
-  };
-});
+  }
+})

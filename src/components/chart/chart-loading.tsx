@@ -1,18 +1,18 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
+import Box from '@mui/material/Box'
+import Skeleton from '@mui/material/Skeleton'
 
-import type { ChartBaseProps } from './types';
+import type { ChartBaseProps } from './types'
 
 // ----------------------------------------------------------------------
 
 type Props = BoxProps & {
-  type: ChartBaseProps['type'];
-};
+  type: ChartBaseProps['type']
+}
 
 export function ChartLoading({ sx, type, ...other }: Props) {
-  const circularTypes = ['donut', 'radialBar', 'pie', 'polarArea'];
+  const circularTypes = ['donut', 'radialBar', 'pie', 'polarArea']
 
   return (
     <Box
@@ -44,5 +44,5 @@ export function ChartLoading({ sx, type, ...other }: Props) {
         }}
       />
     </Box>
-  );
+  )
 }

@@ -1,12 +1,12 @@
-import Stack from '@mui/material/Stack';
-import { useTheme } from '@mui/material/styles';
+import Stack from '@mui/material/Stack'
+import { useTheme } from '@mui/material/styles'
 
-import { NavList } from './nav-list';
-import { NavUl, NavLi } from '../styles';
-import { navSectionClasses } from '../classes';
-import { navSectionCssVars } from '../css-vars';
+import { NavList } from './nav-list'
+import { NavUl, NavLi } from '../styles'
+import { navSectionClasses } from '../classes'
+import { navSectionCssVars } from '../css-vars'
 
-import type { NavGroupProps, NavSectionProps } from '../types';
+import type { NavGroupProps, NavSectionProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -18,12 +18,12 @@ export function NavSectionMini({
   enabledRootRedirect,
   cssVars: overridesVars,
 }: NavSectionProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const cssVars = {
     ...navSectionCssVars.mini(theme),
     ...overridesVars,
-  };
+  }
 
   return (
     <Stack component="nav" className={navSectionClasses.mini.root} sx={{ ...cssVars, ...sx }}>
@@ -40,7 +40,7 @@ export function NavSectionMini({
         ))}
       </NavUl>
     </Stack>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -62,5 +62,5 @@ function Group({ items, render, slotProps, enabledRootRedirect, cssVars }: NavGr
         ))}
       </NavUl>
     </NavLi>
-  );
+  )
 }

@@ -1,13 +1,13 @@
-import Stack from '@mui/material/Stack';
-import { useTheme } from '@mui/material/styles';
+import Stack from '@mui/material/Stack'
+import { useTheme } from '@mui/material/styles'
 
-import { NavList } from './nav-list';
-import { NavUl, NavLi } from '../styles';
-import { Scrollbar } from '../../scrollbar';
-import { navSectionClasses } from '../classes';
-import { navSectionCssVars } from '../css-vars';
+import { NavList } from './nav-list'
+import { NavUl, NavLi } from '../styles'
+import { Scrollbar } from '../../scrollbar'
+import { navSectionClasses } from '../classes'
+import { navSectionCssVars } from '../css-vars'
 
-import type { NavGroupProps, NavSectionProps } from '../types';
+import type { NavGroupProps, NavSectionProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -19,12 +19,12 @@ export function NavSectionHorizontal({
   enabledRootRedirect,
   cssVars: overridesVars,
 }: NavSectionProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const cssVars = {
     ...navSectionCssVars.horizontal(theme),
     ...overridesVars,
-  };
+  }
 
   return (
     <Scrollbar
@@ -60,7 +60,7 @@ export function NavSectionHorizontal({
         </NavUl>
       </Stack>
     </Scrollbar>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -82,5 +82,5 @@ function Group({ items, render, slotProps, enabledRootRedirect, cssVars }: NavGr
         ))}
       </NavUl>
     </NavLi>
-  );
+  )
 }

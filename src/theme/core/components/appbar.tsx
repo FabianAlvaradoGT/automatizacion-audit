@@ -1,4 +1,4 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ const MuiAppBar: Components<Theme>['MuiAppBar'] = {
    * STYLE
    *************************************** */
   styleOverrides: { root: { boxShadow: 'none' } },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const appBar = { MuiAppBar };
+export const appBar = { MuiAppBar }

@@ -1,13 +1,13 @@
-import type { Theme, CSSObject } from '@mui/material/styles';
+import type { Theme, CSSObject } from '@mui/material/styles'
 
-import { dividerClasses } from '@mui/material/Divider';
-import { checkboxClasses } from '@mui/material/Checkbox';
-import { menuItemClasses } from '@mui/material/MenuItem';
-import { autocompleteClasses } from '@mui/material/Autocomplete';
+import { dividerClasses } from '@mui/material/Divider'
+import { checkboxClasses } from '@mui/material/Checkbox'
+import { menuItemClasses } from '@mui/material/MenuItem'
+import { autocompleteClasses } from '@mui/material/Autocomplete'
 
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
-import { remToPx, varAlpha, mediaQueries } from './utils';
+import { remToPx, varAlpha, mediaQueries } from './utils'
 
 // ----------------------------------------------------------------------
 
@@ -21,14 +21,14 @@ export const hideScrollX: CSSObject = {
   scrollbarWidth: 'none',
   overflowX: 'auto',
   '&::-webkit-scrollbar': { display: 'none' },
-};
+}
 
 export const hideScrollY: CSSObject = {
   msOverflowStyle: 'none',
   scrollbarWidth: 'none',
   overflowY: 'auto',
   '&::-webkit-scrollbar': { display: 'none' },
-};
+}
 
 /**
  * Usage:
@@ -42,7 +42,7 @@ export function textGradient(color: string): CSSObject {
     backgroundClip: 'text',
     textFillColor: 'transparent',
     color: 'transparent',
-  };
+  }
 }
 
 /**
@@ -50,9 +50,9 @@ export function textGradient(color: string): CSSObject {
  * ...borderGradient({ color: `to right, ${theme.vars.palette.text.primary}, ${alpha(theme.vars.palette.text.primary, 0.2)}`, padding: '4px' }),
  */
 export type BorderGradientProps = {
-  color?: string;
-  padding?: string;
-};
+  color?: string
+  padding?: string
+}
 
 export function borderGradient(props?: BorderGradientProps): CSSObject {
   return {
@@ -72,7 +72,7 @@ export function borderGradient(props?: BorderGradientProps): CSSObject {
     ...(props?.color && {
       background: `linear-gradient(${props.color})`,
     }),
-  };
+  }
 }
 
 /**
@@ -80,9 +80,9 @@ export function borderGradient(props?: BorderGradientProps): CSSObject {
  * ...bgGradient({ color: `to right, ${theme.vars.palette.grey[900]} 25%, ${varAlpha(theme.vars.palette.primary.darkerChannel, 0.88)}`, imgUrl: '/assets/background/overlay.png' }),
  */
 export type BgGradientProps = {
-  color: string;
-  imgUrl?: string;
-};
+  color: string
+  imgUrl?: string
+}
 
 export function bgGradient({ color, imgUrl }: BgGradientProps): CSSObject {
   if (imgUrl) {
@@ -91,9 +91,9 @@ export function bgGradient({ color, imgUrl }: BgGradientProps): CSSObject {
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center center',
-    };
+    }
   }
-  return { background: `linear-gradient(${color})` };
+  return { background: `linear-gradient(${color})` }
 }
 
 /**
@@ -101,10 +101,10 @@ export function bgGradient({ color, imgUrl }: BgGradientProps): CSSObject {
  * ...bgBlur({ color: `varAlpha(theme.vars.palette.background.paperChannel, 0.8)`, imgUrl: '/assets/background/overlay.png', blur: 6 }),
  */
 export type BgBlurProps = {
-  color: string;
-  blur?: number;
-  imgUrl?: string;
-};
+  color: string
+  blur?: number
+  imgUrl?: string
+}
 
 export function bgBlur({ color, blur = 6, imgUrl }: BgBlurProps): CSSObject {
   if (imgUrl) {
@@ -123,13 +123,13 @@ export function bgBlur({ color, blur = 6, imgUrl }: BgBlurProps): CSSObject {
         WebkitBackdropFilter: `blur(${blur}px)`,
         backgroundColor: color,
       },
-    };
+    }
   }
   return {
     backdropFilter: `blur(${blur}px)`,
     WebkitBackdropFilter: `blur(${blur}px)`,
     backgroundColor: color,
-  };
+  }
 }
 
 /**
@@ -138,24 +138,24 @@ export function bgBlur({ color, blur = 6, imgUrl }: BgBlurProps): CSSObject {
  */
 export type MediaFontSize = {
   [key: string]: {
-    fontSize: React.CSSProperties['fontSize'];
-  };
-};
+    fontSize: React.CSSProperties['fontSize']
+  }
+}
 
 export type MaxLineProps = {
-  line: number;
-  persistent?: Partial<React.CSSProperties>;
-};
+  line: number
+  persistent?: Partial<React.CSSProperties>
+}
 
 function getFontSize(fontSize: React.CSSProperties['fontSize']) {
-  return typeof fontSize === 'string' ? remToPx(fontSize) : fontSize;
+  return typeof fontSize === 'string' ? remToPx(fontSize) : fontSize
 }
 
 function getLineHeight(lineHeight: React.CSSProperties['lineHeight'], fontSize?: number) {
   if (typeof lineHeight === 'string') {
-    return fontSize ? remToPx(lineHeight) / fontSize : 1;
+    return fontSize ? remToPx(lineHeight) / fontSize : 1
   }
-  return lineHeight;
+  return lineHeight
 }
 
 export function maxLine({ line, persistent }: MaxLineProps): CSSObject {
@@ -165,15 +165,15 @@ export function maxLine({ line, persistent }: MaxLineProps): CSSObject {
     textOverflow: 'ellipsis',
     WebkitLineClamp: line,
     WebkitBoxOrient: 'vertical',
-  };
+  }
 
   if (persistent) {
-    const fontSizeBase = getFontSize(persistent.fontSize);
-    const fontSizeSm = getFontSize((persistent as MediaFontSize)[mediaQueries.upSm]?.fontSize);
-    const fontSizeMd = getFontSize((persistent as MediaFontSize)[mediaQueries.upMd]?.fontSize);
-    const fontSizeLg = getFontSize((persistent as MediaFontSize)[mediaQueries.upLg]?.fontSize);
+    const fontSizeBase = getFontSize(persistent.fontSize)
+    const fontSizeSm = getFontSize((persistent as MediaFontSize)[mediaQueries.upSm]?.fontSize)
+    const fontSizeMd = getFontSize((persistent as MediaFontSize)[mediaQueries.upMd]?.fontSize)
+    const fontSizeLg = getFontSize((persistent as MediaFontSize)[mediaQueries.upLg]?.fontSize)
 
-    const lineHeight = getLineHeight(persistent.lineHeight, fontSizeBase);
+    const lineHeight = getLineHeight(persistent.lineHeight, fontSizeBase)
 
     return {
       ...baseStyles,
@@ -183,10 +183,10 @@ export function maxLine({ line, persistent }: MaxLineProps): CSSObject {
         ...(fontSizeMd && { [mediaQueries.upMd]: { height: fontSizeMd * lineHeight * line } }),
         ...(fontSizeLg && { [mediaQueries.upLg]: { height: fontSizeLg * lineHeight * line } }),
       }),
-    };
+    }
   }
 
-  return baseStyles;
+  return baseStyles
 }
 
 /**
@@ -194,10 +194,10 @@ export function maxLine({ line, persistent }: MaxLineProps): CSSObject {
  * ...paper({ theme, color: varAlpha(theme.vars.palette.background.paperChannel, 0.9), dropdown: true }),
  */
 type PaperProps = {
-  theme: Theme;
-  color?: string;
-  dropdown?: boolean;
-};
+  theme: Theme
+  color?: string
+  dropdown?: boolean
+}
 
 export function paper({ theme, color, dropdown }: PaperProps) {
   return {
@@ -215,7 +215,7 @@ export function paper({ theme, color, dropdown }: PaperProps) {
       boxShadow: theme.customShadows.dropdown,
       borderRadius: `${theme.shape.borderRadius * 1.25}px`,
     }),
-  };
+  }
 }
 
 /**
@@ -243,5 +243,5 @@ export function menuItem(theme: Theme) {
       '&:hover': { backgroundColor: theme.vars.palette.action.hover },
     },
     [`&+.${dividerClasses.root}`]: { margin: theme.spacing(0.5, 0) },
-  };
+  }
 }

@@ -1,10 +1,10 @@
-import type { SvgIconProps } from '@mui/material/SvgIcon';
-import type { Theme, Components } from '@mui/material/styles';
+import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { Theme, Components } from '@mui/material/styles'
 
-import SvgIcon, { svgIconClasses } from '@mui/material/SvgIcon';
-import { autocompleteClasses } from '@mui/material/Autocomplete';
+import SvgIcon, { svgIconClasses } from '@mui/material/SvgIcon'
+import { autocompleteClasses } from '@mui/material/Autocomplete'
 
-import { paper, varAlpha, menuItem } from '../../styles';
+import { paper, varAlpha, menuItem } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ const ArrowDownIcon = (props: SvgIconProps) => (
       d="M12 16a1 1 0 0 1-.64-.23l-6-5a1 1 0 1 1 1.28-1.54L12 13.71l5.36-4.32a1 1 0 0 1 1.41.15a1 1 0 0 1-.14 1.46l-6 4.83A1 1 0 0 1 12 16"
     />
   </SvgIcon>
-);
+)
 
 // ----------------------------------------------------------------------
 
@@ -53,8 +53,8 @@ const MuiAutocomplete: Components<Theme>['MuiAutocomplete'] = {
     }),
     endAdornment: { [`& .${svgIconClasses.root}`]: { width: 18, height: 18 } },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const autocomplete = { MuiAutocomplete };
+export const autocomplete = { MuiAutocomplete }

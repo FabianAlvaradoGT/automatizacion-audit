@@ -169,4 +169,4 @@ export const htmlTags = [
   'video',
   'wbr',
   'xmp',
-];
+]

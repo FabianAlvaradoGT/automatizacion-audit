@@ -1,10 +1,10 @@
-import Link from '@mui/material/Link';
+import Link from '@mui/material/Link'
 
-import { RouterLink } from 'src/routes/components';
+import { RouterLink } from 'src/routes/components'
 
-import { Iconify } from '../../iconify';
+import { Iconify } from '../../iconify'
 
-import type { MenuLink } from '../types';
+import type { MenuLink } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -25,5 +25,5 @@ export function MenuMoreLink({ title, path, sx, ...other }: MenuLink) {
     >
       {title} <Iconify icon="eva:arrow-ios-forward-fill" width={16} />
     </Link>
-  );
+  )
 }

@@ -1,11 +1,11 @@
 // ----------------------------------------------------------------------
 
-export type LanguageValue = 'en' | 'fr' | 'vi' | 'cn' | 'ar';
+export type LanguageValue = 'en' | 'fr' | 'vi' | 'cn' | 'ar'
 
-export const fallbackLng = 'en';
-export const languages = ['en', 'fr', 'vi', 'cn', 'ar'];
-export const defaultNS = 'common';
-export const cookieName = 'i18next';
+export const fallbackLng = 'en'
+export const languages = ['en', 'fr', 'vi', 'cn', 'ar']
+export const defaultNS = 'common'
+export const cookieName = 'i18next'
 
 // ----------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ export function i18nOptions(lng = fallbackLng, ns = defaultNS) {
     defaultNS,
     fallbackNS: defaultNS,
     supportedLngs: languages,
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
@@ -52,4 +52,4 @@ export const changeLangMessages: Record<
     error: 'خطأ في تغيير اللغة!',
     loading: 'جارٍ التحميل...',
   },
-};
+}

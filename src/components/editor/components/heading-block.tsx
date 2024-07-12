@@ -1,19 +1,19 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-import Menu from '@mui/material/Menu';
-import { listClasses } from '@mui/material/List';
-import ButtonBase, { buttonBaseClasses } from '@mui/material/ButtonBase';
+import Menu from '@mui/material/Menu'
+import { listClasses } from '@mui/material/List'
+import ButtonBase, { buttonBaseClasses } from '@mui/material/ButtonBase'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Iconify } from '../../iconify';
-import { ToolbarItem } from './toolbar-item';
+import { Iconify } from '../../iconify'
+import { ToolbarItem } from './toolbar-item'
 
-import type { EditorToolbarProps } from '../types';
+import type { EditorToolbarProps } from '../types'
 
 // ----------------------------------------------------------------------
 
-export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
+export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6
 
 const HEADING_OPTIONS = [
   'Heading 1',
@@ -22,21 +22,21 @@ const HEADING_OPTIONS = [
   'Heading 4',
   'Heading 5',
   'Heading 6',
-];
+]
 
 export function HeadingBlock({ editor }: Pick<EditorToolbarProps, 'editor'>) {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClose = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   if (!editor) {
-    return null;
+    return null
   }
 
   return (
@@ -100,13 +100,13 @@ export function HeadingBlock({ editor }: Pick<EditorToolbarProps, 'editor'>) {
           label="Paragraph"
           active={editor.isActive('paragraph')}
           onClick={() => {
-            handleClose();
-            editor.chain().focus().setParagraph().run();
+            handleClose()
+            editor.chain().focus().setParagraph().run()
           }}
         />
 
         {HEADING_OPTIONS.map((heading, index) => {
-          const level = (index + 1) as HeadingLevel;
+          const level = (index + 1) as HeadingLevel
 
           return (
             <ToolbarItem
@@ -116,8 +116,8 @@ export function HeadingBlock({ editor }: Pick<EditorToolbarProps, 'editor'>) {
               label={heading}
               active={editor.isActive('heading', { level })}
               onClick={() => {
-                handleClose();
-                editor.chain().focus().toggleHeading({ level }).run();
+                handleClose()
+                editor.chain().focus().toggleHeading({ level }).run()
               }}
               sx={{
                 ...(heading !== 'Paragraph' && {
@@ -126,9 +126,9 @@ export function HeadingBlock({ editor }: Pick<EditorToolbarProps, 'editor'>) {
                 }),
               }}
             />
-          );
+          )
         })}
       </Menu>
     </>
-  );
+  )
 }

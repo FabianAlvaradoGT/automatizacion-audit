@@ -1,6 +1,6 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { tabClasses } from '@mui/material/Tab';
+import { tabClasses } from '@mui/material/Tab'
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ const MuiTabs: Components<Theme>['MuiTabs'] = {
     }),
     indicator: { backgroundColor: 'currentColor' },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -56,8 +56,8 @@ const MuiTab: Components<Theme>['MuiTab'] = {
       },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const tabs = { MuiTabs, MuiTab };
+export const tabs = { MuiTabs, MuiTab }

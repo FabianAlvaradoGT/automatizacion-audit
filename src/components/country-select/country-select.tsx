@@ -2,37 +2,37 @@ import type {
   AutocompleteProps,
   AutocompleteRenderInputParams,
   AutocompleteRenderGetTagProps,
-} from '@mui/material/Autocomplete';
+} from '@mui/material/Autocomplete'
 
-import Chip from '@mui/material/Chip';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-import InputAdornment from '@mui/material/InputAdornment';
-import { filledInputClasses } from '@mui/material/FilledInput';
+import Chip from '@mui/material/Chip'
+import TextField from '@mui/material/TextField'
+import Autocomplete from '@mui/material/Autocomplete'
+import InputAdornment from '@mui/material/InputAdornment'
+import { filledInputClasses } from '@mui/material/FilledInput'
 
-import { countries } from 'src/assets/data';
+import { countries } from 'src/assets/data'
 
-import { FlagIcon, iconifyClasses } from 'src/components/iconify';
+import { FlagIcon, iconifyClasses } from 'src/components/iconify'
 
-import { getCountry, displayValueByCountryCode } from './utils';
+import { getCountry, displayValueByCountryCode } from './utils'
 
 // ----------------------------------------------------------------------
 
-type Value = string;
+type Value = string
 
 export type AutocompleteBaseProps = Omit<
   AutocompleteProps<any, boolean, boolean, boolean>,
   'options' | 'renderOption' | 'renderInput' | 'renderTags' | 'getOptionLabel'
->;
+>
 
 export type CountrySelectProps = AutocompleteBaseProps & {
-  label?: string;
-  error?: boolean;
-  placeholder?: string;
-  hiddenLabel?: boolean;
-  getValue?: 'label' | 'code';
-  helperText?: React.ReactNode;
-};
+  label?: string
+  error?: boolean
+  placeholder?: string
+  hiddenLabel?: boolean
+  getValue?: 'label' | 'code'
+  helperText?: React.ReactNode
+}
 
 export function CountrySelect({
   id,
@@ -45,13 +45,13 @@ export function CountrySelect({
   getValue = 'label',
   ...other
 }: CountrySelectProps) {
-  const options = countries.map((country) => (getValue === 'label' ? country.label : country.code));
+  const options = countries.map((country) => (getValue === 'label' ? country.label : country.code))
 
   const renderOption = (props: React.HTMLAttributes<HTMLLIElement>, option: Value) => {
-    const country = getCountry(option);
+    const country = getCountry(option)
 
     if (!country.label) {
-      return null;
+      return null
     }
 
     return (
@@ -63,11 +63,11 @@ export function CountrySelect({
         />
         {country.label} ({country.code}) +{country.phone}
       </li>
-    );
-  };
+    )
+  }
 
   const renderInput = (params: AutocompleteRenderInputParams) => {
-    const country = getCountry(params.inputProps.value as Value);
+    const country = getCountry(params.inputProps.value as Value)
 
     const baseField = {
       ...params,
@@ -80,10 +80,10 @@ export function CountrySelect({
         ...params.inputProps,
         autoComplete: 'new-password',
       },
-    };
+    }
 
     if (multiple) {
-      return <TextField {...baseField} />;
+      return <TextField {...baseField} />
     }
 
     return (
@@ -107,12 +107,12 @@ export function CountrySelect({
           }),
         }}
       />
-    );
-  };
+    )
+  }
 
   const renderTags = (selected: Value[], getTagProps: AutocompleteRenderGetTagProps) =>
     selected.map((option, index) => {
-      const country = getCountry(option);
+      const country = getCountry(option)
 
       return (
         <Chip
@@ -129,11 +129,11 @@ export function CountrySelect({
             />
           }
         />
-      );
-    });
+      )
+    })
 
   const getOptionLabel = (option: Value) =>
-    getValue === 'label' ? option : displayValueByCountryCode(option);
+    getValue === 'label' ? option : displayValueByCountryCode(option)
 
   return (
     <Autocomplete
@@ -148,5 +148,5 @@ export function CountrySelect({
       getOptionLabel={getOptionLabel}
       {...other}
     />
-  );
+  )
 }

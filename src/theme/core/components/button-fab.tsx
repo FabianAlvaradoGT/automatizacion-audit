@@ -1,28 +1,28 @@
-import type { Theme, Components, ComponentsVariants } from '@mui/material/styles';
+import type { Theme, Components, ComponentsVariants } from '@mui/material/styles'
 
-import { fabClasses } from '@mui/material/Fab';
+import { fabClasses } from '@mui/material/Fab'
 
-import { varAlpha, stylesMode } from '../../styles';
+import { varAlpha, stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
 // NEW VARIANT
 declare module '@mui/material/Fab' {
   interface FabPropsVariantOverrides {
-    outlined: true;
-    outlinedExtended: true;
-    soft: true;
-    softExtended: true;
+    outlined: true
+    outlinedExtended: true
+    soft: true
+    softExtended: true
   }
 }
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const;
+const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const
 
-const DEFAULT_COLORS = ['default', 'inherit'];
-const EXTENDED_VARIANT = ['extended', 'outlinedExtended', 'softExtended'];
-const FILLED_VARIANT = ['circular', 'extended'];
-const OUTLINED_VARIANT = ['outlined', 'outlinedExtended'];
-const SOFT_VARIANT = ['soft', 'softExtended'];
+const DEFAULT_COLORS = ['default', 'inherit']
+const EXTENDED_VARIANT = ['extended', 'outlinedExtended', 'softExtended']
+const FILLED_VARIANT = ['circular', 'extended']
+const OUTLINED_VARIANT = ['outlined', 'outlinedExtended']
+const SOFT_VARIANT = ['soft', 'softExtended']
 
 // ----------------------------------------------------------------------
 
@@ -64,7 +64,7 @@ const filledVariant: Record<string, ComponentsVariants<Theme>['MuiFab']> = {
       }),
     },
   ],
-};
+}
 
 const outlinedVariant: Record<string, ComponentsVariants<Theme>['MuiFab']> = {
   colors: COLORS.map((color) => ({
@@ -99,7 +99,7 @@ const outlinedVariant: Record<string, ComponentsVariants<Theme>['MuiFab']> = {
       }),
     },
   ],
-};
+}
 
 const softVariant: Record<string, ComponentsVariants<Theme>['MuiFab']> = {
   colors: COLORS.map((color) => ({
@@ -141,7 +141,7 @@ const softVariant: Record<string, ComponentsVariants<Theme>['MuiFab']> = {
       }),
     },
   ],
-};
+}
 
 const sizes: ComponentsVariants<Theme>['MuiFab'] = [
   {
@@ -163,7 +163,7 @@ const sizes: ComponentsVariants<Theme>['MuiFab'] = [
       [`&.${fabClasses.sizeMedium}`]: { height: 40, minHeight: 40, borderRadius: 40 / 2 },
     }),
   },
-];
+]
 
 const MuiFab: Components<Theme>['MuiFab'] = {
   /** **************************************
@@ -197,8 +197,8 @@ const MuiFab: Components<Theme>['MuiFab'] = {
    * STYLE
    *************************************** */
   styleOverrides: {},
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const fab = { MuiFab };
+export const fab = { MuiFab }

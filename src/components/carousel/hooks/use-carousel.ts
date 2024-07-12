@@ -1,17 +1,17 @@
-import type { EmblaPluginType } from 'embla-carousel';
+import type { EmblaPluginType } from 'embla-carousel'
 
-import { useMemo } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
+import { useMemo } from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
 
-import { useThumbs } from './use-thumbs';
-import { useCarouselDots } from './use-carousel-dots';
-import { useParallax } from './use-carousel-parallax';
-import { useCarouselArrows } from './use-carousel-arrows';
-import { useCarouselProgress } from './use-carousel-progress';
-import { useCarouselAutoPlay } from './use-carousel-auto-play';
-import { useCarouselAutoScroll } from './use-carousel-auto-scroll';
+import { useThumbs } from './use-thumbs'
+import { useCarouselDots } from './use-carousel-dots'
+import { useParallax } from './use-carousel-parallax'
+import { useCarouselArrows } from './use-carousel-arrows'
+import { useCarouselProgress } from './use-carousel-progress'
+import { useCarouselAutoPlay } from './use-carousel-auto-play'
+import { useCarouselAutoScroll } from './use-carousel-auto-scroll'
 
-import type { CarouselOptions, UseCarouselReturn } from '../types';
+import type { CarouselOptions, UseCarouselReturn } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -19,42 +19,42 @@ export const useCarousel = (
   options?: CarouselOptions,
   plugins?: EmblaPluginType[]
 ): UseCarouselReturn => {
-  const [mainRef, mainApi] = useEmblaCarousel(options, plugins);
+  const [mainRef, mainApi] = useEmblaCarousel(options, plugins)
 
-  const { disablePrev, disableNext, onClickPrev, onClickNext } = useCarouselArrows(mainApi);
+  const { disablePrev, disableNext, onClickPrev, onClickNext } = useCarouselArrows(mainApi)
 
-  const pluginNames = plugins?.map((plugin) => plugin.name);
+  const pluginNames = plugins?.map((plugin) => plugin.name)
 
-  const _dots = useCarouselDots(mainApi);
+  const _dots = useCarouselDots(mainApi)
 
-  const _autoplay = useCarouselAutoPlay(mainApi);
+  const _autoplay = useCarouselAutoPlay(mainApi)
 
-  const _autoScroll = useCarouselAutoScroll(mainApi);
+  const _autoScroll = useCarouselAutoScroll(mainApi)
 
-  const _progress = useCarouselProgress(mainApi);
+  const _progress = useCarouselProgress(mainApi)
 
-  const _thumbs = useThumbs(mainApi, options?.thumbs);
+  const _thumbs = useThumbs(mainApi, options?.thumbs)
 
-  useParallax(mainApi, options?.parallax);
+  useParallax(mainApi, options?.parallax)
 
   const controls = useMemo(() => {
     if (pluginNames?.includes('autoplay')) {
       return {
         onClickPrev: () => _autoplay.onClickAutoplay(onClickPrev),
         onClickNext: () => _autoplay.onClickAutoplay(onClickNext),
-      };
+      }
     }
     if (pluginNames?.includes('autoScroll')) {
       return {
         onClickPrev: () => _autoScroll.onClickAutoplay(onClickPrev),
         onClickNext: () => _autoScroll.onClickAutoplay(onClickNext),
-      };
+      }
     }
     return {
       onClickPrev,
       onClickNext,
-    };
-  }, [_autoScroll, _autoplay, onClickNext, onClickPrev, pluginNames]);
+    }
+  }, [_autoScroll, _autoplay, onClickNext, onClickPrev, pluginNames])
 
   return {
     options: {
@@ -80,5 +80,5 @@ export const useCarousel = (
     // autoplay
     autoplay: _autoplay,
     autoScroll: _autoScroll,
-  };
-};
+  }
+}

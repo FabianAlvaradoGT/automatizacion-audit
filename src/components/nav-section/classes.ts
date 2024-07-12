@@ -28,4 +28,4 @@ export const navSectionClasses = {
     active: 'state--active',
     disabled: 'state--disabled',
   },
-};
+}

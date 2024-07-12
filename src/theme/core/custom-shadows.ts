@@ -1,51 +1,51 @@
-import { varAlpha } from '../styles';
-import { grey, info, error, common, primary, success, warning, secondary } from './palette';
+import { varAlpha } from '../styles'
+import { grey, info, error, common, primary, success, warning, secondary } from './palette'
 
-import type { ThemeColorScheme } from '../types';
+import type { ThemeColorScheme } from '../types'
 
 // ----------------------------------------------------------------------
 
 export interface CustomShadows {
-  z1?: string;
-  z4?: string;
-  z8?: string;
-  z12?: string;
-  z16?: string;
-  z20?: string;
-  z24?: string;
+  z1?: string
+  z4?: string
+  z8?: string
+  z12?: string
+  z16?: string
+  z20?: string
+  z24?: string
   //
-  primary?: string;
-  secondary?: string;
-  info?: string;
-  success?: string;
-  warning?: string;
-  error?: string;
+  primary?: string
+  secondary?: string
+  info?: string
+  success?: string
+  warning?: string
+  error?: string
   //
-  card?: string;
-  dialog?: string;
-  dropdown?: string;
+  card?: string
+  dialog?: string
+  dropdown?: string
 }
 
 declare module '@mui/material/styles' {
   interface Theme {
-    customShadows: CustomShadows;
+    customShadows: CustomShadows
   }
   interface ThemeOptions {
-    customShadows?: CustomShadows;
+    customShadows?: CustomShadows
   }
   interface ThemeVars {
-    customShadows: CustomShadows;
+    customShadows: CustomShadows
   }
 }
 
 // ----------------------------------------------------------------------
 
 export function createShadowColor(colorChannel: string) {
-  return `0 8px 16px 0 ${varAlpha(colorChannel, 0.24)}`;
+  return `0 8px 16px 0 ${varAlpha(colorChannel, 0.24)}`
 }
 
 export function customShadows(colorScheme: ThemeColorScheme) {
-  const colorChannel = colorScheme === 'light' ? grey['500Channel'] : common.blackChannel;
+  const colorChannel = colorScheme === 'light' ? grey['500Channel'] : common.blackChannel
 
   return {
     z1: `0 1px 2px 0 ${varAlpha(colorChannel, 0.16)}`,
@@ -66,5 +66,5 @@ export function customShadows(colorScheme: ThemeColorScheme) {
     success: createShadowColor(success.mainChannel),
     warning: createShadowColor(warning.mainChannel),
     error: createShadowColor(error.mainChannel),
-  };
+  }
 }

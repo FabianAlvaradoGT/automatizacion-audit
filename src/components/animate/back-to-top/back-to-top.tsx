@@ -1,31 +1,31 @@
-import type { FabProps } from '@mui/material/Fab';
+import type { FabProps } from '@mui/material/Fab'
 
-import { useState } from 'react';
-import { useScroll, useMotionValueEvent } from 'framer-motion';
+import { useState } from 'react'
+import { useScroll, useMotionValueEvent } from 'framer-motion'
 
-import Fab from '@mui/material/Fab';
+import Fab from '@mui/material/Fab'
 
-import { Iconify } from 'src/components/iconify';
+import { Iconify } from 'src/components/iconify'
 
 // ----------------------------------------------------------------------
 
 export type BackToTopProps = FabProps & {
-  value?: number;
-};
+  value?: number
+}
 
 export function BackToTop({ value = 90, sx, ...other }: BackToTopProps) {
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll()
 
-  const [show, setShow] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(false)
 
   const backToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-    const isEnd = Math.floor(latest * 100) > value; // unit is %
-    setShow(isEnd);
-  });
+    const isEnd = Math.floor(latest * 100) > value // unit is %
+    setShow(isEnd)
+  })
 
   return (
     <Fab
@@ -47,5 +47,5 @@ export function BackToTop({ value = 90, sx, ...other }: BackToTopProps) {
     >
       <Iconify width={24} icon="solar:double-alt-arrow-up-bold-duotone" />
     </Fab>
-  );
+  )
 }

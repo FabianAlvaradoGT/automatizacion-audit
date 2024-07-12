@@ -1,4 +1,4 @@
-import { _mock } from './_mock';
+import { _mock } from './_mock'
 
 // ----------------------------------------------------------------------
 
@@ -7,7 +7,7 @@ export const _carouselsMembers = [...Array(6)].map((_, index) => ({
   name: _mock.fullName(index),
   role: _mock.role(index),
   avatarUrl: _mock.image.portrait(index),
-}));
+}))
 
 // ----------------------------------------------------------------------
 
@@ -16,7 +16,7 @@ export const _faqs = [...Array(8)].map((_, index) => ({
   value: `panel${index + 1}`,
   heading: `Questions ${index + 1}`,
   detail: _mock.description(index),
-}));
+}))
 
 // ----------------------------------------------------------------------
 
@@ -29,13 +29,13 @@ export const _addressBooks = [...Array(24)].map((_, index) => ({
   phoneNumber: _mock.phoneNumber(index),
   company: _mock.companyNames(index + 1),
   addressType: index === 0 ? 'Home' : 'Office',
-}));
+}))
 
 // ----------------------------------------------------------------------
 
 export const _contacts = [...Array(20)].map((_, index) => {
   const status =
-    (index % 2 && 'online') || (index % 3 && 'offline') || (index % 4 && 'alway') || 'busy';
+    (index % 2 && 'online') || (index % 3 && 'offline') || (index % 4 && 'alway') || 'busy'
 
   return {
     id: _mock.id(index),
@@ -47,8 +47,8 @@ export const _contacts = [...Array(20)].map((_, index) => {
     lastActivity: _mock.time(index),
     avatarUrl: _mock.image.avatar(index),
     address: _mock.fullAddress(index),
-  };
-});
+  }
+})
 
 // ----------------------------------------------------------------------
 
@@ -97,14 +97,14 @@ export const _notifications = [...Array(9)].map((_, index) => ({
     (index === 7 && `<p>You have new message 5 unread messages</p>`) ||
     (index === 8 && `<p>You have new mail`) ||
     '',
-}));
+}))
 
 // ----------------------------------------------------------------------
 
 export const _mapContact = [
   { latlng: [33, 65], address: _mock.fullAddress(1), phoneNumber: _mock.phoneNumber(1) },
   { latlng: [-12.5, 18.5], address: _mock.fullAddress(2), phoneNumber: _mock.phoneNumber(2) },
-];
+]
 
 // ----------------------------------------------------------------------
 
@@ -129,7 +129,7 @@ export const _socials = [
     name: 'Twitter',
     path: 'https://www.twitter.com/caitlyn.kerluke',
   },
-];
+]
 
 // ----------------------------------------------------------------------
 
@@ -169,7 +169,7 @@ export const _pricingPlans = [
     ],
     labelAction: 'Choose premium',
   },
-];
+]
 
 // ----------------------------------------------------------------------
 
@@ -216,4 +216,4 @@ export const _testimonials = [
     avatarUrl: _mock.image.avatar(6),
     content: `CEO of Codealy.io here. We’ve built a developer assessment platform that makes sense - tasks are based on git repositories and run in virtual machines. We automate the pain points - storing candidates code, running it and sharing test results with the whole team, remotely. Bought this template as we need to provide an awesome dashboard for our early customers. I am super happy with purchase. The code is just as good as the design. Thanks!`,
   },
-];
+]

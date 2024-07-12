@@ -1,9 +1,9 @@
-import type { ButtonBaseProps } from '@mui/material/ButtonBase';
+import type { ButtonBaseProps } from '@mui/material/ButtonBase'
 
-import SvgIcon from '@mui/material/SvgIcon';
-import ButtonBase from '@mui/material/ButtonBase';
+import SvgIcon from '@mui/material/SvgIcon'
+import ButtonBase from '@mui/material/ButtonBase'
 
-import type { EditorToolbarItemProps } from '../types';
+import type { EditorToolbarItemProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -34,5 +34,5 @@ export function ToolbarItem({
 
       {label && label}
     </ButtonBase>
-  );
+  )
 }

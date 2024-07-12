@@ -1,6 +1,6 @@
-import type { Theme, SxProps } from '@mui/material/styles';
-import type { UseEmblaCarouselType } from 'embla-carousel-react';
-import type { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
+import type { Theme, SxProps } from '@mui/material/styles'
+import type { UseEmblaCarouselType } from 'embla-carousel-react'
+import type { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel'
 
 // ----------------------------------------------------------------------
 
@@ -8,26 +8,26 @@ import type { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
  * Dot Buttons
  */
 export type UseCarouselDotsReturn = {
-  dotCount: number;
-  selectedIndex: number;
-  scrollSnaps: number[];
-  onClickDot: (index: number) => void;
-};
+  dotCount: number
+  selectedIndex: number
+  scrollSnaps: number[]
+  onClickDot: (index: number) => void
+}
 
 export type CarouselDotButtonsProps = Omit<UseCarouselDotsReturn, 'dotCount'> & {
-  gap?: number;
-  sx?: SxProps<Theme>;
-  fallback?: boolean;
-  fallbackCount?: number;
-  variant?: 'circular' | 'rounded' | 'number';
+  gap?: number
+  sx?: SxProps<Theme>
+  fallback?: boolean
+  fallbackCount?: number
+  variant?: 'circular' | 'rounded' | 'number'
   slotProps?: {
     dot?: {
-      size?: number;
-      sx?: SxProps<Theme>;
-      selected?: SxProps<Theme>;
-    };
-  };
-};
+      size?: number
+      sx?: SxProps<Theme>
+      selected?: SxProps<Theme>
+    }
+  }
+}
 
 // ----------------------------------------------------------------------
 
@@ -35,32 +35,32 @@ export type CarouselDotButtonsProps = Omit<UseCarouselDotsReturn, 'dotCount'> & 
  * Prev & Next Buttons
  */
 export type UseCarouselArrowsReturn = {
-  disablePrev: boolean;
-  disableNext: boolean;
-  onClickPrev: () => void;
-  onClickNext: () => void;
-};
+  disablePrev: boolean
+  disableNext: boolean
+  onClickPrev: () => void
+  onClickNext: () => void
+}
 
 export type CarouselArrowButtonProps = {
-  svgSize?: number;
-  variant: 'prev' | 'next';
-  svgIcon?: React.ReactNode;
-  options?: CarouselArrowButtonsProps['options'];
-};
+  svgSize?: number
+  variant: 'prev' | 'next'
+  svgIcon?: React.ReactNode
+  options?: CarouselArrowButtonsProps['options']
+}
 
 export type CarouselArrowButtonsProps = UseCarouselArrowsReturn & {
-  totalSlides?: number;
-  selectedIndex?: number;
-  options?: Partial<CarouselOptions>;
+  totalSlides?: number
+  selectedIndex?: number
+  options?: Partial<CarouselOptions>
   slotProps?: {
     prevBtn?: Pick<CarouselArrowButtonProps, 'svgIcon' | 'svgSize'> & {
-      sx?: SxProps<Theme>;
-    };
+      sx?: SxProps<Theme>
+    }
     nextBtn?: Pick<CarouselArrowButtonProps, 'svgIcon' | 'svgSize'> & {
-      sx?: SxProps<Theme>;
-    };
-  };
-};
+      sx?: SxProps<Theme>
+    }
+  }
+}
 
 // ----------------------------------------------------------------------
 
@@ -68,26 +68,26 @@ export type CarouselArrowButtonsProps = UseCarouselArrowsReturn & {
  * Thumbs
  */
 export type UseCarouselThumbsReturn = {
-  selectedIndex: number;
-  thumbsApi?: EmblaCarouselType;
-  thumbsRef: UseEmblaCarouselType[0];
-  onClickThumb: (index: number) => void;
-};
+  selectedIndex: number
+  thumbsApi?: EmblaCarouselType
+  thumbsRef: UseEmblaCarouselType[0]
+  onClickThumb: (index: number) => void
+}
 
 export type CarouselThumbProps = {
-  src: string;
-  index: number;
-  selected: boolean;
-};
+  src: string
+  index: number
+  selected: boolean
+}
 
 export type CarouselThumbsProps = {
-  options?: Partial<CarouselOptions>;
+  options?: Partial<CarouselOptions>
   slotProps?: {
-    slide?: SxProps<Theme>;
-    container?: SxProps<Theme>;
-    disableMask?: boolean;
-  };
-};
+    slide?: SxProps<Theme>
+    container?: SxProps<Theme>
+    disableMask?: boolean
+  }
+}
 
 // ----------------------------------------------------------------------
 
@@ -95,10 +95,10 @@ export type CarouselThumbsProps = {
  * Progress
  */
 export type UseCarouselProgressReturn = {
-  value: number;
-};
+  value: number
+}
 
-export type CarouselProgressBarProps = UseCarouselProgressReturn;
+export type CarouselProgressBarProps = UseCarouselProgressReturn
 
 // ----------------------------------------------------------------------
 
@@ -106,10 +106,10 @@ export type CarouselProgressBarProps = UseCarouselProgressReturn;
  * Autoplay
  */
 export type UseCarouselAutoPlayReturn = {
-  isPlaying: boolean;
-  onTogglePlay: () => void;
-  onClickAutoplay: (callback: () => void) => void;
-};
+  isPlaying: boolean
+  onTogglePlay: () => void
+  onClickAutoplay: (callback: () => void) => void
+}
 
 // ----------------------------------------------------------------------
 
@@ -117,8 +117,8 @@ export type UseCarouselAutoPlayReturn = {
  * Slide
  */
 export type CarouselSlideProps = {
-  options?: Partial<CarouselOptions>;
-};
+  options?: Partial<CarouselOptions>
+}
 
 // ----------------------------------------------------------------------
 
@@ -126,37 +126,37 @@ export type CarouselSlideProps = {
  * Carousel
  */
 export type CarouselBaseOptions = EmblaOptionsType & {
-  slideSpacing?: string;
-  parallax?: boolean | number;
-  slidesToShow?: string | number | { [key: string]: string | number };
-};
+  slideSpacing?: string
+  parallax?: boolean | number
+  slidesToShow?: string | number | { [key: string]: string | number }
+}
 
 export type CarouselOptions = CarouselBaseOptions & {
-  thumbs?: CarouselBaseOptions;
+  thumbs?: CarouselBaseOptions
   breakpoints?: {
-    [key: string]: Omit<CarouselBaseOptions, 'slidesToShow'>;
-  };
-};
+    [key: string]: Omit<CarouselBaseOptions, 'slidesToShow'>
+  }
+}
 
 export type UseCarouselReturn = {
-  pluginNames?: string[];
-  options?: CarouselOptions;
-  mainRef: UseEmblaCarouselType[0];
-  mainApi?: EmblaCarouselType;
-  thumbs: UseCarouselThumbsReturn;
-  dots: UseCarouselDotsReturn;
-  autoplay: UseCarouselAutoPlayReturn;
-  progress: UseCarouselProgressReturn;
-  autoScroll: UseCarouselAutoPlayReturn;
-  arrows: UseCarouselArrowsReturn;
-};
+  pluginNames?: string[]
+  options?: CarouselOptions
+  mainRef: UseEmblaCarouselType[0]
+  mainApi?: EmblaCarouselType
+  thumbs: UseCarouselThumbsReturn
+  dots: UseCarouselDotsReturn
+  autoplay: UseCarouselAutoPlayReturn
+  progress: UseCarouselProgressReturn
+  autoScroll: UseCarouselAutoPlayReturn
+  arrows: UseCarouselArrowsReturn
+}
 
 export type CarouselProps = {
-  carousel: UseCarouselReturn;
-  children: React.ReactNode;
-  sx?: SxProps<Theme>;
+  carousel: UseCarouselReturn
+  children: React.ReactNode
+  sx?: SxProps<Theme>
   slotProps?: {
-    container?: SxProps<Theme>;
-    slide?: SxProps<Theme>;
-  };
-};
+    container?: SxProps<Theme>
+    slide?: SxProps<Theme>
+  }
+}

@@ -1,20 +1,20 @@
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { Theme, SxProps } from '@mui/material/styles'
 
-import Box from '@mui/material/Box';
-import Tooltip from '@mui/material/Tooltip';
+import Box from '@mui/material/Box'
+import Tooltip from '@mui/material/Tooltip'
 
-import { varAlpha, stylesMode } from 'src/theme/styles';
+import { varAlpha, stylesMode } from 'src/theme/styles'
 
-import { Iconify } from 'src/components/iconify';
+import { Iconify } from 'src/components/iconify'
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  title: string;
-  tooltip?: string;
-  sx?: SxProps<Theme>;
-  children: React.ReactNode;
-};
+  title: string
+  tooltip?: string
+  sx?: SxProps<Theme>
+  children: React.ReactNode
+}
 
 export function Block({ title, tooltip, children, sx }: Props) {
   return (
@@ -63,5 +63,5 @@ export function Block({ title, tooltip, children, sx }: Props) {
 
       {children}
     </Box>
-  );
+  )
 }

@@ -1,13 +1,13 @@
-import type { PaperProps } from '@mui/material/Paper';
+import type { PaperProps } from '@mui/material/Paper'
 
-import Popover from '@mui/material/Popover';
-import { listClasses } from '@mui/material/List';
-import { menuItemClasses } from '@mui/material/MenuItem';
+import Popover from '@mui/material/Popover'
+import { listClasses } from '@mui/material/List'
+import { menuItemClasses } from '@mui/material/MenuItem'
 
-import { StyledArrow } from './styles';
-import { calculateAnchorOrigin } from './utils';
+import { StyledArrow } from './styles'
+import { calculateAnchorOrigin } from './utils'
 
-import type { CustomPopoverProps } from './types';
+import type { CustomPopoverProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -19,13 +19,13 @@ export function CustomPopover({
   slotProps,
   ...other
 }: CustomPopoverProps) {
-  const arrowPlacement = slotProps?.arrow?.placement ?? 'top-right';
+  const arrowPlacement = slotProps?.arrow?.placement ?? 'top-right'
 
-  const arrowSize = slotProps?.arrow?.size ?? 14;
+  const arrowSize = slotProps?.arrow?.size ?? 14
 
-  const arrowOffset = slotProps?.arrow?.offset ?? 17;
+  const arrowOffset = slotProps?.arrow?.offset ?? 17
 
-  const { paperStyles, anchorOrigin, transformOrigin } = calculateAnchorOrigin(arrowPlacement);
+  const { paperStyles, anchorOrigin, transformOrigin } = calculateAnchorOrigin(arrowPlacement)
 
   return (
     <Popover
@@ -60,5 +60,5 @@ export function CustomPopover({
 
       {children}
     </Popover>
-  );
+  )
 }

@@ -1,20 +1,20 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async'
 
-import { useParams } from 'src/routes/hooks';
+import { useParams } from 'src/routes/hooks'
 
-import { CONFIG } from 'src/config-global';
-import { _userList } from 'src/_mock/_user';
+import { CONFIG } from 'src/config-global'
+import { _userList } from 'src/_mock/_user'
 
-import { UserEditView } from 'src/sections/user/view';
+import { UserEditView } from 'src/sections/user/view'
 
 // ----------------------------------------------------------------------
 
-const metadata = { title: `User edit | Dashboard - ${CONFIG.site.name}` };
+const metadata = { title: `User edit | Dashboard - ${CONFIG.site.name}` }
 
 export default function Page() {
-  const { id = '' } = useParams();
+  const { id = '' } = useParams()
 
-  const currentUser = _userList.find((user) => user.id === id);
+  const currentUser = _userList.find((user) => user.id === id)
 
   return (
     <>
@@ -24,5 +24,5 @@ export default function Page() {
 
       <UserEditView user={currentUser} />
     </>
-  );
+  )
 }

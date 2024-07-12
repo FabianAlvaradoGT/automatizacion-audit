@@ -1,23 +1,23 @@
-import { _mock } from './_mock';
-import { _tags } from './assets';
+import { _mock } from './_mock'
+import { _tags } from './assets'
 
 // ----------------------------------------------------------------------
 
 export const TOUR_DETAILS_TABS = [
   { label: 'Tour content', value: 'content' },
   { label: 'Booker', value: 'bookers' },
-];
+]
 
 export const TOUR_SORT_OPTIONS = [
   { label: 'Latest', value: 'latest' },
   { label: 'Popular', value: 'popular' },
   { label: 'Oldest', value: 'oldest' },
-];
+]
 
 export const TOUR_PUBLISH_OPTIONS = [
   { label: 'Published', value: 'published' },
   { label: 'Draft', value: 'draft' },
-];
+]
 
 export const TOUR_SERVICE_OPTIONS = [
   { label: 'Audio guide', value: 'Audio guide' },
@@ -30,7 +30,7 @@ export const TOUR_SERVICE_OPTIONS = [
   { label: 'Pick-up and drop off', value: 'Pick-up and drop off' },
   { label: 'Professional guide', value: 'Professional guide' },
   { label: 'Transport by air-conditioned', value: 'Transport by air-conditioned' },
-];
+]
 
 const CONTENT = `
 <h6>Description</h6>
@@ -65,28 +65,28 @@ const CONTENT = `
 </p>
 
 <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-`;
+`
 
 const BOOKER = [...Array(12)].map((_, index) => ({
   id: _mock.id(index),
   guests: index + 10,
   name: _mock.fullName(index),
   avatarUrl: _mock.image.avatar(index),
-}));
+}))
 
 export const _tourGuides = [...Array(12)].map((_, index) => ({
   id: _mock.id(index),
   name: _mock.fullName(index),
   avatarUrl: _mock.image.avatar(index),
   phoneNumber: _mock.phoneNumber(index),
-}));
+}))
 
-export const TRAVEL_IMAGES = [...Array(16)].map((_, index) => _mock.image.travel(index));
+export const TRAVEL_IMAGES = [...Array(16)].map((_, index) => _mock.image.travel(index))
 
 export const _tours = [...Array(12)].map((_, index) => {
-  const available = { startDate: _mock.time(index + 1), endDate: _mock.time(index) };
+  const available = { startDate: _mock.time(index + 1), endDate: _mock.time(index) }
 
-  const publish = index % 3 ? 'published' : 'draft';
+  const publish = index % 3 ? 'published' : 'draft'
 
   const services = (index % 2 && ['Audio guide', 'Food and drinks']) ||
     (index % 3 && ['Lunch', 'Private tour']) ||
@@ -95,16 +95,16 @@ export const _tours = [...Array(12)].map((_, index) => {
       'Pick-up and drop off',
       'Professional guide',
       'Transport by air-conditioned',
-    ];
+    ]
 
   const tourGuides =
     (index === 0 && _tourGuides.slice(0, 1)) ||
     (index === 1 && _tourGuides.slice(1, 3)) ||
     (index === 2 && _tourGuides.slice(2, 5)) ||
     (index === 3 && _tourGuides.slice(4, 6)) ||
-    _tourGuides.slice(6, 9);
+    _tourGuides.slice(6, 9)
 
-  const images = TRAVEL_IMAGES.slice(index, index + 5);
+  const images = TRAVEL_IMAGES.slice(index, index + 5)
 
   return {
     images,
@@ -124,5 +124,5 @@ export const _tours = [...Array(12)].map((_, index) => {
     priceSale: _mock.number.price(index),
     totalViews: _mock.number.nativeL(index),
     ratingNumber: _mock.number.rating(index),
-  };
-});
+  }
+})

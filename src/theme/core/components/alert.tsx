@@ -1,11 +1,11 @@
-import type { AlertProps } from '@mui/material/Alert';
-import type { SvgIconProps } from '@mui/material/SvgIcon';
-import type { Theme, CSSObject, Components } from '@mui/material/styles';
+import type { AlertProps } from '@mui/material/Alert'
+import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { Theme, CSSObject, Components } from '@mui/material/styles'
 
-import SvgIcon from '@mui/material/SvgIcon';
-import { alertClasses } from '@mui/material/Alert';
+import SvgIcon from '@mui/material/SvgIcon'
+import { alertClasses } from '@mui/material/Alert'
 
-import { varAlpha, stylesMode } from '../../styles';
+import { varAlpha, stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ const AlertInfoIcon = (props: SvgIconProps) => (
       clipRule="evenodd"
     />
   </SvgIcon>
-);
+)
 
 /* https://icon-sets.iconify.design/solar/check-circle-bold/ */
 const AlertSuccessIcon = (props: SvgIconProps) => (
@@ -34,7 +34,7 @@ const AlertSuccessIcon = (props: SvgIconProps) => (
       clipRule="evenodd"
     />
   </SvgIcon>
-);
+)
 
 /* https:// icon-sets.iconify.design/solar/danger-triangle-bold/ */
 const AlertWarningIcon = (props: SvgIconProps) => (
@@ -46,7 +46,7 @@ const AlertWarningIcon = (props: SvgIconProps) => (
       clipRule="evenodd"
     />
   </SvgIcon>
-);
+)
 
 /* https://icon-sets.iconify.design/solar/danger-bold/ */
 const AlertErrorIcon = (props: SvgIconProps) => (
@@ -58,23 +58,23 @@ const AlertErrorIcon = (props: SvgIconProps) => (
       clipRule="evenodd"
     />
   </SvgIcon>
-);
+)
 
 // ----------------------------------------------------------------------
 
-const COLORS = ['info', 'success', 'warning', 'error'] as const;
+const COLORS = ['info', 'success', 'warning', 'error'] as const
 
-type ColorType = (typeof COLORS)[number];
+type ColorType = (typeof COLORS)[number]
 
 function styleColors(ownerState: AlertProps, styles: (val: ColorType) => CSSObject) {
   const outputStyle = COLORS.reduce((acc, color) => {
     if (ownerState.severity === color) {
-      acc = styles(color);
+      acc = styles(color)
     }
-    return acc;
-  }, {});
+    return acc
+  }, {})
 
-  return outputStyle;
+  return outputStyle
 }
 
 // ----------------------------------------------------------------------
@@ -114,9 +114,9 @@ const MuiAlert: Components<Theme>['MuiAlert'] = {
             [stylesMode.dark]: { color: theme.vars.palette[color].light },
           },
         })),
-      };
+      }
 
-      return { ...styled.colors };
+      return { ...styled.colors }
     },
     /**
      * @variant filled
@@ -126,9 +126,9 @@ const MuiAlert: Components<Theme>['MuiAlert'] = {
         colors: styleColors(ownerState, (color) => ({
           color: theme.vars.palette[color].contrastText,
         })),
-      };
+      }
 
-      return { ...styled.colors };
+      return { ...styled.colors }
     },
     /**
      * @variant outlined
@@ -142,12 +142,12 @@ const MuiAlert: Components<Theme>['MuiAlert'] = {
           [stylesMode.dark]: { color: theme.vars.palette[color].light },
           [`& .${alertClasses.icon}`]: { color: theme.vars.palette[color].main },
         })),
-      };
+      }
 
-      return { ...styled.colors };
+      return { ...styled.colors }
     },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -161,8 +161,8 @@ const MuiAlertTitle: Components<Theme>['MuiAlertTitle'] = {
       fontWeight: theme.typography.fontWeightSemiBold,
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const alert = { MuiAlert, MuiAlertTitle };
+export const alert = { MuiAlert, MuiAlertTitle }

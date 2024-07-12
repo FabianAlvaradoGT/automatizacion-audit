@@ -1,12 +1,12 @@
-import { forwardRef } from 'react';
-import { Icon, disableCache } from '@iconify/react';
+import { forwardRef } from 'react'
+import { Icon, disableCache } from '@iconify/react'
 
-import Box from '@mui/material/Box';
-import NoSsr from '@mui/material/NoSsr';
+import Box from '@mui/material/Box'
+import NoSsr from '@mui/material/NoSsr'
 
-import { iconifyClasses } from './classes';
+import { iconifyClasses } from './classes'
 
-import type { IconifyProps } from './types';
+import type { IconifyProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -17,7 +17,7 @@ export const Iconify = forwardRef<SVGElement, IconifyProps>(
       height: width,
       flexShrink: 0,
       display: 'inline-flex',
-    };
+    }
 
     const renderFallback = (
       <Box
@@ -25,7 +25,7 @@ export const Iconify = forwardRef<SVGElement, IconifyProps>(
         className={iconifyClasses.root.concat(className ? ` ${className}` : '')}
         sx={{ ...baseStyles, ...sx }}
       />
-    );
+    )
 
     return (
       <NoSsr fallback={renderFallback}>
@@ -37,9 +37,9 @@ export const Iconify = forwardRef<SVGElement, IconifyProps>(
           {...other}
         />
       </NoSsr>
-    );
+    )
   }
-);
+)
 
 // https://iconify.design/docs/iconify-icon/disable-cache.html
-disableCache('local');
+disableCache('local')

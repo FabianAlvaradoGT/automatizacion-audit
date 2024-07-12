@@ -1,20 +1,20 @@
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form'
 
-import { Editor } from '../editor';
+import { Editor } from '../editor'
 
-import type { EditorProps } from '../editor';
+import type { EditorProps } from '../editor'
 
 // ----------------------------------------------------------------------
 
 type Props = EditorProps & {
-  name: string;
-};
+  name: string
+}
 
 export function RHFEditor({ name, helperText, ...other }: Props) {
   const {
     control,
     formState: { isSubmitSuccessful },
-  } = useFormContext();
+  } = useFormContext()
 
   return (
     <Controller
@@ -30,5 +30,5 @@ export function RHFEditor({ name, helperText, ...other }: Props) {
         />
       )}
     />
-  );
+  )
 }

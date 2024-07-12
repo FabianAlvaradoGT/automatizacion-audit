@@ -24,4 +24,4 @@ export const carouselClasses = {
   progress: 'mnl__carousel__progress',
   progressBar: 'mnl__carousel__progress__bar',
   state: { selected: 'state--selected', disabled: 'state--disabled' },
-};
+}

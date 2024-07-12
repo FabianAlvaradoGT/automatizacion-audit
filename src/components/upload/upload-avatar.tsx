@@ -1,16 +1,16 @@
-import { useState, useEffect } from 'react';
-import { useDropzone } from 'react-dropzone';
+import { useState, useEffect } from 'react'
+import { useDropzone } from 'react-dropzone'
 
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Image } from '../image';
-import { Iconify } from '../iconify';
-import { RejectionFiles } from './components/rejection-files';
+import { Image } from '../image'
+import { Iconify } from '../iconify'
+import { RejectionFiles } from './components/rejection-files'
 
-import type { UploadProps } from './types';
+import type { UploadProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -20,25 +20,25 @@ export function UploadAvatar({ sx, error, value, disabled, helperText, ...other 
     disabled,
     accept: { 'image/*': [] },
     ...other,
-  });
+  })
 
-  const hasFile = !!value;
+  const hasFile = !!value
 
-  const hasError = isDragReject || !!error;
+  const hasError = isDragReject || !!error
 
-  const [preview, setPreview] = useState('');
+  const [preview, setPreview] = useState('')
 
   useEffect(() => {
     if (typeof value === 'string') {
-      setPreview(value);
+      setPreview(value)
     } else if (value instanceof File) {
-      setPreview(URL.createObjectURL(value));
+      setPreview(URL.createObjectURL(value))
     }
-  }, [value]);
+  }, [value])
 
   const renderPreview = hasFile && (
     <Image alt="avatar" src={preview} sx={{ width: 1, height: 1, borderRadius: '50%' }} />
-  );
+  )
 
   const renderPlaceholder = (
     <Box
@@ -77,7 +77,7 @@ export function UploadAvatar({ sx, error, value, disabled, helperText, ...other 
 
       <Typography variant="caption">{hasFile ? 'Update photo' : 'Upload photo'}</Typography>
     </Box>
-  );
+  )
 
   const renderContent = (
     <Box
@@ -92,7 +92,7 @@ export function UploadAvatar({ sx, error, value, disabled, helperText, ...other 
       {renderPreview}
       {renderPlaceholder}
     </Box>
-  );
+  )
 
   return (
     <>
@@ -128,5 +128,5 @@ export function UploadAvatar({ sx, error, value, disabled, helperText, ...other 
 
       <RejectionFiles files={fileRejections} />
     </>
-  );
+  )
 }

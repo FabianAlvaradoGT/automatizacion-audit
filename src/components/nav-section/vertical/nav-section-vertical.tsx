@@ -1,15 +1,15 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react'
 
-import Stack from '@mui/material/Stack';
-import Collapse from '@mui/material/Collapse';
-import { useTheme } from '@mui/material/styles';
+import Stack from '@mui/material/Stack'
+import Collapse from '@mui/material/Collapse'
+import { useTheme } from '@mui/material/styles'
 
-import { NavList } from './nav-list';
-import { navSectionClasses } from '../classes';
-import { navSectionCssVars } from '../css-vars';
-import { NavUl, NavLi, Subheader } from '../styles';
+import { NavList } from './nav-list'
+import { navSectionClasses } from '../classes'
+import { navSectionCssVars } from '../css-vars'
+import { NavUl, NavLi, Subheader } from '../styles'
 
-import type { NavGroupProps, NavSectionProps } from '../types';
+import type { NavGroupProps, NavSectionProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -21,12 +21,12 @@ export function NavSectionVertical({
   enabledRootRedirect,
   cssVars: overridesVars,
 }: NavSectionProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const cssVars = {
     ...navSectionCssVars.vertical(theme),
     ...overridesVars,
-  };
+  }
 
   return (
     <Stack component="nav" className={navSectionClasses.vertical.root} sx={{ ...cssVars, ...sx }}>
@@ -43,17 +43,17 @@ export function NavSectionVertical({
         ))}
       </NavUl>
     </Stack>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
 
 function Group({ items, render, subheader, slotProps, enabledRootRedirect }: NavGroupProps) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true)
 
   const handleToggle = useCallback(() => {
-    setOpen((prev) => !prev);
-  }, []);
+    setOpen((prev) => !prev)
+  }, [])
 
   const renderContent = (
     <NavUl sx={{ gap: 'var(--nav-item-gap)' }}>
@@ -68,7 +68,7 @@ function Group({ items, render, subheader, slotProps, enabledRootRedirect }: Nav
         />
       ))}
     </NavUl>
-  );
+  )
 
   return (
     <NavLi>
@@ -89,5 +89,5 @@ function Group({ items, render, subheader, slotProps, enabledRootRedirect }: Nav
         renderContent
       )}
     </NavLi>
-  );
+  )
 }

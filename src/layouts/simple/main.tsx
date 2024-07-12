@@ -1,8 +1,8 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import Box from '@mui/material/Box';
+import Box from '@mui/material/Box'
 
-import { layoutClasses } from '../classes';
+import { layoutClasses } from '../classes'
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ export function Main({ children, sx, ...other }: BoxProps) {
     >
       {children}
     </Box>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -46,5 +46,5 @@ export function CompactContent({ children, sx, ...other }: BoxProps) {
     >
       {children}
     </Box>
-  );
+  )
 }

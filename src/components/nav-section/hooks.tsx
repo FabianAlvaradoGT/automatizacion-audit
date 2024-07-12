@@ -1,30 +1,30 @@
-import { cloneElement } from 'react';
+import { cloneElement } from 'react'
 
-import { RouterLink } from 'src/routes/components';
+import { RouterLink } from 'src/routes/components'
 
-import type { NavItemProps } from './types';
+import type { NavItemProps } from './types'
 
 // ----------------------------------------------------------------------
 
 export type UseNavItemReturn = {
-  subItem: boolean;
-  rootItem: boolean;
-  subDeepItem: boolean;
-  baseProps: Record<string, any>;
-  renderIcon: React.ReactNode;
-  renderInfo: React.ReactNode;
-};
+  subItem: boolean
+  rootItem: boolean
+  subDeepItem: boolean
+  baseProps: Record<string, any>
+  renderIcon: React.ReactNode
+  renderInfo: React.ReactNode
+}
 
 export type UseNavItemProps = {
-  path: NavItemProps['path'];
-  icon?: NavItemProps['icon'];
-  info?: NavItemProps['info'];
-  depth?: NavItemProps['depth'];
-  render?: NavItemProps['render'];
-  hasChild?: NavItemProps['hasChild'];
-  externalLink?: NavItemProps['externalLink'];
-  enabledRootRedirect?: NavItemProps['enabledRootRedirect'];
-};
+  path: NavItemProps['path']
+  icon?: NavItemProps['icon']
+  info?: NavItemProps['info']
+  depth?: NavItemProps['depth']
+  render?: NavItemProps['render']
+  hasChild?: NavItemProps['hasChild']
+  externalLink?: NavItemProps['externalLink']
+  enabledRootRedirect?: NavItemProps['enabledRootRedirect']
+}
 
 export function useNavItem({
   path,
@@ -36,41 +36,41 @@ export function useNavItem({
   externalLink,
   enabledRootRedirect,
 }: UseNavItemProps): UseNavItemReturn {
-  const rootItem = depth === 1;
+  const rootItem = depth === 1
 
-  const subItem = !rootItem;
+  const subItem = !rootItem
 
-  const subDeepItem = Number(depth) > 2;
+  const subDeepItem = Number(depth) > 2
 
   const linkProps = externalLink
     ? { href: path, target: '_blank', rel: 'noopener' }
-    : { component: RouterLink, href: path };
+    : { component: RouterLink, href: path }
 
-  const baseProps = hasChild && !enabledRootRedirect ? { component: 'div' } : linkProps;
+  const baseProps = hasChild && !enabledRootRedirect ? { component: 'div' } : linkProps
 
   /**
    * Render @icon
    */
-  let renderIcon = null;
+  let renderIcon = null
 
   if (icon && render?.navIcon && typeof icon === 'string') {
-    renderIcon = render?.navIcon[icon];
+    renderIcon = render?.navIcon[icon]
   } else {
-    renderIcon = icon;
+    renderIcon = icon
   }
 
   /**
    * Render @info
    */
-  let renderInfo = null;
+  let renderInfo = null
 
   if (info && render?.navInfo && Array.isArray(info)) {
-    const [key, value] = info;
-    const element = render.navInfo(value)[key];
+    const [key, value] = info
+    const element = render.navInfo(value)[key]
 
-    renderInfo = element ? cloneElement(element) : null;
+    renderInfo = element ? cloneElement(element) : null
   } else {
-    renderInfo = info;
+    renderInfo = info
   }
 
   return {
@@ -80,5 +80,5 @@ export function useNavItem({
     baseProps,
     renderIcon,
     renderInfo,
-  };
+  }
 }

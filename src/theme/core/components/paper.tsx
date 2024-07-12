@@ -1,6 +1,6 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { varAlpha } from '../../styles';
+import { varAlpha } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -19,8 +19,8 @@ const MuiPaper: Components<Theme>['MuiPaper'] = {
       borderColor: varAlpha(theme.vars.palette.grey['500Channel'], 0.16),
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const paper = { MuiPaper };
+export const paper = { MuiPaper }

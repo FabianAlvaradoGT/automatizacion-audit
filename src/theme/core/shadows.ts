@@ -1,18 +1,18 @@
-import type { Shadows } from '@mui/material/styles';
+import type { Shadows } from '@mui/material/styles'
 
-import { varAlpha } from '../styles';
-import { grey, common } from './palette';
+import { varAlpha } from '../styles'
+import { grey, common } from './palette'
 
-import type { ThemeColorScheme } from '../types';
+import type { ThemeColorScheme } from '../types'
 
 // ----------------------------------------------------------------------
 
 export function shadows(colorScheme: ThemeColorScheme): Shadows {
-  const colorChannel = colorScheme === 'light' ? grey['500Channel'] : common.blackChannel;
+  const colorChannel = colorScheme === 'light' ? grey['500Channel'] : common.blackChannel
 
-  const color1 = varAlpha(colorChannel, 0.2);
-  const color2 = varAlpha(colorChannel, 0.14);
-  const color3 = varAlpha(colorChannel, 0.12);
+  const color1 = varAlpha(colorChannel, 0.2)
+  const color2 = varAlpha(colorChannel, 0.14)
+  const color3 = varAlpha(colorChannel, 0.12)
 
   return [
     'none',
@@ -40,5 +40,5 @@ export function shadows(colorScheme: ThemeColorScheme): Shadows {
     `0px 10px 14px -6px ${color1},0px 22px 35px 3px ${color2},0px 8px 42px 7px ${color3}`,
     `0px 11px 14px -7px ${color1},0px 23px 36px 3px ${color2},0px 9px 44px 8px ${color3}`,
     `0px 11px 15px -7px ${color1},0px 24px 38px 3px ${color2},0px 9px 46px 8px ${color3}`,
-  ];
+  ]
 }

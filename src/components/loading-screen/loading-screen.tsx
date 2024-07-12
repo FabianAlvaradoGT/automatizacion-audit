@@ -1,14 +1,14 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import Box from '@mui/material/Box';
-import Portal from '@mui/material/Portal';
-import LinearProgress from '@mui/material/LinearProgress';
+import Box from '@mui/material/Box'
+import Portal from '@mui/material/Portal'
+import LinearProgress from '@mui/material/LinearProgress'
 
 // ----------------------------------------------------------------------
 
 type Props = BoxProps & {
-  portal?: boolean;
-};
+  portal?: boolean
+}
 
 export function LoadingScreen({ portal, sx, ...other }: Props) {
   const content = (
@@ -27,11 +27,11 @@ export function LoadingScreen({ portal, sx, ...other }: Props) {
     >
       <LinearProgress color="inherit" sx={{ width: 1, maxWidth: 360 }} />
     </Box>
-  );
+  )
 
   if (portal) {
-    return <Portal>{content}</Portal>;
+    return <Portal>{content}</Portal>
   }
 
-  return content;
+  return content
 }

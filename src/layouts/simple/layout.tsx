@@ -1,27 +1,27 @@
-import type { Theme, SxProps, Breakpoint } from '@mui/material/styles';
+import type { Theme, SxProps, Breakpoint } from '@mui/material/styles'
 
-import Alert from '@mui/material/Alert';
+import Alert from '@mui/material/Alert'
 
-import { useBoolean } from 'src/hooks/use-boolean';
+import { useBoolean } from 'src/hooks/use-boolean'
 
-import { Main, CompactContent } from './main';
-import { HeaderBase } from '../core/header-base';
-import { LayoutSection } from '../core/layout-section';
+import { Main, CompactContent } from './main'
+import { HeaderBase } from '../core/header-base'
+import { LayoutSection } from '../core/layout-section'
 
 // ----------------------------------------------------------------------
 
 export type SimpleLayoutProps = {
-  sx?: SxProps<Theme>;
-  children: React.ReactNode;
+  sx?: SxProps<Theme>
+  children: React.ReactNode
   content?: {
-    compact?: boolean;
-  };
-};
+    compact?: boolean
+  }
+}
 
 export function SimpleLayout({ sx, children, content }: SimpleLayoutProps) {
-  const mobileNavOpen = useBoolean();
+  const mobileNavOpen = useBoolean()
 
-  const layoutQuery: Breakpoint = 'md';
+  const layoutQuery: Breakpoint = 'md'
 
   return (
     <LayoutSection
@@ -67,5 +67,5 @@ export function SimpleLayout({ sx, children, content }: SimpleLayoutProps) {
     >
       <Main>{content?.compact ? <CompactContent>{children}</CompactContent> : children}</Main>
     </LayoutSection>
-  );
+  )
 }

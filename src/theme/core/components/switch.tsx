@@ -1,8 +1,8 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { switchClasses } from '@mui/material/Switch';
+import { switchClasses } from '@mui/material/Switch'
 
-import { varAlpha, stylesMode } from '../../styles';
+import { varAlpha, stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -48,8 +48,8 @@ const MuiSwitch: Components<Theme>['MuiSwitch'] = {
       [`& .${switchClasses.thumb}`]: { width: 10, height: 10 },
     },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const switches = { MuiSwitch };
+export const switches = { MuiSwitch }

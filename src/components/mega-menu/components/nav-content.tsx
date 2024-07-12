@@ -1,13 +1,13 @@
-import Masonry from '@mui/lab/Masonry';
-import Divider from '@mui/material/Divider';
+import Masonry from '@mui/lab/Masonry'
+import Divider from '@mui/material/Divider'
 
-import { MenuTags } from './menu-tags';
-import { NavSubList } from './nav-sub-list';
-import { MenuCarousel } from './menu-carousel';
-import { MenuMoreLink } from './menu-more-link';
-import { NavUl, navSectionClasses } from '../../nav-section';
+import { MenuTags } from './menu-tags'
+import { NavSubList } from './nav-sub-list'
+import { MenuCarousel } from './menu-carousel'
+import { MenuMoreLink } from './menu-more-link'
+import { NavUl, navSectionClasses } from '../../nav-section'
 
-import type { NavListProps } from '../types';
+import type { NavListProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -16,10 +16,10 @@ export function NavContent({
   slotProps,
   singleList,
 }: NavListProps & {
-  singleList: boolean;
+  singleList: boolean
 }) {
   if (!data.children) {
-    return null;
+    return null
   }
 
   return (
@@ -70,5 +70,5 @@ export function NavContent({
         </>
       )}
     </>
-  );
+  )
 }

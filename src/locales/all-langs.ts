@@ -4,14 +4,14 @@ import {
   viVN as viVNCore,
   zhCN as zhCNCore,
   arSA as arSACore,
-} from '@mui/material/locale';
+} from '@mui/material/locale'
 // date pickers (MUI)
 import {
   enUS as enUSDate,
   frFR as frFRDate,
   viVN as viVNDate,
   zhCN as zhCNDate,
-} from '@mui/x-date-pickers/locales';
+} from '@mui/x-date-pickers/locales'
 // data grid (MUI)
 import {
   enUS as enUSDataGrid,
@@ -19,7 +19,7 @@ import {
   viVN as viVNDataGrid,
   zhCN as zhCNDataGrid,
   arSD as arSDDataGrid,
-} from '@mui/x-data-grid/locales';
+} from '@mui/x-data-grid/locales'
 
 // ----------------------------------------------------------------------
 
@@ -74,7 +74,7 @@ export const allLangs = [
       components: { ...arSACore.components, ...arSDDataGrid.components },
     },
   },
-];
+]
 
 /**
  * Country code:

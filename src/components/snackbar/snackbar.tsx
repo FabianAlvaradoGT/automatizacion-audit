@@ -1,8 +1,8 @@
-import Portal from '@mui/material/Portal';
+import Portal from '@mui/material/Portal'
 
-import { Iconify } from '../iconify';
-import { StyledToaster } from './styles';
-import { toasterClasses } from './classes';
+import { Iconify } from '../iconify'
+import { StyledToaster } from './styles'
+import { toasterClasses } from './classes'
 
 // ----------------------------------------------------------------------
 
@@ -47,5 +47,5 @@ export function Snackbar() {
         }}
       />
     </Portal>
-  );
+  )
 }

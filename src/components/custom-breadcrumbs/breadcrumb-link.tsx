@@ -1,17 +1,17 @@
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
+import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
 
-import { RouterLink } from 'src/routes/components';
+import { RouterLink } from 'src/routes/components'
 
-import type { BreadcrumbsLinkProps } from './types';
+import type { BreadcrumbsLinkProps } from './types'
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  disabled: boolean;
-  activeLast?: boolean;
-  link: BreadcrumbsLinkProps;
-};
+  disabled: boolean
+  activeLast?: boolean
+  link: BreadcrumbsLinkProps
+}
 
 export function BreadcrumbsLink({ link, activeLast, disabled }: Props) {
   const styles = {
@@ -21,7 +21,7 @@ export function BreadcrumbsLink({ link, activeLast, disabled }: Props) {
     display: 'inline-flex',
     ...(disabled &&
       !activeLast && { cursor: 'default', pointerEvents: 'none', color: 'text.disabled' }),
-  };
+  }
 
   const renderContent = (
     <>
@@ -43,15 +43,15 @@ export function BreadcrumbsLink({ link, activeLast, disabled }: Props) {
 
       {link.name}
     </>
-  );
+  )
 
   if (link.href) {
     return (
       <Link component={RouterLink} href={link.href} sx={styles}>
         {renderContent}
       </Link>
-    );
+    )
   }
 
-  return <Box sx={styles}> {renderContent} </Box>;
+  return <Box sx={styles}> {renderContent} </Box>
 }

@@ -1,37 +1,37 @@
-import type { IUserProfileFollower } from 'src/types/user';
+import type { IUserProfileFollower } from 'src/types/user'
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react'
 
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-import ListItemText from '@mui/material/ListItemText';
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import Button from '@mui/material/Button'
+import Avatar from '@mui/material/Avatar'
+import Typography from '@mui/material/Typography'
+import ListItemText from '@mui/material/ListItemText'
 
-import { Iconify } from 'src/components/iconify';
+import { Iconify } from 'src/components/iconify'
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  followers: IUserProfileFollower[];
-};
+  followers: IUserProfileFollower[]
+}
 
 export function ProfileFollowers({ followers }: Props) {
-  const _mockFollowed = followers.slice(4, 8).map((i) => i.id);
+  const _mockFollowed = followers.slice(4, 8).map((i) => i.id)
 
-  const [followed, setFollowed] = useState<string[]>(_mockFollowed);
+  const [followed, setFollowed] = useState<string[]>(_mockFollowed)
 
   const handleClick = useCallback(
     (item: string) => {
       const selected = followed.includes(item)
         ? followed.filter((value) => value !== item)
-        : [...followed, item];
+        : [...followed, item]
 
-      setFollowed(selected);
+      setFollowed(selected)
     },
     [followed]
-  );
+  )
 
   return (
     <>
@@ -54,19 +54,19 @@ export function ProfileFollowers({ followers }: Props) {
         ))}
       </Box>
     </>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
 
 type FollowerItemProps = {
-  selected: boolean;
-  onSelected: () => void;
-  follower: IUserProfileFollower;
-};
+  selected: boolean
+  onSelected: () => void
+  follower: IUserProfileFollower
+}
 
 function FollowerItem({ follower, selected, onSelected }: FollowerItemProps) {
-  const { name, country, avatarUrl } = follower;
+  const { name, country, avatarUrl } = follower
 
   return (
     <Card sx={{ display: 'flex', alignItems: 'center', p: (theme) => theme.spacing(3, 2, 3, 3) }}>
@@ -105,5 +105,5 @@ function FollowerItem({ follower, selected, onSelected }: FollowerItemProps) {
         {selected ? 'Followed' : 'Follow'}
       </Button>
     </Card>
-  );
+  )
 }

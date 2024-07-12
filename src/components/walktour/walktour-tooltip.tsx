@@ -1,14 +1,14 @@
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
+import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Iconify } from 'src/components/iconify';
+import { Iconify } from 'src/components/iconify'
 
-import type { WalktourTooltipProps } from './types';
+import type { WalktourTooltipProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -33,21 +33,21 @@ export function WalktourTooltip({
     showSkipButton,
     hideBackButton,
     hideCloseButton,
-  } = step;
+  } = step
 
-  const progress = ((index + 1) / size) * 100;
+  const progress = ((index + 1) / size) * 100
 
   const renderSkipBtn = index > 0 && !isLastStep && (
     <Button {...skipProps} disableRipple {...slotProps?.skipBtn}>
       {skipProps.title}
     </Button>
-  );
+  )
 
   const renderBackBtn = index > 0 && (
     <Button {...backProps} disableRipple variant="outlined" {...slotProps?.backBtn}>
       {backProps.title}
     </Button>
-  );
+  )
 
   const renderNextBtn = continuous && (
     <Button
@@ -60,7 +60,7 @@ export function WalktourTooltip({
     >
       {primaryProps.title}
     </Button>
-  );
+  )
 
   const renderCloseBtn = !isLastStep && (
     <IconButton
@@ -77,7 +77,7 @@ export function WalktourTooltip({
     >
       <Iconify icon="mingcute:close-line" width={16} />
     </IconButton>
-  );
+  )
 
   const renderProgress = (
     <LinearProgress
@@ -94,7 +94,7 @@ export function WalktourTooltip({
         ...slotProps?.progress,
       }}
     />
-  );
+  )
 
   return (
     <Box
@@ -141,5 +141,5 @@ export function WalktourTooltip({
         </Box>
       )}
     </Box>
-  );
+  )
 }

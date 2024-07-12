@@ -1,26 +1,26 @@
-import type { IUserCard } from 'src/types/user';
+import type { IUserCard } from 'src/types/user'
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react'
 
-import Box from '@mui/material/Box';
-import Pagination from '@mui/material/Pagination';
+import Box from '@mui/material/Box'
+import Pagination from '@mui/material/Pagination'
 
-import { UserCard } from './user-card';
+import { UserCard } from './user-card'
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  users: IUserCard[];
-};
+  users: IUserCard[]
+}
 
 export function UserCardList({ users }: Props) {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1)
 
-  const rowsPerPage = 12;
+  const rowsPerPage = 12
 
   const handleChangePage = useCallback((event: React.ChangeEvent<unknown>, newPage: number) => {
-    setPage(newPage);
-  }, []);
+    setPage(newPage)
+  }, [])
 
   return (
     <>
@@ -44,5 +44,5 @@ export function UserCardList({ users }: Props) {
         sx={{ mt: { xs: 5, md: 8 }, mx: 'auto' }}
       />
     </>
-  );
+  )
 }

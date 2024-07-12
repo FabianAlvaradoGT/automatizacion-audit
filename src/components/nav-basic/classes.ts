@@ -7,4 +7,4 @@ export const navBasicClasses = {
   mobile: {
     root: 'nav__basic__mobile',
   },
-};
+}

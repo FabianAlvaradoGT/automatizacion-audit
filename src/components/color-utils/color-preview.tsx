@@ -1,20 +1,20 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import { forwardRef } from 'react';
+import { forwardRef } from 'react'
 
-import Box from '@mui/material/Box';
+import Box from '@mui/material/Box'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import type { ColorPreviewProps } from './types';
+import type { ColorPreviewProps } from './types'
 
 // ----------------------------------------------------------------------
 
 export const ColorPreview = forwardRef<HTMLDivElement, BoxProps & ColorPreviewProps>(
   ({ colors, limit = 3, sx, ...other }, ref) => {
-    const colorsRange = colors.slice(0, limit);
+    const colorsRange = colors.slice(0, limit)
 
-    const restColors = colors.length - limit;
+    const restColors = colors.length - limit
 
     return (
       <Box
@@ -48,6 +48,6 @@ export const ColorPreview = forwardRef<HTMLDivElement, BoxProps & ColorPreviewPr
           <Box component="span" sx={{ typography: 'subtitle2' }}>{`+${restColors}`}</Box>
         )}
       </Box>
-    );
+    )
   }
-);
+)

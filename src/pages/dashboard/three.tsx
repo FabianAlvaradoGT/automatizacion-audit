@@ -1,12 +1,12 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet-async'
 
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
-import { BlankView } from 'src/sections/blank/view';
+import { BlankView } from 'src/sections/blank/view'
 
 // ----------------------------------------------------------------------
 
-const metadata = { title: `Page three | Dashboard - ${CONFIG.site.name}` };
+const metadata = { title: `Page three | Dashboard - ${CONFIG.site.name}` }
 
 export default function Page() {
   return (
@@ -17,5 +17,5 @@ export default function Page() {
 
       <BlankView title="Page three" />
     </>
-  );
+  )
 }

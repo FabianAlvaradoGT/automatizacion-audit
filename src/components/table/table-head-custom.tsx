@@ -1,11 +1,11 @@
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { Theme, SxProps } from '@mui/material/styles'
 
-import Box from '@mui/material/Box';
-import TableRow from '@mui/material/TableRow';
-import Checkbox from '@mui/material/Checkbox';
-import TableHead from '@mui/material/TableHead';
-import TableCell from '@mui/material/TableCell';
-import TableSortLabel from '@mui/material/TableSortLabel';
+import Box from '@mui/material/Box'
+import TableRow from '@mui/material/TableRow'
+import Checkbox from '@mui/material/Checkbox'
+import TableHead from '@mui/material/TableHead'
+import TableCell from '@mui/material/TableCell'
+import TableSortLabel from '@mui/material/TableSortLabel'
 
 // ----------------------------------------------------------------------
 
@@ -19,20 +19,20 @@ const visuallyHidden = {
   position: 'absolute',
   whiteSpace: 'nowrap',
   clip: 'rect(0 0 0 0)',
-} as const;
+} as const
 
 // ----------------------------------------------------------------------
 
 export type TableHeadCustomProps = {
-  orderBy?: string;
-  rowCount?: number;
-  sx?: SxProps<Theme>;
-  numSelected?: number;
-  order?: 'asc' | 'desc';
-  onSort?: (id: string) => void;
-  headLabel: Record<string, any>[];
-  onSelectAllRows?: (checked: boolean) => void;
-};
+  orderBy?: string
+  rowCount?: number
+  sx?: SxProps<Theme>
+  numSelected?: number
+  order?: 'asc' | 'desc'
+  onSort?: (id: string) => void
+  headLabel: Record<string, any>[]
+  onSelectAllRows?: (checked: boolean) => void
+}
 
 export function TableHeadCustom({
   sx,
@@ -92,5 +92,5 @@ export function TableHeadCustom({
         ))}
       </TableRow>
     </TableHead>
-  );
+  )
 }

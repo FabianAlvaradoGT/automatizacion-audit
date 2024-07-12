@@ -1,16 +1,16 @@
-import type { BoxProps } from '@mui/material/Box';
-import type { CollapseProps } from '@mui/material/Collapse';
-import type { ListSubheaderProps } from '@mui/material/ListSubheader';
+import type { BoxProps } from '@mui/material/Box'
+import type { CollapseProps } from '@mui/material/Collapse'
+import type { ListSubheaderProps } from '@mui/material/ListSubheader'
 
-import Box from '@mui/material/Box';
-import Collapse from '@mui/material/Collapse';
-import ListSubheader from '@mui/material/ListSubheader';
+import Box from '@mui/material/Box'
+import Collapse from '@mui/material/Collapse'
+import ListSubheader from '@mui/material/ListSubheader'
 
-import { stylesMode } from 'src/theme/styles';
+import { stylesMode } from 'src/theme/styles'
 
-import { navSectionClasses } from './classes';
-import { svgColorClasses } from '../svg-color';
-import { Iconify, iconifyClasses } from '../iconify';
+import { navSectionClasses } from './classes'
+import { svgColorClasses } from '../svg-color'
+import { Iconify, iconifyClasses } from '../iconify'
 
 // ----------------------------------------------------------------------
 
@@ -19,21 +19,21 @@ export function stateClasses({
   active,
   disabled,
 }: {
-  open?: boolean;
-  active?: boolean;
-  disabled?: boolean;
+  open?: boolean
+  active?: boolean
+  disabled?: boolean
 }) {
-  let classes = navSectionClasses.item.root;
+  let classes = navSectionClasses.item.root
 
   if (active) {
-    classes += ` ${navSectionClasses.state.active}`;
+    classes += ` ${navSectionClasses.state.active}`
   } else if (open) {
-    classes += ` ${navSectionClasses.state.open}`;
+    classes += ` ${navSectionClasses.state.open}`
   } else if (disabled) {
-    classes += ` ${navSectionClasses.state.disabled}`;
+    classes += ` ${navSectionClasses.state.disabled}`
   }
 
-  return classes;
+  return classes
 }
 
 // ----------------------------------------------------------------------
@@ -71,7 +71,7 @@ export const sharedStyles = {
     textOverflow: 'ellipsis',
   },
   disabled: { opacity: 0.48, pointerEvents: 'none' },
-} as const;
+} as const
 
 // ----------------------------------------------------------------------
 
@@ -81,7 +81,7 @@ export function Subheader({
   children,
   ...other
 }: ListSubheaderProps & {
-  open?: boolean;
+  open?: boolean
 }) {
   return (
     <ListSubheader
@@ -128,7 +128,7 @@ export function Subheader({
 
       {children}
     </ListSubheader>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -139,7 +139,7 @@ export function NavCollapse({
   children,
   ...other
 }: CollapseProps & {
-  depth: number;
+  depth: number
 }) {
   return (
     <Collapse
@@ -169,7 +169,7 @@ export function NavCollapse({
     >
       {children}
     </Collapse>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -180,7 +180,7 @@ export function NavLi({
   disabled,
   ...other
 }: BoxProps & {
-  disabled?: boolean;
+  disabled?: boolean
 }) {
   return (
     <Box
@@ -196,7 +196,7 @@ export function NavLi({
     >
       {children}
     </Box>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -215,5 +215,5 @@ export function NavUl({ children, sx, ...other }: BoxProps) {
     >
       {children}
     </Box>
-  );
+  )
 }

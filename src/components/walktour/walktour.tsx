@@ -1,12 +1,12 @@
-import Joyride from 'react-joyride';
+import Joyride from 'react-joyride'
 
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { WalktourTooltip } from './walktour-tooltip';
+import { WalktourTooltip } from './walktour-tooltip'
 
-import type { WalktourProps } from './types';
+import type { WalktourProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -19,13 +19,13 @@ export function Walktour({
   disableOverlayClose = true,
   ...other
 }: WalktourProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const arrowStyles = {
     width: 20,
     height: 10,
     color: theme.vars.palette.background.paper,
-  };
+  }
 
   return (
     <Joyride
@@ -67,5 +67,5 @@ export function Walktour({
       }}
       {...other}
     />
-  );
+  )
 }

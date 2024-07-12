@@ -1,18 +1,18 @@
-import type { Breakpoint } from '@mui/material/styles';
-import type { NavSectionProps } from 'src/components/nav-section';
+import type { Breakpoint } from '@mui/material/styles'
+import type { NavSectionProps } from 'src/components/nav-section'
 
-import Box from '@mui/material/Box';
-import Divider from '@mui/material/Divider';
+import Box from '@mui/material/Box'
+import Divider from '@mui/material/Divider'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { NavSectionHorizontal } from 'src/components/nav-section';
+import { NavSectionHorizontal } from 'src/components/nav-section'
 
 // ----------------------------------------------------------------------
 
 export type NavHorizontalProps = NavSectionProps & {
-  layoutQuery: Breakpoint;
-};
+  layoutQuery: Breakpoint
+}
 
 export function NavHorizontal({ data, layoutQuery, sx, ...other }: NavHorizontalProps) {
   return (
@@ -43,5 +43,5 @@ export function NavHorizontal({ data, layoutQuery, sx, ...other }: NavHorizontal
         <NavSectionHorizontal data={data} {...other} />
       </Box>
     </Box>
-  );
+  )
 }

@@ -22,4 +22,4 @@ export const toasterClasses = {
   loader: 'sonner-loader',
   loaderVisible: '&[data-visible="true"]',
   closeBtnVisible: '[data-close-button="true"]',
-};
+}

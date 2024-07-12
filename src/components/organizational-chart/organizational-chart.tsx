@@ -1,20 +1,20 @@
-import { cloneElement } from 'react';
-import { Tree, TreeNode } from 'react-organizational-chart';
+import { cloneElement } from 'react'
+import { Tree, TreeNode } from 'react-organizational-chart'
 
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles'
 
-import { flattenArray } from 'src/utils/helper';
+import { flattenArray } from 'src/utils/helper'
 
-import type { OrgChartProps, OrgChartListProps, OrgChartSubListProps } from './types';
+import type { OrgChartProps, OrgChartListProps, OrgChartSubListProps } from './types'
 
 // ----------------------------------------------------------------------
 
 export function OrganizationalChart<T>({ data, nodeItem, ...other }: OrgChartProps<T>) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const cloneNode = (props: T) => cloneElement(nodeItem(props));
+  const cloneNode = (props: T) => cloneElement(nodeItem(props))
 
-  const label = cloneNode({ ...data } as T);
+  const label = cloneNode({ ...data } as T)
 
   return (
     <Tree
@@ -29,25 +29,25 @@ export function OrganizationalChart<T>({ data, nodeItem, ...other }: OrgChartPro
         <TreeList key={index} depth={1} data={list} nodeItem={nodeItem} />
       ))}
     </Tree>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
 
 export function TreeList<T>({ data, depth, nodeItem }: OrgChartListProps<T>) {
-  const childs = (data as any).children;
+  const childs = (data as any).children
 
-  const cloneNode = (props: T) => cloneElement(nodeItem(props));
+  const cloneNode = (props: T) => cloneElement(nodeItem(props))
 
-  const totalChildren = childs ? flattenArray(childs)?.length : 0;
+  const totalChildren = childs ? flattenArray(childs)?.length : 0
 
-  const label = cloneNode({ ...data, depth, totalChildren } as T);
+  const label = cloneNode({ ...data, depth, totalChildren } as T)
 
   return (
     <TreeNode label={label}>
       {childs && <TreeSubList data={childs} depth={depth} nodeItem={nodeItem} />}
     </TreeNode>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -59,5 +59,5 @@ function TreeSubList<T>({ data, depth, nodeItem }: OrgChartSubListProps<T>) {
         <TreeList key={index} data={list} depth={depth + 1} nodeItem={nodeItem} />
       ))}
     </>
-  );
+  )
 }

@@ -1,99 +1,99 @@
-import type { BoxProps } from '@mui/material/Box';
-import type { NavSectionProps } from 'src/components/nav-section';
+import type { BoxProps } from '@mui/material/Box'
+import type { NavSectionProps } from 'src/components/nav-section'
 
-import { useState, useCallback } from 'react';
-import parse from 'autosuggest-highlight/parse';
-import match from 'autosuggest-highlight/match';
+import { useState, useCallback } from 'react'
+import parse from 'autosuggest-highlight/parse'
+import match from 'autosuggest-highlight/match'
 
-import Box from '@mui/material/Box';
-import SvgIcon from '@mui/material/SvgIcon';
-import InputBase from '@mui/material/InputBase';
-import { useTheme } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import InputAdornment from '@mui/material/InputAdornment';
-import Dialog, { dialogClasses } from '@mui/material/Dialog';
+import Box from '@mui/material/Box'
+import SvgIcon from '@mui/material/SvgIcon'
+import InputBase from '@mui/material/InputBase'
+import { useTheme } from '@mui/material/styles'
+import IconButton from '@mui/material/IconButton'
+import InputAdornment from '@mui/material/InputAdornment'
+import Dialog, { dialogClasses } from '@mui/material/Dialog'
 
-import { useRouter } from 'src/routes/hooks';
-import { isExternalLink } from 'src/routes/utils';
+import { useRouter } from 'src/routes/hooks'
+import { isExternalLink } from 'src/routes/utils'
 
-import { useBoolean } from 'src/hooks/use-boolean';
-import { useEventListener } from 'src/hooks/use-event-listener';
+import { useBoolean } from 'src/hooks/use-boolean'
+import { useEventListener } from 'src/hooks/use-event-listener'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Label } from 'src/components/label';
-import { Iconify } from 'src/components/iconify';
-import { Scrollbar } from 'src/components/scrollbar';
-import { SearchNotFound } from 'src/components/search-not-found';
+import { Label } from 'src/components/label'
+import { Iconify } from 'src/components/iconify'
+import { Scrollbar } from 'src/components/scrollbar'
+import { SearchNotFound } from 'src/components/search-not-found'
 
-import { ResultItem } from './result-item';
-import { groupItems, applyFilter, getAllItems } from './utils';
+import { ResultItem } from './result-item'
+import { groupItems, applyFilter, getAllItems } from './utils'
 
 // ----------------------------------------------------------------------
 
 export type SearchbarProps = BoxProps & {
-  data?: NavSectionProps['data'];
-};
+  data?: NavSectionProps['data']
+}
 
 export function Searchbar({ data: navItems = [], sx, ...other }: SearchbarProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const router = useRouter();
+  const router = useRouter()
 
-  const search = useBoolean();
+  const search = useBoolean()
 
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('')
 
   const handleClose = useCallback(() => {
-    search.onFalse();
-    setSearchQuery('');
-  }, [search]);
+    search.onFalse()
+    setSearchQuery('')
+  }, [search])
 
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'k' && event.metaKey) {
-      search.onToggle();
-      setSearchQuery('');
+      search.onToggle()
+      setSearchQuery('')
     }
-  };
+  }
 
-  useEventListener('keydown', handleKeyDown);
+  useEventListener('keydown', handleKeyDown)
 
   const handleClick = useCallback(
     (path: string) => {
       if (isExternalLink(path)) {
-        window.open(path);
+        window.open(path)
       } else {
-        router.push(path);
+        router.push(path)
       }
-      handleClose();
+      handleClose()
     },
     [handleClose, router]
-  );
+  )
 
   const handleSearch = useCallback((event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setSearchQuery(event.target.value);
-  }, []);
+    setSearchQuery(event.target.value)
+  }, [])
 
   const dataFiltered = applyFilter({
     inputData: getAllItems({ data: navItems }),
     query: searchQuery,
-  });
+  })
 
-  const notFound = searchQuery && !dataFiltered.length;
+  const notFound = searchQuery && !dataFiltered.length
 
   const renderItems = () => {
-    const dataGroups = groupItems(dataFiltered);
+    const dataGroups = groupItems(dataFiltered)
 
     return Object.keys(dataGroups)
       .sort((a, b) => -b.localeCompare(a))
       .map((group, index) => (
         <Box component="ul" key={`${group}-${index}`}>
           {dataGroups[group].map((item) => {
-            const { title, path } = item;
+            const { title, path } = item
 
-            const partsTitle = parse(title, match(title, searchQuery));
+            const partsTitle = parse(title, match(title, searchQuery))
 
-            const partsPath = parse(path, match(path, searchQuery));
+            const partsPath = parse(path, match(path, searchQuery))
 
             return (
               <Box component="li" key={`${title}${path}`} sx={{ display: 'flex' }}>
@@ -104,11 +104,11 @@ export function Searchbar({ data: navItems = [], sx, ...other }: SearchbarProps)
                   onClickItem={() => handleClick(path)}
                 />
               </Box>
-            );
+            )
           })}
         </Box>
-      ));
-  };
+      ))
+  }
 
   const renderButton = (
     <Box
@@ -146,7 +146,7 @@ export function Searchbar({ data: navItems = [], sx, ...other }: SearchbarProps)
         ⌘K
       </Label>
     </Box>
-  );
+  )
 
   return (
     <>
@@ -186,5 +186,5 @@ export function Searchbar({ data: navItems = [], sx, ...other }: SearchbarProps)
         )}
       </Dialog>
     </>
-  );
+  )
 }

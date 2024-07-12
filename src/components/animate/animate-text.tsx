@@ -1,13 +1,13 @@
-import type { TypographyProps } from '@mui/material/Typography';
-import type { Variants, UseInViewOptions } from 'framer-motion';
+import type { TypographyProps } from '@mui/material/Typography'
+import type { Variants, UseInViewOptions } from 'framer-motion'
 
-import { useRef, useEffect } from 'react';
-import { m, useInView, useAnimation } from 'framer-motion';
+import { useRef, useEffect } from 'react'
+import { m, useInView, useAnimation } from 'framer-motion'
 
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
-import { varFade, varContainer } from './variants';
+import { varFade, varContainer } from './variants'
 
 // ----------------------------------------------------------------------
 
@@ -20,15 +20,15 @@ export const animateTextClasses = {
   space: 'animate-text-space',
   srOnly: 'sr-only',
   dataIndex: '[data-columns="3"]',
-};
+}
 
 export type AnimateTextProps = TypographyProps & {
-  variants?: Variants;
-  repeatDelay?: number;
-  text: string | string[];
-  once?: UseInViewOptions['once'];
-  amount?: UseInViewOptions['amount'];
-};
+  variants?: Variants
+  repeatDelay?: number
+  text: string | string[]
+  once?: UseInViewOptions['once']
+  amount?: UseInViewOptions['amount']
+}
 
 export function AnimateText({
   sx,
@@ -40,36 +40,36 @@ export function AnimateText({
   repeatDelay = 500, // 1000 = 1s
   ...other
 }: AnimateTextProps) {
-  const ref = useRef(null);
+  const ref = useRef(null)
 
-  const controls = useAnimation();
+  const controls = useAnimation()
 
-  const textArray = Array.isArray(text) ? text : [text];
+  const textArray = Array.isArray(text) ? text : [text]
 
-  const isInView = useInView(ref, { once, amount });
+  const isInView = useInView(ref, { once, amount })
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout: NodeJS.Timeout
 
     const show = () => {
       if (repeatDelay) {
         timeout = setTimeout(async () => {
-          await controls.start('initial');
-          controls.start('animate');
-        }, repeatDelay);
+          await controls.start('initial')
+          controls.start('animate')
+        }, repeatDelay)
       } else {
-        controls.start('animate');
+        controls.start('animate')
       }
-    };
-
-    if (isInView) {
-      show();
-    } else {
-      controls.start('initial');
     }
 
-    return () => clearTimeout(timeout);
-  }, [controls, isInView, repeatDelay]);
+    if (isInView) {
+      show()
+    } else {
+      controls.start('initial')
+    }
+
+    return () => clearTimeout(timeout)
+  }, [controls, isInView, repeatDelay])
 
   return (
     <Typography
@@ -118,7 +118,7 @@ export function AnimateText({
             sx={{ display: 'block' }}
           >
             {line.split(' ').map((word, wordIndex) => {
-              const lastWordInline = line.split(' ')[line.split(' ').length - 1];
+              const lastWordInline = line.split(' ')[line.split(' ').length - 1]
 
               return (
                 <Box
@@ -151,11 +151,11 @@ export function AnimateText({
                     </Box>
                   )}
                 </Box>
-              );
+              )
             })}
           </Box>
         ))}
       </Box>
     </Typography>
-  );
+  )
 }

@@ -1,21 +1,21 @@
-import { forwardRef } from 'react';
+import { forwardRef } from 'react'
 
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 
-import { usePathname } from 'src/routes/hooks';
-import { RouterLink } from 'src/routes/components';
-import { removeLastSlash } from 'src/routes/utils';
+import { usePathname } from 'src/routes/hooks'
+import { RouterLink } from 'src/routes/components'
+import { removeLastSlash } from 'src/routes/utils'
 
-import { NavLi, NavUl } from '../../nav-section';
+import { NavLi, NavUl } from '../../nav-section'
 
-import type { NavSubListProps, NavSubItemProps } from '../types';
+import type { NavSubListProps, NavSubItemProps } from '../types'
 
 // ----------------------------------------------------------------------
 
 export function NavSubList({ data, slotProps, ...other }: NavSubListProps) {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
     <>
@@ -46,7 +46,7 @@ export function NavSubList({ data, slotProps, ...other }: NavSubListProps) {
         </Stack>
       ))}
     </>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -78,4 +78,4 @@ export const NavSubItem = forwardRef<HTMLAnchorElement, NavSubItemProps>(
       </Link>
     </NavLi>
   )
-);
+)

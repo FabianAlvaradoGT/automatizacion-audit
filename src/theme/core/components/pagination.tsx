@@ -1,26 +1,26 @@
-import type { Theme, Components, ComponentsVariants } from '@mui/material/styles';
+import type { Theme, Components, ComponentsVariants } from '@mui/material/styles'
 
-import { paginationItemClasses } from '@mui/material/PaginationItem';
+import { paginationItemClasses } from '@mui/material/PaginationItem'
 
-import { varAlpha, stylesMode } from '../../styles';
+import { varAlpha, stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
 // NEW VARIANT
 declare module '@mui/material/Pagination' {
   interface PaginationPropsVariantOverrides {
-    soft: true;
+    soft: true
   }
 
   interface PaginationPropsColorOverrides {
-    info: true;
-    success: true;
-    warning: true;
-    error: true;
+    info: true
+    success: true
+    warning: true
+    error: true
   }
 }
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const;
+const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const
 
 // ----------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ const softVariant: Record<string, ComponentsVariants<Theme>['MuiPagination']> = 
       }),
     },
   ],
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -108,8 +108,8 @@ const MuiPagination: Components<Theme>['MuiPagination'] = {
       },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const pagination = { MuiPagination };
+export const pagination = { MuiPagination }

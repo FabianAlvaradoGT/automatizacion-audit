@@ -1,19 +1,19 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react'
 
-import Paper from '@mui/material/Paper';
-import Popover from '@mui/material/Popover';
-import { useTheme } from '@mui/material/styles';
+import Paper from '@mui/material/Paper'
+import Popover from '@mui/material/Popover'
+import { useTheme } from '@mui/material/styles'
 
-import { usePathname } from 'src/routes/hooks';
-import { isExternalLink } from 'src/routes/utils';
-import { useActiveLink } from 'src/routes/hooks/use-active-link';
+import { usePathname } from 'src/routes/hooks'
+import { isExternalLink } from 'src/routes/utils'
+import { useActiveLink } from 'src/routes/hooks/use-active-link'
 
-import { paper } from 'src/theme/styles';
+import { paper } from 'src/theme/styles'
 
-import { NavItem } from './nav-item';
-import { NavLi, NavUl, navSectionClasses } from '../../nav-section';
+import { NavItem } from './nav-item'
+import { NavLi, NavUl, navSectionClasses } from '../../nav-section'
 
-import type { NavListProps, NavSubListProps } from '../types';
+import type { NavListProps, NavSubListProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -25,32 +25,32 @@ export function NavList({
   slotProps,
   enabledRootRedirect,
 }: NavListProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const pathname = usePathname();
+  const pathname = usePathname()
 
-  const navItemRef = useRef<HTMLButtonElement | null>(null);
+  const navItemRef = useRef<HTMLButtonElement | null>(null)
 
-  const active = useActiveLink(data.path, !!data.children);
+  const active = useActiveLink(data.path, !!data.children)
 
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false)
 
   useEffect(() => {
     if (openMenu) {
-      handleCloseMenu();
+      handleCloseMenu()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }, [pathname])
 
   const handleOpenMenu = useCallback(() => {
     if (data.children) {
-      setOpenMenu(true);
+      setOpenMenu(true)
     }
-  }, [data.children]);
+  }, [data.children])
 
   const handleCloseMenu = useCallback(() => {
-    setOpenMenu(false);
-  }, []);
+    setOpenMenu(false)
+  }, [])
 
   const renderNavItem = (
     <NavItem
@@ -76,7 +76,7 @@ export function NavList({
       onMouseEnter={handleOpenMenu}
       onMouseLeave={handleCloseMenu}
     />
-  );
+  )
 
   if (data.children) {
     return (
@@ -129,10 +129,10 @@ export function NavList({
           </Paper>
         </Popover>
       </NavLi>
-    );
+    )
   }
 
-  return <NavLi disabled={data.disabled}>{renderNavItem}</NavLi>;
+  return <NavLi disabled={data.disabled}>{renderNavItem}</NavLi>
 }
 
 // ----------------------------------------------------------------------
@@ -159,5 +159,5 @@ function NavSubList({
         />
       ))}
     </NavUl>
-  );
+  )
 }

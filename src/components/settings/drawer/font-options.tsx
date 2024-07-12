@@ -1,26 +1,26 @@
-import Box from '@mui/material/Box';
-import ButtonBase from '@mui/material/ButtonBase';
+import Box from '@mui/material/Box'
+import ButtonBase from '@mui/material/ButtonBase'
 
-import { CONFIG } from 'src/config-global';
-import { setFont, varAlpha, stylesMode } from 'src/theme/styles';
+import { CONFIG } from 'src/config-global'
+import { setFont, varAlpha, stylesMode } from 'src/theme/styles'
 
-import { Block } from './styles';
-import { SvgColor } from '../../svg-color';
+import { Block } from './styles'
+import { SvgColor } from '../../svg-color'
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  value: string;
-  options: string[];
-  onClickOption: (newValue: string) => void;
-};
+  value: string
+  options: string[]
+  onClickOption: (newValue: string) => void
+}
 
 export function FontOptions({ value, options, onClickOption }: Props) {
   return (
     <Block title="Font">
       <Box component="ul" gap={1.5} display="grid" gridTemplateColumns="repeat(2, 1fr)">
         {options.map((option) => {
-          const selected = value === option;
+          const selected = value === option
 
           return (
             <Box component="li" key={option} sx={{ display: 'inline-flex' }}>
@@ -69,9 +69,9 @@ export function FontOptions({ value, options, onClickOption }: Props) {
                 {option}
               </ButtonBase>
             </Box>
-          );
+          )
         })}
       </Box>
     </Block>
-  );
+  )
 }

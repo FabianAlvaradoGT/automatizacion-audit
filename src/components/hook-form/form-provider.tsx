@@ -1,14 +1,14 @@
-import type { UseFormReturn } from 'react-hook-form';
+import type { UseFormReturn } from 'react-hook-form'
 
-import { FormProvider as RHFForm } from 'react-hook-form';
+import { FormProvider as RHFForm } from 'react-hook-form'
 
 // ----------------------------------------------------------------------
 
 export type FormProps = {
-  onSubmit?: () => void;
-  children: React.ReactNode;
-  methods: UseFormReturn<any>;
-};
+  onSubmit?: () => void
+  children: React.ReactNode
+  methods: UseFormReturn<any>
+}
 
 export function Form({ children, onSubmit, methods }: FormProps) {
   return (
@@ -17,5 +17,5 @@ export function Form({ children, onSubmit, methods }: FormProps) {
         {children}
       </form>
     </RHFForm>
-  );
+  )
 }

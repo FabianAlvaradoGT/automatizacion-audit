@@ -1,40 +1,40 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react'
 
-import { usePathname } from 'src/routes/hooks';
-import { isExternalLink } from 'src/routes/utils';
-import { useActiveLink } from 'src/routes/hooks/use-active-link';
+import { usePathname } from 'src/routes/hooks'
+import { isExternalLink } from 'src/routes/utils'
+import { useActiveLink } from 'src/routes/hooks/use-active-link'
 
-import { NavItem } from './nav-item';
-import { navSectionClasses } from '../classes';
-import { NavUl, NavLi, NavCollapse } from '../styles';
+import { NavItem } from './nav-item'
+import { navSectionClasses } from '../classes'
+import { NavUl, NavLi, NavCollapse } from '../styles'
 
-import type { NavListProps, NavSubListProps } from '../types';
+import type { NavListProps, NavSubListProps } from '../types'
 
 // ----------------------------------------------------------------------
 
 export function NavList({ data, render, depth, slotProps, enabledRootRedirect }: NavListProps) {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
-  const active = useActiveLink(data.path, !!data.children);
+  const active = useActiveLink(data.path, !!data.children)
 
-  const [openMenu, setOpenMenu] = useState(active);
+  const [openMenu, setOpenMenu] = useState(active)
 
   useEffect(() => {
     if (!active) {
-      handleCloseMenu();
+      handleCloseMenu()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }, [pathname])
 
   const handleToggleMenu = useCallback(() => {
     if (data.children) {
-      setOpenMenu((prev) => !prev);
+      setOpenMenu((prev) => !prev)
     }
-  }, [data.children]);
+  }, [data.children])
 
   const handleCloseMenu = useCallback(() => {
-    setOpenMenu(false);
-  }, []);
+    setOpenMenu(false)
+  }, [])
 
   const renderNavItem = (
     <NavItem
@@ -58,12 +58,12 @@ export function NavList({ data, render, depth, slotProps, enabledRootRedirect }:
       // actions
       onClick={handleToggleMenu}
     />
-  );
+  )
 
   // Hidden item by role
   if (data.roles && slotProps?.currentRole) {
     if (!data?.roles?.includes(slotProps?.currentRole)) {
-      return null;
+      return null
     }
   }
 
@@ -90,11 +90,11 @@ export function NavList({ data, render, depth, slotProps, enabledRootRedirect }:
           />
         </NavCollapse>
       </NavLi>
-    );
+    )
   }
 
   // Default
-  return <NavLi disabled={data.disabled}>{renderNavItem}</NavLi>;
+  return <NavLi disabled={data.disabled}>{renderNavItem}</NavLi>
 }
 
 // ----------------------------------------------------------------------
@@ -113,5 +113,5 @@ function NavSubList({ data, render, depth, slotProps, enabledRootRedirect }: Nav
         />
       ))}
     </NavUl>
-  );
+  )
 }

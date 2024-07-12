@@ -1,21 +1,21 @@
-import type { StackProps } from '@mui/material/Stack';
+import type { StackProps } from '@mui/material/Stack'
 
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
+import Stack from '@mui/material/Stack'
+import { styled } from '@mui/material/styles'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { editorClasses } from './classes';
+import { editorClasses } from './classes'
 
 // ----------------------------------------------------------------------
 
-const MARGIN = '0.75em';
+const MARGIN = '0.75em'
 
 type StyledRootProps = StackProps & {
-  error?: boolean;
-  disabled?: boolean;
-  fullScreen?: boolean;
-};
+  error?: boolean
+  disabled?: boolean
+  fullScreen?: boolean
+}
 export const StyledRoot = styled(Stack, {
   shouldForwardProp: (prop) => prop !== 'error' && prop !== 'disabled' && prop !== 'fullScreen',
 })<StyledRootProps>(({ error, disabled, fullScreen, theme }) => ({
@@ -209,4 +209,4 @@ export const StyledRoot = styled(Stack, {
       },
     },
   },
-}));
+}))

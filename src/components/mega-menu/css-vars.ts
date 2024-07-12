@@ -1,6 +1,6 @@
-import type { Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
 // ----------------------------------------------------------------------
 
@@ -8,7 +8,7 @@ function verticalVars(theme: Theme) {
   const {
     spacing,
     vars: { palette },
-  } = theme;
+  } = theme
 
   return {
     '--nav-item-gap': theme.spacing(0.5),
@@ -27,7 +27,7 @@ function verticalVars(theme: Theme) {
     // icon
     '--nav-icon-size': '22px',
     '--nav-icon-margin': spacing(0, 2, 0, 0),
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
@@ -37,7 +37,7 @@ function horizontalVars(theme: Theme) {
     shape,
     spacing,
     vars: { palette },
-  } = theme;
+  } = theme
 
   return {
     '--nav-item-gap': theme.spacing(2.5),
@@ -53,7 +53,7 @@ function horizontalVars(theme: Theme) {
     // icon
     '--nav-icon-size': '22px',
     '--nav-icon-margin': spacing(0, 1, 0, 0),
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
@@ -62,7 +62,7 @@ function mobileVars(theme: Theme) {
   const {
     spacing,
     vars: { palette },
-  } = theme;
+  } = theme
 
   return {
     '--nav-width': '280px',
@@ -82,7 +82,7 @@ function mobileVars(theme: Theme) {
     // icon
     '--nav-icon-size': '22px',
     '--nav-icon-margin': spacing(0, 2, 0, 0),
-  };
+  }
 }
 
 // ----------------------------------------------------------------------
@@ -91,4 +91,4 @@ export const megaMenuCssVars = {
   vertical: verticalVars,
   horizontal: horizontalVars,
   mobile: mobileVars,
-};
+}

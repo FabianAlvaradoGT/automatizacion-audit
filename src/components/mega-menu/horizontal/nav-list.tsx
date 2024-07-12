@@ -1,74 +1,74 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react'
 
-import Paper from '@mui/material/Paper';
-import Popover from '@mui/material/Popover';
-import { useTheme } from '@mui/material/styles';
+import Paper from '@mui/material/Paper'
+import Popover from '@mui/material/Popover'
+import { useTheme } from '@mui/material/styles'
 
-import { isExternalLink } from 'src/routes/utils';
-import { usePathname, useActiveLink } from 'src/routes/hooks';
+import { isExternalLink } from 'src/routes/utils'
+import { usePathname, useActiveLink } from 'src/routes/hooks'
 
-import { paper } from 'src/theme/styles';
+import { paper } from 'src/theme/styles'
 
-import { NavItem } from './nav-item';
-import { NavLi } from '../../nav-section';
-import { NavContent } from '../components/nav-content';
+import { NavItem } from './nav-item'
+import { NavLi } from '../../nav-section'
+import { NavContent } from '../components/nav-content'
 
-import type { NavListProps } from '../types';
+import type { NavListProps } from '../types'
 
 // ----------------------------------------------------------------------
 
 export function NavList({ data, render, slotProps, enabledRootRedirect, cssVars }: NavListProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const pathname = usePathname();
+  const pathname = usePathname()
 
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false)
 
-  const navItemRef = useRef<HTMLButtonElement | null>(null);
+  const navItemRef = useRef<HTMLButtonElement | null>(null)
 
-  const active = useActiveLink(data.path, !!data.children);
+  const active = useActiveLink(data.path, !!data.children)
 
-  const [clientRect, setClientRect] = useState<Record<string, number>>({ top: 0, height: 0 });
+  const [clientRect, setClientRect] = useState<Record<string, number>>({ top: 0, height: 0 })
 
-  const singleList = data.children?.length === 1;
+  const singleList = data.children?.length === 1
 
-  const multiList = !singleList;
+  const multiList = !singleList
 
   useEffect(() => {
     if (openMenu) {
-      handleCloseMenu();
+      handleCloseMenu()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }, [pathname])
 
   const handleGetClientRect = useCallback(() => {
-    const element = navItemRef.current;
+    const element = navItemRef.current
 
     if (element) {
-      const rect = element.getBoundingClientRect();
-      setClientRect({ top: rect.top, height: rect.height });
+      const rect = element.getBoundingClientRect()
+      setClientRect({ top: rect.top, height: rect.height })
     }
-  }, []);
+  }, [])
 
   useEffect(() => {
-    handleGetClientRect();
+    handleGetClientRect()
 
-    window.addEventListener('scroll', handleGetClientRect);
+    window.addEventListener('scroll', handleGetClientRect)
 
     return () => {
-      window.removeEventListener('scroll', handleGetClientRect);
-    };
-  }, [handleGetClientRect]);
+      window.removeEventListener('scroll', handleGetClientRect)
+    }
+  }, [handleGetClientRect])
 
   const handleOpenMenu = useCallback(() => {
     if (data.children) {
-      setOpenMenu(true);
+      setOpenMenu(true)
     }
-  }, [data.children]);
+  }, [data.children])
 
   const handleCloseMenu = useCallback(() => {
-    setOpenMenu(false);
-  }, []);
+    setOpenMenu(false)
+  }, [])
 
   const renderNavItem = (
     <NavItem
@@ -92,7 +92,7 @@ export function NavList({ data, render, slotProps, enabledRootRedirect, cssVars 
       onMouseEnter={handleOpenMenu}
       onMouseLeave={handleCloseMenu}
     />
-  );
+  )
 
   if (data.children) {
     return (
@@ -147,8 +147,8 @@ export function NavList({ data, render, slotProps, enabledRootRedirect, cssVars 
           </Paper>
         </Popover>
       </NavLi>
-    );
+    )
   }
 
-  return <NavLi disabled={data.disabled}>{renderNavItem}</NavLi>;
+  return <NavLi disabled={data.disabled}>{renderNavItem}</NavLi>
 }

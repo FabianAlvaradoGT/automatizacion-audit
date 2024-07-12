@@ -1,30 +1,30 @@
-import Box from '@mui/material/Box';
-import ButtonBase from '@mui/material/ButtonBase';
-import { alpha as hexAlpha } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import ButtonBase from '@mui/material/ButtonBase'
+import { alpha as hexAlpha } from '@mui/material/styles'
 
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
-import { Block } from './styles';
-import { SvgColor } from '../../svg-color';
+import { Block } from './styles'
+import { SvgColor } from '../../svg-color'
 
-import type { SettingsState } from '../types';
+import type { SettingsState } from '../types'
 
 // ----------------------------------------------------------------------
 
-type Value = SettingsState['primaryColor'];
+type Value = SettingsState['primaryColor']
 
 type Props = {
-  value: Value;
-  options: { name: Value; value: string }[];
-  onClickOption: (newValue: Value) => void;
-};
+  value: Value
+  options: { name: Value; value: string }[]
+  onClickOption: (newValue: Value) => void
+}
 
 export function PresetsOptions({ value, options, onClickOption }: Props) {
   return (
     <Block title="Presets">
       <Box component="ul" gap={1.5} display="grid" gridTemplateColumns="repeat(3, 1fr)">
         {options.map((option) => {
-          const selected = value === option.name;
+          const selected = value === option.name
 
           return (
             <Box component="li" key={option.name} sx={{ display: 'flex' }}>
@@ -46,9 +46,9 @@ export function PresetsOptions({ value, options, onClickOption }: Props) {
                 />
               </ButtonBase>
             </Box>
-          );
+          )
         })}
       </Box>
     </Block>
-  );
+  )
 }

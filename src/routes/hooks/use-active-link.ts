@@ -1,25 +1,25 @@
-import { usePathname } from './use-pathname';
-import { hasParams, removeParams, isExternalLink, removeLastSlash } from '../utils';
+import { usePathname } from './use-pathname'
+import { hasParams, removeParams, isExternalLink, removeLastSlash } from '../utils'
 
 // ----------------------------------------------------------------------
 
 export function useActiveLink(itemPath: string, deep: boolean = true): boolean {
-  const pathname = removeLastSlash(usePathname());
+  const pathname = removeLastSlash(usePathname())
 
-  const pathHasParams = hasParams(itemPath);
+  const pathHasParams = hasParams(itemPath)
 
   /* Start check */
-  const notValid = itemPath.startsWith('#') || isExternalLink(itemPath);
+  const notValid = itemPath.startsWith('#') || isExternalLink(itemPath)
 
   if (notValid) {
-    return false;
+    return false
   }
   /* End check */
 
   /**
    * [1] Apply for Item has children or has params.
    */
-  const isDeep = deep || pathHasParams;
+  const isDeep = deep || pathHasParams
 
   // console.info(isDeep ? '[deep]   :' : '[normal] :', itemPath, '-?-', pathname);
 
@@ -31,7 +31,7 @@ export function useActiveLink(itemPath: string, deep: boolean = true): boolean {
      * @match pathname = '/dashboard/user/list'
      * @match pathname = '/dashboard/user/e99f09a7-dd88-49d5-b1c8-1daf80c2d7b15/edit'
      */
-    const defaultActive = pathname.includes(itemPath);
+    const defaultActive = pathname.includes(itemPath)
 
     /**
      * [1] Deep: has params
@@ -39,11 +39,11 @@ export function useActiveLink(itemPath: string, deep: boolean = true): boolean {
      * @match pathname = '/dashboard/test'
      */
 
-    const originItemPath = removeParams(itemPath);
+    const originItemPath = removeParams(itemPath)
 
-    const hasParamsActive = pathHasParams && originItemPath === pathname;
+    const hasParamsActive = pathHasParams && originItemPath === pathname
 
-    return defaultActive || hasParamsActive;
+    return defaultActive || hasParamsActive
   }
 
   /**
@@ -51,5 +51,5 @@ export function useActiveLink(itemPath: string, deep: boolean = true): boolean {
    * @itemPath 			 = '/dashboard/calendar'
    * @match pathname = '/dashboard/calendar'
    */
-  return pathname === itemPath;
+  return pathname === itemPath
 }

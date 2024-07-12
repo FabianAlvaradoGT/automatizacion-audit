@@ -1,8 +1,8 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { accordionClasses } from '@mui/material/Accordion';
-import { typographyClasses } from '@mui/material/Typography';
-import { accordionSummaryClasses } from '@mui/material/AccordionSummary';
+import { accordionClasses } from '@mui/material/Accordion'
+import { typographyClasses } from '@mui/material/Typography'
+import { accordionSummaryClasses } from '@mui/material/AccordionSummary'
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +21,7 @@ const MuiAccordion: Components<Theme>['MuiAccordion'] = {
       [`&.${accordionClasses.disabled}`]: { backgroundColor: 'transparent' },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -41,8 +41,8 @@ const MuiAccordionSummary: Components<Theme>['MuiAccordionSummary'] = {
     }),
     expandIconWrapper: { color: 'inherit' },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const accordion = { MuiAccordion, MuiAccordionSummary };
+export const accordion = { MuiAccordion, MuiAccordionSummary }

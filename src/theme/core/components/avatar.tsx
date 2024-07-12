@@ -1,31 +1,31 @@
-import type { Theme, Components, ComponentsVariants } from '@mui/material/styles';
+import type { Theme, Components, ComponentsVariants } from '@mui/material/styles'
 
-import { avatarGroupClasses } from '@mui/material/AvatarGroup';
+import { avatarGroupClasses } from '@mui/material/AvatarGroup'
 
-import { varAlpha } from '../../styles';
+import { varAlpha } from '../../styles'
 
 // ----------------------------------------------------------------------
 
 // NEW VARIANT
 declare module '@mui/material/AvatarGroup' {
   interface AvatarGroupPropsVariantOverrides {
-    compact: true;
+    compact: true
   }
 }
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const;
+const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const
 
 const colorByName = (name: string) => {
-  const charAt = name.charAt(0).toLowerCase();
+  const charAt = name.charAt(0).toLowerCase()
 
-  if (['a', 'c', 'f'].includes(charAt)) return 'primary';
-  if (['e', 'd', 'h'].includes(charAt)) return 'secondary';
-  if (['i', 'k', 'l'].includes(charAt)) return 'info';
-  if (['m', 'n', 'p'].includes(charAt)) return 'success';
-  if (['q', 's', 't'].includes(charAt)) return 'warning';
-  if (['v', 'x', 'y'].includes(charAt)) return 'error';
-  return 'default';
-};
+  if (['a', 'c', 'f'].includes(charAt)) return 'primary'
+  if (['e', 'd', 'h'].includes(charAt)) return 'secondary'
+  if (['i', 'k', 'l'].includes(charAt)) return 'info'
+  if (['m', 'n', 'p'].includes(charAt)) return 'success'
+  if (['q', 's', 't'].includes(charAt)) return 'warning'
+  if (['v', 'x', 'y'].includes(charAt)) return 'error'
+  return 'default'
+}
 
 // ----------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ const avatarColors: Record<string, ComponentsVariants<Theme>['MuiAvatar']> = {
       }),
     },
   ],
-};
+}
 
 const MuiAvatar: Components<Theme>['MuiAvatar'] = {
   /** **************************************
@@ -60,7 +60,7 @@ const MuiAvatar: Components<Theme>['MuiAvatar'] = {
   styleOverrides: {
     rounded: ({ theme }) => ({ borderRadius: theme.shape.borderRadius * 1.5 }),
     colorDefault: ({ ownerState, theme }) => {
-      const color = colorByName(`${ownerState.alt}`);
+      const color = colorByName(`${ownerState.alt}`)
 
       return {
         ...(!!ownerState.alt && {
@@ -74,10 +74,10 @@ const MuiAvatar: Components<Theme>['MuiAvatar'] = {
                 backgroundColor: varAlpha(theme.vars.palette.grey['500Channel'], 0.24),
               }),
         }),
-      };
+      }
     },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -117,8 +117,8 @@ const MuiAvatarGroup: Components<Theme>['MuiAvatarGroup'] = {
       },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const avatar = { MuiAvatar, MuiAvatarGroup };
+export const avatar = { MuiAvatar, MuiAvatarGroup }

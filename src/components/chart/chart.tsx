@@ -1,10 +1,10 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import ApexChart from 'react-apexcharts';
+import ApexChart from 'react-apexcharts'
 
-import Box from '@mui/material/Box';
+import Box from '@mui/material/Box'
 
-import type { ChartProps } from './types';
+import type { ChartProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -32,5 +32,5 @@ export function Chart({
     >
       <ApexChart type={type} series={series} options={options} width="100%" height="100%" />
     </Box>
-  );
+  )
 }

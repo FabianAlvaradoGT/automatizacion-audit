@@ -10,4 +10,4 @@ export const megaMenuClasses = {
   mobile: {
     root: 'mega__menu__desktop__mobile',
   },
-};
+}

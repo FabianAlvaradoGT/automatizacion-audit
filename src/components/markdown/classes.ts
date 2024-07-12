@@ -9,4 +9,4 @@ export const markdownClasses = {
     image: 'nml__editor__content__image',
     link: 'nml__editor__content__link',
   },
-};
+}

@@ -1,17 +1,17 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { badgeClasses } from '@mui/material/Badge';
+import { badgeClasses } from '@mui/material/Badge'
 
 // ----------------------------------------------------------------------
 
 // NEW VARIANT
 declare module '@mui/material/Badge' {
   interface BadgePropsVariantOverrides {
-    alway: true;
-    busy: true;
-    online: true;
-    offline: true;
-    invisible: true;
+    alway: true
+    busy: true
+    online: true
+    offline: true
+    invisible: true
   }
 }
 
@@ -29,7 +29,7 @@ const baseStyles = (theme: Theme) => ({
     backgroundColor: theme.vars.palette.common.white,
   },
   [`&.${badgeClasses.invisible}`]: { transform: 'unset' },
-});
+})
 
 const MuiBadge: Components<Theme>['MuiBadge'] = {
   /** **************************************
@@ -101,8 +101,8 @@ const MuiBadge: Components<Theme>['MuiBadge'] = {
    * STYLE
    *************************************** */
   styleOverrides: { dot: { borderRadius: '50%' } },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const badge = { MuiBadge };
+export const badge = { MuiBadge }

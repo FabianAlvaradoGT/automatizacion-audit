@@ -1,6 +1,6 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { inputLabelClasses } from '@mui/material/InputLabel';
+import { inputLabelClasses } from '@mui/material/InputLabel'
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +23,7 @@ const MuiFormLabel: Components<Theme>['MuiFormLabel'] = {
       },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ const MuiFormHelperText: Components<Theme>['MuiFormHelperText'] = {
    * STYLE
    *************************************** */
   styleOverrides: { root: ({ theme }) => ({ marginTop: theme.spacing(1) }) },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -46,8 +46,8 @@ const MuiFormControlLabel: Components<Theme>['MuiFormControlLabel'] = {
    * STYLE
    *************************************** */
   styleOverrides: { label: ({ theme }) => ({ ...theme.typography.body2 }) },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const form = { MuiFormLabel, MuiFormHelperText, MuiFormControlLabel };
+export const form = { MuiFormLabel, MuiFormHelperText, MuiFormControlLabel }

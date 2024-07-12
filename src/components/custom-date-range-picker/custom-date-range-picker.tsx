@@ -1,17 +1,17 @@
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import FormHelperText from '@mui/material/FormHelperText';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import Paper from '@mui/material/Paper'
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
+import Dialog from '@mui/material/Dialog'
+import DialogTitle from '@mui/material/DialogTitle'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import FormHelperText from '@mui/material/FormHelperText'
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
 
-import { useResponsive } from 'src/hooks/use-responsive';
+import { useResponsive } from 'src/hooks/use-responsive'
 
-import type { UseDateRangePickerReturn } from './types';
+import type { UseDateRangePickerReturn } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -26,9 +26,9 @@ export function CustomDateRangePicker({
   onChangeStartDate,
   title = 'Select date range',
 }: UseDateRangePickerReturn) {
-  const mdUp = useResponsive('up', 'md');
+  const mdUp = useResponsive('up', 'md')
 
-  const isCalendarView = variant === 'calendar';
+  const isCalendarView = variant === 'calendar'
 
   return (
     <Dialog
@@ -89,5 +89,5 @@ export function CustomDateRangePicker({
         </Button>
       </DialogActions>
     </Dialog>
-  );
+  )
 }

@@ -1,4 +1,4 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
 // ----------------------------------------------------------------------
 
@@ -9,13 +9,13 @@ export type LabelColor =
   | 'info'
   | 'success'
   | 'warning'
-  | 'error';
+  | 'error'
 
-export type LabelVariant = 'filled' | 'outlined' | 'soft' | 'inverted';
+export type LabelVariant = 'filled' | 'outlined' | 'soft' | 'inverted'
 
 export interface LabelProps extends BoxProps {
-  color?: LabelColor;
-  variant?: LabelVariant;
-  endIcon?: React.ReactElement | null;
-  startIcon?: React.ReactElement | null;
+  color?: LabelColor
+  variant?: LabelVariant
+  endIcon?: React.ReactElement | null
+  startIcon?: React.ReactElement | null
 }

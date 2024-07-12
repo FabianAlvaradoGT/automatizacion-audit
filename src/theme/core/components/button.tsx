@@ -1,33 +1,33 @@
-import type { ButtonProps } from '@mui/material/Button';
-import type { Theme, CSSObject, Components, ComponentsVariants } from '@mui/material/styles';
+import type { ButtonProps } from '@mui/material/Button'
+import type { Theme, CSSObject, Components, ComponentsVariants } from '@mui/material/styles'
 
-import { buttonClasses } from '@mui/material/Button';
-import { loadingButtonClasses } from '@mui/lab/LoadingButton';
+import { buttonClasses } from '@mui/material/Button'
+import { loadingButtonClasses } from '@mui/lab/LoadingButton'
 
-import { varAlpha, stylesMode } from '../../styles';
+import { varAlpha, stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
 // NEW VARIANT
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
-    soft: true;
+    soft: true
   }
 }
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const;
+const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const
 
-type ColorType = (typeof COLORS)[number];
+type ColorType = (typeof COLORS)[number]
 
 function styleColors(ownerState: ButtonProps, styles: (val: ColorType) => CSSObject) {
   const outputStyle = COLORS.reduce((acc, color) => {
     if (!ownerState.disabled && ownerState.color === color) {
-      acc = styles(color);
+      acc = styles(color)
     }
-    return acc;
-  }, {});
+    return acc
+  }, {})
 
-  return outputStyle;
+  return outputStyle
 }
 
 // ----------------------------------------------------------------------
@@ -37,7 +37,7 @@ const MuiButtonBase: Components<Theme>['MuiButtonBase'] = {
    * STYLE
    *************************************** */
   styleOverrides: { root: ({ theme }) => ({ fontFamily: theme.typography.fontFamily }) },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ const softVariant: Record<string, ComponentsVariants<Theme>['MuiButton']> = {
       }),
     },
   ],
-};
+}
 
 const MuiButton: Components<Theme>['MuiButton'] = {
   /** **************************************
@@ -116,8 +116,8 @@ const MuiButton: Components<Theme>['MuiButton'] = {
               },
             }),
         },
-      };
-      return { ...styled.inheritColor, ...styled.colors };
+      }
+      return { ...styled.inheritColor, ...styled.colors }
     },
     /**
      * @variant outlined
@@ -137,8 +137,8 @@ const MuiButton: Components<Theme>['MuiButton'] = {
         base: {
           '&:hover': { borderColor: 'currentColor', boxShadow: '0 0 0 0.75px currentColor' },
         },
-      };
-      return { ...styled.base, ...styled.inheritColor, ...styled.colors };
+      }
+      return { ...styled.base, ...styled.inheritColor, ...styled.colors }
     },
     /**
      * @variant text
@@ -151,8 +151,8 @@ const MuiButton: Components<Theme>['MuiButton'] = {
               '&:hover': { backgroundColor: theme.vars.palette.action.hover },
             }),
         },
-      };
-      return { ...styled.inheritColor };
+      }
+      return { ...styled.inheritColor }
     },
     /**
      * @size
@@ -175,8 +175,8 @@ const MuiButton: Components<Theme>['MuiButton'] = {
         : { paddingLeft: '16px', paddingRight: '16px' }),
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const button = { MuiButtonBase, MuiButton };
+export const button = { MuiButtonBase, MuiButton }

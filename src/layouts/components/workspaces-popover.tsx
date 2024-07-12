@@ -1,42 +1,42 @@
-import type { ButtonBaseProps } from '@mui/material/ButtonBase';
+import type { ButtonBaseProps } from '@mui/material/ButtonBase'
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react'
 
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import ButtonBase from '@mui/material/ButtonBase';
+import Box from '@mui/material/Box'
+import Avatar from '@mui/material/Avatar'
+import MenuList from '@mui/material/MenuList'
+import MenuItem from '@mui/material/MenuItem'
+import ButtonBase from '@mui/material/ButtonBase'
 
-import { Label } from 'src/components/label';
-import { Iconify } from 'src/components/iconify';
-import { usePopover, CustomPopover } from 'src/components/custom-popover';
+import { Label } from 'src/components/label'
+import { Iconify } from 'src/components/iconify'
+import { usePopover, CustomPopover } from 'src/components/custom-popover'
 
 // ----------------------------------------------------------------------
 
 export type WorkspacesPopoverProps = ButtonBaseProps & {
   data?: {
-    id: string;
-    name: string;
-    logo: string;
-    plan: string;
-  }[];
-};
+    id: string
+    name: string
+    logo: string
+    plan: string
+  }[]
+}
 
 export function WorkspacesPopover({ data = [], sx, ...other }: WorkspacesPopoverProps) {
-  const popover = usePopover();
+  const popover = usePopover()
 
-  const mediaQuery = 'sm';
+  const mediaQuery = 'sm'
 
-  const [workspace, setWorkspace] = useState(data[0]);
+  const [workspace, setWorkspace] = useState(data[0])
 
   const handleChangeWorkspace = useCallback(
     (newValue: (typeof data)[0]) => {
-      setWorkspace(newValue);
-      popover.onClose();
+      setWorkspace(newValue)
+      popover.onClose()
     },
     [popover]
-  );
+  )
 
   return (
     <>
@@ -106,5 +106,5 @@ export function WorkspacesPopover({ data = [], sx, ...other }: WorkspacesPopover
         </MenuList>
       </CustomPopover>
     </>
-  );
+  )
 }

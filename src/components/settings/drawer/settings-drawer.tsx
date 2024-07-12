@@ -1,28 +1,28 @@
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Badge from '@mui/material/Badge';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Drawer, { drawerClasses } from '@mui/material/Drawer';
-import { useTheme, useColorScheme } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import Badge from '@mui/material/Badge'
+import Tooltip from '@mui/material/Tooltip'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import Drawer, { drawerClasses } from '@mui/material/Drawer'
+import { useTheme, useColorScheme } from '@mui/material/styles'
 
-import COLORS from 'src/theme/core/colors.json';
-import { paper, varAlpha } from 'src/theme/styles';
-import { defaultFont } from 'src/theme/core/typography';
-import PRIMARY_COLOR from 'src/theme/with-settings/primary-color.json';
+import COLORS from 'src/theme/core/colors.json'
+import { paper, varAlpha } from 'src/theme/styles'
+import { defaultFont } from 'src/theme/core/typography'
+import PRIMARY_COLOR from 'src/theme/with-settings/primary-color.json'
 
-import { Iconify } from '../../iconify';
-import { BaseOption } from './base-option';
-import { NavOptions } from './nav-options';
-import { Scrollbar } from '../../scrollbar';
-import { FontOptions } from './font-options';
-import { useSettingsContext } from '../context';
-import { PresetsOptions } from './presets-options';
-import { defaultSettings } from '../config-settings';
-import { FullScreenButton } from './fullscreen-button';
+import { Iconify } from '../../iconify'
+import { BaseOption } from './base-option'
+import { NavOptions } from './nav-options'
+import { Scrollbar } from '../../scrollbar'
+import { FontOptions } from './font-options'
+import { useSettingsContext } from '../context'
+import { PresetsOptions } from './presets-options'
+import { defaultSettings } from '../config-settings'
+import { FullScreenButton } from './fullscreen-button'
 
-import type { SettingsDrawerProps } from '../types';
+import type { SettingsDrawerProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -37,11 +37,11 @@ export function SettingsDrawer({
   hideDirection,
   hideColorScheme,
 }: SettingsDrawerProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const settings = useSettingsContext();
+  const settings = useSettingsContext()
 
-  const { mode, setMode } = useColorScheme();
+  const { mode, setMode } = useColorScheme()
 
   const renderHead = (
     <Box display="flex" alignItems="center" sx={{ py: 2, pr: 1, pl: 2.5 }}>
@@ -54,8 +54,8 @@ export function SettingsDrawer({
       <Tooltip title="Reset">
         <IconButton
           onClick={() => {
-            settings.onReset();
-            setMode(defaultSettings.colorScheme);
+            settings.onReset()
+            setMode(defaultSettings.colorScheme)
           }}
         >
           <Badge color="error" variant="dot" invisible={!settings.canReset}>
@@ -70,7 +70,7 @@ export function SettingsDrawer({
         </IconButton>
       </Tooltip>
     </Box>
-  );
+  )
 
   const renderMode = (
     <BaseOption
@@ -78,11 +78,11 @@ export function SettingsDrawer({
       icon="moon"
       selected={settings.colorScheme === 'dark'}
       onClick={() => {
-        settings.onUpdateField('colorScheme', mode === 'light' ? 'dark' : 'light');
-        setMode(mode === 'light' ? 'dark' : 'light');
+        settings.onUpdateField('colorScheme', mode === 'light' ? 'dark' : 'light')
+        setMode(mode === 'light' ? 'dark' : 'light')
       }}
     />
-  );
+  )
 
   const renderContrast = (
     <BaseOption
@@ -93,7 +93,7 @@ export function SettingsDrawer({
         settings.onUpdateField('contrast', settings.contrast === 'default' ? 'hight' : 'default')
       }
     />
-  );
+  )
 
   const renderRTL = (
     <BaseOption
@@ -104,7 +104,7 @@ export function SettingsDrawer({
         settings.onUpdateField('direction', settings.direction === 'ltr' ? 'rtl' : 'ltr')
       }
     />
-  );
+  )
 
   const renderCompact = (
     <BaseOption
@@ -114,7 +114,7 @@ export function SettingsDrawer({
       selected={settings.compactLayout}
       onClick={() => settings.onUpdateField('compactLayout', !settings.compactLayout)}
     />
-  );
+  )
 
   const renderPresets = (
     <PresetsOptions
@@ -129,7 +129,7 @@ export function SettingsDrawer({
         { name: 'red', value: PRIMARY_COLOR.red.main },
       ]}
     />
-  );
+  )
 
   const renderNav = (
     <NavOptions
@@ -148,7 +148,7 @@ export function SettingsDrawer({
       hideNavColor={hideNavColor}
       hideNavLayout={hideNavLayout}
     />
-  );
+  )
 
   const renderFont = (
     <FontOptions
@@ -156,7 +156,7 @@ export function SettingsDrawer({
       onClickOption={(newValue) => settings.onUpdateField('fontFamily', newValue)}
       options={[defaultFont, 'Inter', 'DM Sans', 'Nunito Sans']}
     />
-  );
+  )
 
   return (
     <Drawer
@@ -191,5 +191,5 @@ export function SettingsDrawer({
         </Stack>
       </Scrollbar>
     </Drawer>
-  );
+  )
 }

@@ -1,9 +1,9 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { tableRowClasses } from '@mui/material/TableRow';
-import { tableCellClasses } from '@mui/material/TableCell';
+import { tableRowClasses } from '@mui/material/TableRow'
+import { tableCellClasses } from '@mui/material/TableCell'
 
-import { varAlpha } from '../../styles';
+import { varAlpha } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ const MuiTableContainer: Components<Theme>['MuiTableContainer'] = {
       scrollbarColor: `${varAlpha(theme.vars.palette.text.disabledChannel, 0.4)} ${varAlpha(theme.vars.palette.text.disabledChannel, 0.08)}`,
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ const MuiTable: Components<Theme>['MuiTable'] = {
   styleOverrides: {
     root: ({ theme }) => ({ '--palette-TableCell-border': theme.vars.palette.divider }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -46,7 +46,7 @@ const MuiTableRow: Components<Theme>['MuiTableRow'] = {
       '&:last-of-type': { [`& .${tableCellClasses.root}`]: { borderColor: 'transparent' } },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ const MuiTableCell: Components<Theme>['MuiTableCell'] = {
     }),
     paddingCheckbox: ({ theme }) => ({ paddingLeft: theme.spacing(1) }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -100,7 +100,7 @@ const MuiTablePagination: Components<Theme>['MuiTablePagination'] = {
       top: 'calc(50% - 8px)',
     },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -110,4 +110,4 @@ export const table = {
   MuiTableCell,
   MuiTableContainer,
   MuiTablePagination,
-};
+}

@@ -1,5 +1,5 @@
-export * from './lightbox';
+export * from './lightbox'
 
-export type * from './types';
+export type * from './types'
 
-export * from './use-light-box';
+export * from './use-light-box'

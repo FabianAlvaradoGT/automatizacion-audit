@@ -1,12 +1,12 @@
-import { useDropzone } from 'react-dropzone';
+import { useDropzone } from 'react-dropzone'
 
-import Box from '@mui/material/Box';
+import Box from '@mui/material/Box'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Iconify } from '../iconify';
+import { Iconify } from '../iconify'
 
-import type { UploadProps } from './types';
+import type { UploadProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -14,9 +14,9 @@ export function UploadBox({ placeholder, error, disabled, sx, ...other }: Upload
   const { getRootProps, getInputProps, isDragActive, isDragReject } = useDropzone({
     disabled,
     ...other,
-  });
+  })
 
-  const hasError = isDragReject || error;
+  const hasError = isDragReject || error
 
   return (
     <Box
@@ -48,5 +48,5 @@ export function UploadBox({ placeholder, error, disabled, sx, ...other }: Upload
 
       {placeholder || <Iconify icon="eva:cloud-upload-fill" width={28} />}
     </Box>
-  );
+  )
 }

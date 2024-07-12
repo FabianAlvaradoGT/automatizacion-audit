@@ -1,24 +1,24 @@
-import { common, createLowlight } from 'lowlight';
-import LinkExtension from '@tiptap/extension-link';
-import ImageExtension from '@tiptap/extension-image';
-import StarterKitExtension from '@tiptap/starter-kit';
-import TextAlignExtension from '@tiptap/extension-text-align';
-import PlaceholderExtension from '@tiptap/extension-placeholder';
-import { useState, useEffect, forwardRef, useCallback } from 'react';
-import CodeBlockLowlightExtension from '@tiptap/extension-code-block-lowlight';
-import { useEditor, EditorContent, ReactNodeViewRenderer } from '@tiptap/react';
+import { common, createLowlight } from 'lowlight'
+import LinkExtension from '@tiptap/extension-link'
+import ImageExtension from '@tiptap/extension-image'
+import StarterKitExtension from '@tiptap/starter-kit'
+import TextAlignExtension from '@tiptap/extension-text-align'
+import PlaceholderExtension from '@tiptap/extension-placeholder'
+import { useState, useEffect, forwardRef, useCallback } from 'react'
+import CodeBlockLowlightExtension from '@tiptap/extension-code-block-lowlight'
+import { useEditor, EditorContent, ReactNodeViewRenderer } from '@tiptap/react'
 
-import Stack from '@mui/material/Stack';
-import Portal from '@mui/material/Portal';
-import Backdrop from '@mui/material/Backdrop';
-import FormHelperText from '@mui/material/FormHelperText';
+import Stack from '@mui/material/Stack'
+import Portal from '@mui/material/Portal'
+import Backdrop from '@mui/material/Backdrop'
+import FormHelperText from '@mui/material/FormHelperText'
 
-import { Toolbar } from './toolbar';
-import { StyledRoot } from './styles';
-import { editorClasses } from './classes';
-import { CodeHighlightBlock } from './components/code-highlight-block';
+import { Toolbar } from './toolbar'
+import { StyledRoot } from './styles'
+import { editorClasses } from './classes'
+import { CodeHighlightBlock } from './components/code-highlight-block'
 
-import type { EditorProps } from './types';
+import type { EditorProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -39,13 +39,13 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
     },
     ref
   ) => {
-    const [fullScreen, setFullScreen] = useState(false);
+    const [fullScreen, setFullScreen] = useState(false)
 
     const handleToggleFullScreen = useCallback(() => {
-      setFullScreen((prev) => !prev);
-    }, []);
+      setFullScreen((prev) => !prev)
+    }, [])
 
-    const lowlight = createLowlight(common);
+    const lowlight = createLowlight(common)
 
     const editor = useEditor({
       content,
@@ -74,40 +74,40 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
         }),
         CodeBlockLowlightExtension.extend({
           addNodeView() {
-            return ReactNodeViewRenderer(CodeHighlightBlock);
+            return ReactNodeViewRenderer(CodeHighlightBlock)
           },
         }).configure({ lowlight, HTMLAttributes: { class: editorClasses.content.codeBlock } }),
       ],
       onUpdate({ editor: _editor }) {
-        const html = _editor.getHTML();
-        onChange?.(html);
+        const html = _editor.getHTML()
+        onChange?.(html)
       },
       ...other,
-    });
+    })
 
     useEffect(() => {
       const timer = setTimeout(() => {
         if (editor?.isEmpty && content !== '<p></p>') {
-          editor.commands.setContent(content);
+          editor.commands.setContent(content)
         }
-      }, 100);
-      return () => clearTimeout(timer);
-    }, [content, editor]);
+      }, 100)
+      return () => clearTimeout(timer)
+    }, [content, editor])
 
     useEffect(() => {
       if (resetValue && !content) {
-        editor?.commands.clearContent();
+        editor?.commands.clearContent()
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [content]);
+    }, [content])
 
     useEffect(() => {
       if (fullScreen) {
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'
       } else {
-        document.body.style.overflow = '';
+        document.body.style.overflow = ''
       }
-    }, [fullScreen]);
+    }, [fullScreen])
 
     return (
       <Portal disablePortal={!fullScreen}>
@@ -144,6 +144,6 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           )}
         </Stack>
       </Portal>
-    );
+    )
   }
-);
+)

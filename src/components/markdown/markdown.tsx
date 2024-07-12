@@ -1,33 +1,33 @@
-import './code-highlight-block.css';
+import './code-highlight-block.css'
 
-import type { Options } from 'react-markdown';
+import type { Options } from 'react-markdown'
 
-import { useMemo } from 'react';
-import remarkGfm from 'remark-gfm';
-import rehypeRaw from 'rehype-raw';
-import rehypeHighlight from 'rehype-highlight';
+import { useMemo } from 'react'
+import remarkGfm from 'remark-gfm'
+import rehypeRaw from 'rehype-raw'
+import rehypeHighlight from 'rehype-highlight'
 
-import Link from '@mui/material/Link';
+import Link from '@mui/material/Link'
 
-import { isExternalLink } from 'src/routes/utils';
-import { RouterLink } from 'src/routes/components';
+import { isExternalLink } from 'src/routes/utils'
+import { RouterLink } from 'src/routes/components'
 
-import { Image } from '../image';
-import { StyledRoot } from './styles';
-import { markdownClasses } from './classes';
-import { htmlToMarkdown, isMarkdownContent } from './html-to-markdown';
+import { Image } from '../image'
+import { StyledRoot } from './styles'
+import { markdownClasses } from './classes'
+import { htmlToMarkdown, isMarkdownContent } from './html-to-markdown'
 
-import type { MarkdownProps } from './types';
+import type { MarkdownProps } from './types'
 
 // ----------------------------------------------------------------------
 
 export function Markdown({ children, sx, ...other }: MarkdownProps) {
   const content = useMemo(() => {
     if (isMarkdownContent(`${children}`)) {
-      return children;
+      return children
     }
-    return htmlToMarkdown(`${children}`.trim());
-  }, [children]);
+    return htmlToMarkdown(`${children}`.trim())
+  }, [children])
 
   return (
     <StyledRoot
@@ -42,16 +42,16 @@ export function Markdown({ children, sx, ...other }: MarkdownProps) {
       sx={sx}
       {...other}
     />
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
 
 type ComponentTag = {
-  [key: string]: any;
-};
+  [key: string]: any
+}
 
-const rehypePlugins = [rehypeRaw, rehypeHighlight, [remarkGfm, { singleTilde: false }]];
+const rehypePlugins = [rehypeRaw, rehypeHighlight, [remarkGfm, { singleTilde: false }]]
 
 const components = {
   img: ({ node, ...other }: ComponentTag) => (
@@ -65,13 +65,13 @@ const components = {
   a: ({ href, children, node, ...other }: ComponentTag) => {
     const linkProps = isExternalLink(href)
       ? { target: '_blank', rel: 'noopener' }
-      : { component: RouterLink };
+      : { component: RouterLink }
 
     return (
       <Link {...linkProps} href={href} className={markdownClasses.content.link} {...other}>
         {children}
       </Link>
-    );
+    )
   },
   pre: ({ children }: ComponentTag) => (
     <div className={markdownClasses.content.codeBlock}>
@@ -79,7 +79,7 @@ const components = {
     </div>
   ),
   code({ className, children, node, ...other }: ComponentTag) {
-    const language = /language-(\w+)/.exec(className || '');
+    const language = /language-(\w+)/.exec(className || '')
 
     return language ? (
       <code {...other} className={className}>
@@ -89,6 +89,6 @@ const components = {
       <code {...other} className={markdownClasses.content.codeInline}>
         {children}
       </code>
-    );
+    )
   },
-};
+}

@@ -1,19 +1,19 @@
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { Theme, SxProps } from '@mui/material/styles'
 
-import Box from '@mui/material/Box';
+import Box from '@mui/material/Box'
 
 // ----------------------------------------------------------------------
 
 export type FilterBlockProps = {
-  label: string;
-  isShow: boolean;
-  sx?: SxProps<Theme>;
-  children: React.ReactNode;
-};
+  label: string
+  isShow: boolean
+  sx?: SxProps<Theme>
+  children: React.ReactNode
+}
 
 export function FiltersBlock({ label, children, isShow, sx }: FilterBlockProps) {
   if (!isShow) {
-    return null;
+    return null
   }
 
   return (
@@ -43,5 +43,5 @@ export function FiltersBlock({ label, children, isShow, sx }: FilterBlockProps) 
         {children}
       </Box>
     </Box>
-  );
+  )
 }

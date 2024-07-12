@@ -1,39 +1,39 @@
-import type { ButtonBaseProps } from '@mui/material/ButtonBase';
+import type { ButtonBaseProps } from '@mui/material/ButtonBase'
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import { useTheme } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import { useTheme } from '@mui/material/styles'
+import ButtonBase from '@mui/material/ButtonBase'
 
-import { CONFIG } from 'src/config-global';
-import { varAlpha, stylesMode } from 'src/theme/styles';
+import { CONFIG } from 'src/config-global'
+import { varAlpha, stylesMode } from 'src/theme/styles'
 
-import { Block } from './styles';
-import { SvgColor, svgColorClasses } from '../../svg-color';
+import { Block } from './styles'
+import { SvgColor, svgColorClasses } from '../../svg-color'
 
-import type { SettingsState } from '../types';
+import type { SettingsState } from '../types'
 
 // ----------------------------------------------------------------------
 
 type Props = {
   value: {
-    color: SettingsState['navColor'];
-    layout: SettingsState['navLayout'];
-  };
+    color: SettingsState['navColor']
+    layout: SettingsState['navLayout']
+  }
   options: {
-    colors: SettingsState['navColor'][];
-    layouts: SettingsState['navLayout'][];
-  };
+    colors: SettingsState['navColor'][]
+    layouts: SettingsState['navLayout'][]
+  }
   onClickOption: {
-    color: (newValue: SettingsState['navColor']) => void;
-    layout: (newValue: SettingsState['navLayout']) => void;
-  };
-  hideNavColor?: boolean;
-  hideNavLayout?: boolean;
-};
+    color: (newValue: SettingsState['navColor']) => void
+    layout: (newValue: SettingsState['navLayout']) => void
+  }
+  hideNavColor?: boolean
+  hideNavLayout?: boolean
+}
 
 export function NavOptions({ options, value, onClickOption, hideNavColor, hideNavLayout }: Props) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const cssVars = {
     '--item-radius': '12px',
@@ -42,7 +42,7 @@ export function NavOptions({ options, value, onClickOption, hideNavColor, hideNa
     '--item-active-color': `linear-gradient(135deg, ${theme.vars.palette.primary.light} 0%, ${theme.vars.palette.primary.main} 100%)`,
     '--item-active-shadow-light': `-8px 8px 20px -4px ${varAlpha(theme.vars.palette.grey['500Channel'], 0.12)}`,
     '--item-active-shadow-dark': `-8px 8px 20px -4px ${varAlpha(theme.vars.palette.common.blackChannel, 0.12)}`,
-  };
+  }
 
   const labelStyles: React.CSSProperties = {
     display: 'block',
@@ -50,7 +50,7 @@ export function NavOptions({ options, value, onClickOption, hideNavColor, hideNa
     color: 'text.secondary',
     fontWeight: 'fontWeightSemiBold',
     fontSize: theme.typography.pxToRem(11),
-  };
+  }
 
   const renderLayout = (
     <div>
@@ -68,7 +68,7 @@ export function NavOptions({ options, value, onClickOption, hideNavColor, hideNa
         ))}
       </Box>
     </div>
-  );
+  )
 
   const renderColor = (
     <div>
@@ -86,26 +86,26 @@ export function NavOptions({ options, value, onClickOption, hideNavColor, hideNa
         ))}
       </Box>
     </div>
-  );
+  )
 
   return (
     <Block title="Nav" tooltip="Dashboard only" sx={{ ...cssVars, gap: 2.5 }}>
       {!hideNavLayout && renderLayout}
       {!hideNavColor && renderColor}
     </Block>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
 
 type OptionProps = ButtonBaseProps & {
-  option: string;
-  selected: boolean;
-};
+  option: string
+  selected: boolean
+}
 
 export function LayoutOption({ option, selected, sx, ...other }: OptionProps) {
   const renderNav = () => {
-    const baseStyles = { flexShrink: 0, borderRadius: 1, bgcolor: 'var(--item-bg)' };
+    const baseStyles = { flexShrink: 0, borderRadius: 1, bgcolor: 'var(--item-bg)' }
 
     const circle = (
       <Box
@@ -117,7 +117,7 @@ export function LayoutOption({ option, selected, sx, ...other }: OptionProps) {
           ...(selected && { opacity: 1, background: 'var(--item-active-color)' }),
         }}
       />
-    );
+    )
 
     const primaryItem = (
       <Box
@@ -130,7 +130,7 @@ export function LayoutOption({ option, selected, sx, ...other }: OptionProps) {
           ...(selected && { background: 'var(--item-active-color)' }),
         }}
       />
-    );
+    )
 
     const secondaryItem = (
       <Box
@@ -144,7 +144,7 @@ export function LayoutOption({ option, selected, sx, ...other }: OptionProps) {
           ...(selected && { background: 'var(--item-active-color)' }),
         }}
       />
-    );
+    )
 
     return (
       <Stack
@@ -176,8 +176,8 @@ export function LayoutOption({ option, selected, sx, ...other }: OptionProps) {
         {primaryItem}
         {secondaryItem}
       </Stack>
-    );
-  };
+    )
+  }
 
   const renderContent = (
     <Box sx={{ p: 0.5, width: 1, height: 1, flexGrow: 1 }}>
@@ -192,7 +192,7 @@ export function LayoutOption({ option, selected, sx, ...other }: OptionProps) {
         }}
       />
     </Box>
-  );
+  )
 
   return (
     <ButtonBase
@@ -218,7 +218,7 @@ export function LayoutOption({ option, selected, sx, ...other }: OptionProps) {
       {renderNav()}
       {renderContent}
     </ButtonBase>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -266,5 +266,5 @@ export function ColorOption({ option, selected, sx, ...other }: OptionProps) {
         {option}
       </Box>
     </ButtonBase>
-  );
+  )
 }

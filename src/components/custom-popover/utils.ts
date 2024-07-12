@@ -1,22 +1,22 @@
-import type { CSSObject } from '@mui/material/styles';
-import type { PopoverOrigin } from '@mui/material/Popover';
+import type { CSSObject } from '@mui/material/styles'
+import type { PopoverOrigin } from '@mui/material/Popover'
 
-import type { PopoverArrow } from './types';
+import type { PopoverArrow } from './types'
 
 // ----------------------------------------------------------------------
 
-const POPOVER_DISTANCE = 0.75;
+const POPOVER_DISTANCE = 0.75
 
 export type CalculateAnchorOriginProps = {
-  paperStyles?: CSSObject;
-  anchorOrigin: PopoverOrigin;
-  transformOrigin: PopoverOrigin;
-};
+  paperStyles?: CSSObject
+  anchorOrigin: PopoverOrigin
+  transformOrigin: PopoverOrigin
+}
 
 export function calculateAnchorOrigin(
   arrow: PopoverArrow['placement']
 ): CalculateAnchorOriginProps {
-  let props: CalculateAnchorOriginProps;
+  let props: CalculateAnchorOriginProps
 
   switch (arrow) {
     /**
@@ -27,22 +27,22 @@ export function calculateAnchorOrigin(
         paperStyles: { ml: -POPOVER_DISTANCE },
         anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
         transformOrigin: { vertical: 'top', horizontal: 'left' },
-      };
-      break;
+      }
+      break
     case 'top-center':
       props = {
         paperStyles: undefined,
         anchorOrigin: { vertical: 'bottom', horizontal: 'center' },
         transformOrigin: { vertical: 'top', horizontal: 'center' },
-      };
-      break;
+      }
+      break
     case 'top-right':
       props = {
         paperStyles: { ml: POPOVER_DISTANCE },
         anchorOrigin: { vertical: 'bottom', horizontal: 'right' },
         transformOrigin: { vertical: 'top', horizontal: 'right' },
-      };
-      break;
+      }
+      break
     /**
      * bottom-*
      */
@@ -51,22 +51,22 @@ export function calculateAnchorOrigin(
         paperStyles: { ml: -POPOVER_DISTANCE },
         anchorOrigin: { vertical: 'top', horizontal: 'left' },
         transformOrigin: { vertical: 'bottom', horizontal: 'left' },
-      };
-      break;
+      }
+      break
     case 'bottom-center':
       props = {
         paperStyles: undefined,
         anchorOrigin: { vertical: 'top', horizontal: 'center' },
         transformOrigin: { vertical: 'bottom', horizontal: 'center' },
-      };
-      break;
+      }
+      break
     case 'bottom-right':
       props = {
         paperStyles: { ml: POPOVER_DISTANCE },
         anchorOrigin: { vertical: 'top', horizontal: 'right' },
         transformOrigin: { vertical: 'bottom', horizontal: 'right' },
-      };
-      break;
+      }
+      break
     /**
      * left-*
      */
@@ -75,22 +75,22 @@ export function calculateAnchorOrigin(
         paperStyles: { mt: -POPOVER_DISTANCE },
         anchorOrigin: { vertical: 'top', horizontal: 'right' },
         transformOrigin: { vertical: 'top', horizontal: 'left' },
-      };
-      break;
+      }
+      break
     case 'left-center':
       props = {
         paperStyles: undefined,
         anchorOrigin: { vertical: 'center', horizontal: 'right' },
         transformOrigin: { vertical: 'center', horizontal: 'left' },
-      };
-      break;
+      }
+      break
     case 'left-bottom':
       props = {
         paperStyles: { mt: POPOVER_DISTANCE },
         anchorOrigin: { vertical: 'bottom', horizontal: 'right' },
         transformOrigin: { vertical: 'bottom', horizontal: 'left' },
-      };
-      break;
+      }
+      break
     /**
      * right-*
      */
@@ -99,22 +99,22 @@ export function calculateAnchorOrigin(
         paperStyles: { mt: -POPOVER_DISTANCE },
         anchorOrigin: { vertical: 'top', horizontal: 'left' },
         transformOrigin: { vertical: 'top', horizontal: 'right' },
-      };
-      break;
+      }
+      break
     case 'right-center':
       props = {
         paperStyles: undefined,
         anchorOrigin: { vertical: 'center', horizontal: 'left' },
         transformOrigin: { vertical: 'center', horizontal: 'right' },
-      };
-      break;
+      }
+      break
     case 'right-bottom':
       props = {
         paperStyles: { mt: POPOVER_DISTANCE },
         anchorOrigin: { vertical: 'bottom', horizontal: 'left' },
         transformOrigin: { vertical: 'bottom', horizontal: 'right' },
-      };
-      break;
+      }
+      break
 
     // top-right
     default:
@@ -122,8 +122,8 @@ export function calculateAnchorOrigin(
         paperStyles: { ml: POPOVER_DISTANCE },
         anchorOrigin: { vertical: 'bottom', horizontal: 'right' },
         transformOrigin: { vertical: 'top', horizontal: 'right' },
-      };
+      }
   }
 
-  return props;
+  return props
 }

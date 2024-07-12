@@ -1,39 +1,39 @@
-import type { IconButtonProps } from '@mui/material/IconButton';
+import type { IconButtonProps } from '@mui/material/IconButton'
 
-import { m } from 'framer-motion';
+import { m } from 'framer-motion'
 
-import Badge from '@mui/material/Badge';
-import Avatar from '@mui/material/Avatar';
-import SvgIcon from '@mui/material/SvgIcon';
-import MenuItem from '@mui/material/MenuItem';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import ListItemText from '@mui/material/ListItemText';
+import Badge from '@mui/material/Badge'
+import Avatar from '@mui/material/Avatar'
+import SvgIcon from '@mui/material/SvgIcon'
+import MenuItem from '@mui/material/MenuItem'
+import Typography from '@mui/material/Typography'
+import IconButton from '@mui/material/IconButton'
+import ListItemText from '@mui/material/ListItemText'
 
-import { fToNow } from 'src/utils/format-time';
+import { fToNow } from 'src/utils/format-time'
 
-import { varHover } from 'src/components/animate';
-import { Scrollbar } from 'src/components/scrollbar';
-import { usePopover, CustomPopover } from 'src/components/custom-popover';
+import { varHover } from 'src/components/animate'
+import { Scrollbar } from 'src/components/scrollbar'
+import { usePopover, CustomPopover } from 'src/components/custom-popover'
 
 // ----------------------------------------------------------------------
 
 export type ContactsPopoverProps = IconButtonProps & {
   data?: {
-    id: string;
-    role: string;
-    name: string;
-    email: string;
-    status: string;
-    address: string;
-    avatarUrl: string;
-    phoneNumber: string;
-    lastActivity: string;
-  }[];
-};
+    id: string
+    role: string
+    name: string
+    email: string
+    status: string
+    address: string
+    avatarUrl: string
+    phoneNumber: string
+    lastActivity: string
+  }[]
+}
 
 export function ContactsPopover({ data = [], sx, ...other }: ContactsPopoverProps) {
-  const popover = usePopover();
+  const popover = usePopover()
 
   return (
     <>
@@ -92,5 +92,5 @@ export function ContactsPopover({ data = [], sx, ...other }: ContactsPopoverProp
         </Scrollbar>
       </CustomPopover>
     </>
-  );
+  )
 }

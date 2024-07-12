@@ -1,33 +1,33 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import { useId, forwardRef } from 'react';
+import { useId, forwardRef } from 'react'
 
-import Box from '@mui/material/Box';
-import NoSsr from '@mui/material/NoSsr';
-import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import NoSsr from '@mui/material/NoSsr'
+import { useTheme } from '@mui/material/styles'
 
-import { RouterLink } from 'src/routes/components';
+import { RouterLink } from 'src/routes/components'
 
-import { logoClasses } from './classes';
+import { logoClasses } from './classes'
 
 // ----------------------------------------------------------------------
 
 export type LogoProps = BoxProps & {
-  href?: string;
-  disableLink?: boolean;
-};
+  href?: string
+  disableLink?: boolean
+}
 
 export const Logo = forwardRef<HTMLDivElement, LogoProps>(
   ({ width = 40, height = 40, disableLink = false, className, href = '/', sx, ...other }, ref) => {
-    const theme = useTheme();
+    const theme = useTheme()
 
-    const gradientId = useId();
+    const gradientId = useId()
 
-    const PRIMARY_LIGHT = theme.vars.palette.primary.light;
+    const PRIMARY_LIGHT = theme.vars.palette.primary.light
 
-    const PRIMARY_MAIN = theme.vars.palette.primary.main;
+    const PRIMARY_MAIN = theme.vars.palette.primary.main
 
-    const PRIMARY_DARK = theme.vars.palette.primary.dark;
+    const PRIMARY_DARK = theme.vars.palette.primary.dark
 
     /*
      * OR using local (public folder)
@@ -68,7 +68,7 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
           />
         </g>
       </svg>
-    );
+    )
 
     return (
       <NoSsr
@@ -101,6 +101,6 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
           {logo}
         </Box>
       </NoSsr>
-    );
+    )
   }
-);
+)

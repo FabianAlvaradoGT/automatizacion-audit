@@ -1,10 +1,10 @@
-import { defaultFont } from 'src/theme/core/typography';
+import { defaultFont } from 'src/theme/core/typography'
 
-import type { SettingsState } from './types';
+import type { SettingsState } from './types'
 
 // ----------------------------------------------------------------------
 
-export const STORAGE_KEY = 'app-settings';
+export const STORAGE_KEY = 'app-settings'
 
 export const defaultSettings: SettingsState = {
   colorScheme: 'light',
@@ -15,4 +15,4 @@ export const defaultSettings: SettingsState = {
   navColor: 'integrate',
   compactLayout: true,
   fontFamily: defaultFont,
-} as const;
+} as const

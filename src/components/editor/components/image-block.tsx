@@ -1,41 +1,41 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react'
 
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Popover from '@mui/material/Popover';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack'
+import Button from '@mui/material/Button'
+import Popover from '@mui/material/Popover'
+import TextField from '@mui/material/TextField'
+import Typography from '@mui/material/Typography'
 
-import { editorClasses } from '../classes';
-import { ToolbarItem } from './toolbar-item';
+import { editorClasses } from '../classes'
+import { ToolbarItem } from './toolbar-item'
 
-import type { EditorToolbarProps } from '../types';
+import type { EditorToolbarProps } from '../types'
 
 // ----------------------------------------------------------------------
 
 export function ImageBlock({ editor }: Pick<EditorToolbarProps, 'editor'>) {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState('')
 
-  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
 
   const handleOpenPopover = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+    setAnchorEl(event.currentTarget)
+  }
 
   const handleClosePopover = () => {
-    setAnchorEl(null);
-  };
+    setAnchorEl(null)
+  }
 
   const handleUpdateUrl = useCallback(() => {
-    handleClosePopover();
+    handleClosePopover()
 
     if (anchorEl) {
-      editor?.chain().focus().setImage({ src: url }).run();
+      editor?.chain().focus().setImage({ src: url }).run()
     }
-  }, [anchorEl, editor, url]);
+  }, [anchorEl, editor, url])
 
   if (!editor) {
-    return null;
+    return null
   }
 
   return (
@@ -67,7 +67,7 @@ export function ImageBlock({ editor }: Pick<EditorToolbarProps, 'editor'>) {
             placeholder="Enter URL here..."
             value={url}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-              setUrl(event.target.value);
+              setUrl(event.target.value)
             }}
             sx={{ width: 240 }}
           />
@@ -77,5 +77,5 @@ export function ImageBlock({ editor }: Pick<EditorToolbarProps, 'editor'>) {
         </Stack>
       </Popover>
     </>
-  );
+  )
 }

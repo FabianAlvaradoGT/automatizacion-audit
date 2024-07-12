@@ -1,8 +1,8 @@
-import type { CountrySelectProps } from 'src/components/country-select';
+import type { CountrySelectProps } from 'src/components/country-select'
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form'
 
-import { CountrySelect } from 'src/components/country-select';
+import { CountrySelect } from 'src/components/country-select'
 
 // ----------------------------------------------------------------------
 
@@ -11,9 +11,9 @@ export function RHFCountrySelect({
   helperText,
   ...other
 }: CountrySelectProps & {
-  name: string;
+  name: string
 }) {
-  const { control, setValue } = useFormContext();
+  const { control, setValue } = useFormContext()
 
   return (
     <Controller
@@ -30,5 +30,5 @@ export function RHFCountrySelect({
         />
       )}
     />
-  );
+  )
 }

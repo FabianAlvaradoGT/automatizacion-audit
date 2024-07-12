@@ -1,21 +1,21 @@
-import { useState, useEffect, useCallback, cloneElement } from 'react';
+import { useState, useEffect, useCallback, cloneElement } from 'react'
 
-import Stack from '@mui/material/Stack';
-import Drawer from '@mui/material/Drawer';
-import SvgIcon from '@mui/material/SvgIcon';
-import { useTheme } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack'
+import Drawer from '@mui/material/Drawer'
+import SvgIcon from '@mui/material/SvgIcon'
+import { useTheme } from '@mui/material/styles'
+import IconButton from '@mui/material/IconButton'
 
-import { usePathname } from 'src/routes/hooks';
+import { usePathname } from 'src/routes/hooks'
 
-import { Scrollbar } from 'src/components/scrollbar';
+import { Scrollbar } from 'src/components/scrollbar'
 
-import { NavList } from './nav-list';
-import { NavUl } from '../../nav-section';
-import { megaMenuClasses } from '../classes';
-import { megaMenuCssVars } from '../css-vars';
+import { NavList } from './nav-list'
+import { NavUl } from '../../nav-section'
+import { megaMenuClasses } from '../classes'
+import { megaMenuCssVars } from '../css-vars'
 
-import type { MegaMenuProps } from '../types';
+import type { MegaMenuProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -28,31 +28,31 @@ export function MegaMenuMobile({
   cssVars: overridesVars,
   ...other
 }: MegaMenuProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const pathname = usePathname();
+  const pathname = usePathname()
 
-  const [openDrawer, setOpenDrawer] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false)
 
   const cssVars = {
     ...megaMenuCssVars.mobile(theme),
     ...overridesVars,
-  };
+  }
 
   const handleOpenDrawer = useCallback(() => {
-    setOpenDrawer((prev) => !prev);
-  }, []);
+    setOpenDrawer((prev) => !prev)
+  }, [])
 
   const handleCloseDrawer = useCallback(() => {
-    setOpenDrawer(false);
-  }, []);
+    setOpenDrawer(false)
+  }, [])
 
   useEffect(() => {
     if (openDrawer) {
-      handleCloseDrawer();
+      handleCloseDrawer()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }, [pathname])
 
   const renderButton = slots?.button ? (
     cloneElement(slots.button, { onClick: handleOpenDrawer })
@@ -74,7 +74,7 @@ export function MegaMenuMobile({
         />
       </SvgIcon>
     </IconButton>
-  );
+  )
 
   return (
     <>
@@ -113,5 +113,5 @@ export function MegaMenuMobile({
         {slots?.bottomArea}
       </Drawer>
     </>
-  );
+  )
 }

@@ -1,18 +1,18 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import { memo } from 'react';
+import { memo } from 'react'
 
-import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
 function SentIcon({ sx, ...other }: BoxProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const PRIMARY_MAIN = theme.vars.palette.primary.main;
+  const PRIMARY_MAIN = theme.vars.palette.primary.main
 
-  const PRIMARY_DARK = theme.vars.palette.primary.dark;
+  const PRIMARY_DARK = theme.vars.palette.primary.dark
 
   return (
     <Box
@@ -70,7 +70,7 @@ function SentIcon({ sx, ...other }: BoxProps) {
         </filter>
       </defs>
     </Box>
-  );
+  )
 }
 
-export default memo(SentIcon);
+export default memo(SentIcon)

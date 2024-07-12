@@ -1,6 +1,6 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { varAlpha } from '../../styles';
+import { varAlpha } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -19,8 +19,8 @@ const MuiSkeleton: Components<Theme>['MuiSkeleton'] = {
     }),
     rounded: ({ theme }) => ({ borderRadius: theme.shape.borderRadius * 2 }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const skeleton = { MuiSkeleton };
+export const skeleton = { MuiSkeleton }

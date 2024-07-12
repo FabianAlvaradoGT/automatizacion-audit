@@ -1,8 +1,8 @@
-import type { SvgIconProps } from '@mui/material/SvgIcon';
-import type { Theme, Components } from '@mui/material/styles';
+import type { SvgIconProps } from '@mui/material/SvgIcon'
+import type { Theme, Components } from '@mui/material/styles'
 
-import SvgIcon from '@mui/material/SvgIcon';
-import { radioClasses } from '@mui/material/Radio';
+import SvgIcon from '@mui/material/SvgIcon'
+import { radioClasses } from '@mui/material/Radio'
 
 // ----------------------------------------------------------------------
 
@@ -16,7 +16,7 @@ export const RadioIcon = (props: SvgIconProps) => (
       fill="currentColor"
     />
   </SvgIcon>
-);
+)
 
 export const RadioCheckedIcon = (props: SvgIconProps) => (
   <SvgIcon {...props}>
@@ -27,7 +27,7 @@ export const RadioCheckedIcon = (props: SvgIconProps) => (
       fill="currentColor"
     />
   </SvgIcon>
-);
+)
 
 // ----------------------------------------------------------------------
 
@@ -53,8 +53,8 @@ const MuiRadio: Components<Theme>['MuiRadio'] = {
       [`&.${radioClasses.disabled}`]: { color: theme.vars.palette.action.disabled },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const radio = { MuiRadio };
+export const radio = { MuiRadio }

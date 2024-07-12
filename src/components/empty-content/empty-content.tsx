@@ -1,27 +1,27 @@
-import type { StackProps } from '@mui/material/Stack';
-import type { Theme, SxProps } from '@mui/material/styles';
+import type { StackProps } from '@mui/material/Stack'
+import type { Theme, SxProps } from '@mui/material/styles'
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 
-import { CONFIG } from 'src/config-global';
-import { varAlpha } from 'src/theme/styles';
+import { CONFIG } from 'src/config-global'
+import { varAlpha } from 'src/theme/styles'
 
 // ----------------------------------------------------------------------
 
 export type EmptyContentProps = StackProps & {
-  title?: string;
-  imgUrl?: string;
-  filled?: boolean;
-  description?: string;
-  action?: React.ReactNode;
+  title?: string
+  imgUrl?: string
+  filled?: boolean
+  description?: string
+  action?: React.ReactNode
   slotProps?: {
-    img?: SxProps<Theme>;
-    title?: SxProps<Theme>;
-    description?: SxProps<Theme>;
-  };
-};
+    img?: SxProps<Theme>
+    title?: SxProps<Theme>
+    description?: SxProps<Theme>
+  }
+}
 
 export function EmptyContent({
   sx,
@@ -78,5 +78,5 @@ export function EmptyContent({
 
       {action && action}
     </Stack>
-  );
+  )
 }

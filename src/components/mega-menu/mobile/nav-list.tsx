@@ -1,48 +1,48 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react'
 
-import Stack from '@mui/material/Stack';
-import Drawer from '@mui/material/Drawer';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack'
+import Drawer from '@mui/material/Drawer'
+import Divider from '@mui/material/Divider'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
 
-import { isExternalLink } from 'src/routes/utils';
-import { usePathname, useActiveLink } from 'src/routes/hooks';
+import { isExternalLink } from 'src/routes/utils'
+import { usePathname, useActiveLink } from 'src/routes/hooks'
 
-import { Scrollbar } from 'src/components/scrollbar';
+import { Scrollbar } from 'src/components/scrollbar'
 
-import { NavItem } from './nav-item';
-import { Iconify } from '../../iconify';
-import { NavUl, NavLi } from '../../nav-section';
-import { NavSubList } from '../components/nav-sub-list';
+import { NavItem } from './nav-item'
+import { Iconify } from '../../iconify'
+import { NavUl, NavLi } from '../../nav-section'
+import { NavSubList } from '../components/nav-sub-list'
 
-import type { NavListProps } from '../types';
+import type { NavListProps } from '../types'
 
 // ----------------------------------------------------------------------
 
 export function NavList({ data, render, cssVars, slotProps }: NavListProps) {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
-  const active = useActiveLink(data.path, !!data.children);
+  const active = useActiveLink(data.path, !!data.children)
 
-  const [openMenu, setOpenMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false)
 
   useEffect(() => {
     if (openMenu) {
-      handleCloseMenu();
+      handleCloseMenu()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }, [pathname])
 
   const handleOpenMenu = useCallback(() => {
     if (data.children) {
-      setOpenMenu(true);
+      setOpenMenu(true)
     }
-  }, [data.children]);
+  }, [data.children])
 
   const handleCloseMenu = useCallback(() => {
-    setOpenMenu(false);
-  }, []);
+    setOpenMenu(false)
+  }, [])
 
   const renderNavItem = (
     <NavItem
@@ -63,7 +63,7 @@ export function NavList({ data, render, cssVars, slotProps }: NavListProps) {
       // actions
       onClick={handleOpenMenu}
     />
-  );
+  )
 
   if (data.children) {
     return (
@@ -104,8 +104,8 @@ export function NavList({ data, render, cssVars, slotProps }: NavListProps) {
           </Scrollbar>
         </Drawer>
       </NavLi>
-    );
+    )
   }
 
-  return <NavLi disabled={data.disabled}>{renderNavItem}</NavLi>;
+  return <NavLi disabled={data.disabled}>{renderNavItem}</NavLi>
 }

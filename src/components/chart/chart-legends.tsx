@@ -1,8 +1,8 @@
-import type { StackProps } from '@mui/material/Stack';
+import type { StackProps } from '@mui/material/Stack'
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import { styled } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ export const StyledLegend = styled(Box)(({ theme }) => ({
   justifyContent: 'flex-start',
   fontSize: theme.typography.pxToRem(13),
   fontWeight: theme.typography.fontWeightMedium,
-}));
+}))
 
 export const StyledDot = styled(Box)(() => ({
   width: 12,
@@ -25,17 +25,17 @@ export const StyledDot = styled(Box)(() => ({
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: 'currentColor',
-}));
+}))
 
 // ----------------------------------------------------------------------
 
 type Props = StackProps & {
-  labels?: string[];
-  colors?: string[];
-  values?: string[];
-  sublabels?: string[];
-  icons?: React.ReactNode[];
-};
+  labels?: string[]
+  colors?: string[]
+  values?: string[]
+  sublabels?: string[]
+  icons?: React.ReactNode[]
+}
 
 export function ChartLegends({
   labels = [],
@@ -71,5 +71,5 @@ export function ChartLegends({
         </Stack>
       ))}
     </Stack>
-  );
+  )
 }

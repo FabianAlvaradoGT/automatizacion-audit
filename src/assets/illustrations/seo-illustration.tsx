@@ -1,26 +1,26 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import { memo } from 'react';
+import { memo } from 'react'
 
-import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
 
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
-import { BackgroundShape } from './background-shape';
+import { BackgroundShape } from './background-shape'
 
 // ----------------------------------------------------------------------
 
 type Props = BoxProps & {
-  hideBackground?: boolean;
-};
+  hideBackground?: boolean
+}
 
 function SeoIllustration({ hideBackground, sx, ...other }: Props) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const PRIMARY_LIGHT = theme.vars.palette.primary.light;
+  const PRIMARY_LIGHT = theme.vars.palette.primary.light
 
-  const PRIMARY_DARK = theme.vars.palette.primary.dark;
+  const PRIMARY_DARK = theme.vars.palette.primary.dark
 
   return (
     <Box
@@ -242,7 +242,7 @@ function SeoIllustration({ hideBackground, sx, ...other }: Props) {
         y="30"
       />
     </Box>
-  );
+  )
 }
 
-export default memo(SeoIllustration);
+export default memo(SeoIllustration)

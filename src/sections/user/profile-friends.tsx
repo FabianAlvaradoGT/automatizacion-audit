@@ -1,35 +1,35 @@
-import type { IUserProfileFriend } from 'src/types/user';
+import type { IUserProfileFriend } from 'src/types/user'
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputAdornment from '@mui/material/InputAdornment';
+import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
+import Card from '@mui/material/Card'
+import Stack from '@mui/material/Stack'
+import Avatar from '@mui/material/Avatar'
+import MenuList from '@mui/material/MenuList'
+import MenuItem from '@mui/material/MenuItem'
+import TextField from '@mui/material/TextField'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import InputAdornment from '@mui/material/InputAdornment'
 
-import { _socials } from 'src/_mock';
+import { _socials } from 'src/_mock'
 
-import { Iconify, SocialIcon } from 'src/components/iconify';
-import { SearchNotFound } from 'src/components/search-not-found';
-import { usePopover, CustomPopover } from 'src/components/custom-popover';
+import { Iconify, SocialIcon } from 'src/components/iconify'
+import { SearchNotFound } from 'src/components/search-not-found'
+import { usePopover, CustomPopover } from 'src/components/custom-popover'
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  searchFriends: string;
-  friends: IUserProfileFriend[];
-  onSearchFriends: (event: React.ChangeEvent<HTMLInputElement>) => void;
-};
+  searchFriends: string
+  friends: IUserProfileFriend[]
+  onSearchFriends: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
 
 export function ProfileFriends({ friends, searchFriends, onSearchFriends }: Props) {
-  const dataFiltered = applyFilter({ inputData: friends, query: searchFriends });
+  const dataFiltered = applyFilter({ inputData: friends, query: searchFriends })
 
-  const notFound = !dataFiltered.length && !!searchFriends;
+  const notFound = !dataFiltered.length && !!searchFriends
 
   return (
     <>
@@ -70,27 +70,27 @@ export function ProfileFriends({ friends, searchFriends, onSearchFriends }: Prop
         </Box>
       )}
     </>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
 
 type FriendCardProps = {
-  item: IUserProfileFriend;
-};
+  item: IUserProfileFriend
+}
 
 function FriendCard({ item }: FriendCardProps) {
-  const popover = usePopover();
+  const popover = usePopover()
 
   const handleDelete = () => {
-    popover.onClose();
-    console.info('DELETE', item.name);
-  };
+    popover.onClose()
+    console.info('DELETE', item.name)
+  }
 
   const handleEdit = () => {
-    popover.onClose();
-    console.info('EDIT', item.name);
-  };
+    popover.onClose()
+    console.info('EDIT', item.name)
+  }
 
   return (
     <>
@@ -149,22 +149,22 @@ function FriendCard({ item }: FriendCardProps) {
         </MenuList>
       </CustomPopover>
     </>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
 
 type ApplyFilterProps = {
-  query: string;
-  inputData: IUserProfileFriend[];
-};
+  query: string
+  inputData: IUserProfileFriend[]
+}
 
 function applyFilter({ inputData, query }: ApplyFilterProps) {
   if (query) {
     return inputData.filter(
       (friend) => friend.name.toLowerCase().indexOf(query.toLowerCase()) !== -1
-    );
+    )
   }
 
-  return inputData;
+  return inputData
 }

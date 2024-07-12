@@ -1,12 +1,12 @@
-import Stack from '@mui/material/Stack';
-import { useTheme } from '@mui/material/styles';
+import Stack from '@mui/material/Stack'
+import { useTheme } from '@mui/material/styles'
 
-import { NavList } from './nav-list';
-import { NavUl } from '../../nav-section';
-import { navBasicClasses } from '../classes';
-import { navBasicCssVars } from '../css-vars';
+import { NavList } from './nav-list'
+import { NavUl } from '../../nav-section'
+import { navBasicClasses } from '../classes'
+import { navBasicCssVars } from '../css-vars'
 
-import type { NavBasicProps } from '../types';
+import type { NavBasicProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -19,12 +19,12 @@ export function NavBasicDesktop({
   cssVars: overridesVars,
   ...other
 }: NavBasicProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const cssVars = {
     ...navBasicCssVars.desktop(theme),
     ...overridesVars,
-  };
+  }
 
   return (
     <Stack
@@ -49,5 +49,5 @@ export function NavBasicDesktop({
         ))}
       </NavUl>
     </Stack>
-  );
+  )
 }

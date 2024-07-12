@@ -1,25 +1,25 @@
-import Box from '@mui/material/Box';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemButton from '@mui/material/ListItemButton';
+import Box from '@mui/material/Box'
+import ListItemText from '@mui/material/ListItemText'
+import ListItemButton from '@mui/material/ListItemButton'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Label } from 'src/components/label';
+import { Label } from 'src/components/label'
 
 // ----------------------------------------------------------------------
 
 type Props = {
   title: {
-    text: string;
-    highlight: boolean;
-  }[];
+    text: string
+    highlight: boolean
+  }[]
   path: {
-    text: string;
-    highlight: boolean;
-  }[];
-  groupLabel: string;
-  onClickItem: () => void;
-};
+    text: string
+    highlight: boolean
+  }[]
+  groupLabel: string
+  onClickItem: () => void
+}
 
 export function ResultItem({ title, path, groupLabel, onClickItem }: Props) {
   return (
@@ -66,5 +66,5 @@ export function ResultItem({ title, path, groupLabel, onClickItem }: Props) {
 
       {groupLabel && <Label color="info">{groupLabel}</Label>}
     </ListItemButton>
-  );
+  )
 }

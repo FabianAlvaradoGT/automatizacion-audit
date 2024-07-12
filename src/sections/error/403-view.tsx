@@ -1,15 +1,15 @@
-import { m } from 'framer-motion';
+import { m } from 'framer-motion'
 
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button'
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
 
-import { RouterLink } from 'src/routes/components';
+import { RouterLink } from 'src/routes/components'
 
-import { SimpleLayout } from 'src/layouts/simple';
-import { ForbiddenIllustration } from 'src/assets/illustrations';
+import { SimpleLayout } from 'src/layouts/simple'
+import { ForbiddenIllustration } from 'src/assets/illustrations'
 
-import { varBounce, MotionContainer } from 'src/components/animate';
+import { varBounce, MotionContainer } from 'src/components/animate'
 
 // ----------------------------------------------------------------------
 
@@ -39,5 +39,5 @@ export function View403() {
         </Button>
       </Container>
     </SimpleLayout>
-  );
+  )
 }

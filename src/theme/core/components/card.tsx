@@ -1,4 +1,4 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
@@ -14,7 +14,7 @@ const MuiCard: Components<Theme>['MuiCard'] = {
       zIndex: 0, // Fix Safari overflow: hidden with border radius
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ const MuiCardHeader: Components<Theme>['MuiCardHeader'] = {
       padding: theme.spacing(3, 3, 0),
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -44,8 +44,8 @@ const MuiCardContent: Components<Theme>['MuiCardContent'] = {
    * STYLE
    *************************************** */
   styleOverrides: { root: ({ theme }) => ({ padding: theme.spacing(3) }) },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const card = { MuiCard, MuiCardHeader, MuiCardContent };
+export const card = { MuiCard, MuiCardHeader, MuiCardContent }

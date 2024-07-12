@@ -1,9 +1,9 @@
-import type { TableRowProps } from '@mui/material/TableRow';
+import type { TableRowProps } from '@mui/material/TableRow'
 
-import Stack from '@mui/material/Stack';
-import Skeleton from '@mui/material/Skeleton';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
+import Stack from '@mui/material/Stack'
+import Skeleton from '@mui/material/Skeleton'
+import TableRow from '@mui/material/TableRow'
+import TableCell from '@mui/material/TableCell'
 
 // ----------------------------------------------------------------------
 
@@ -28,5 +28,5 @@ export function TableSkeleton({ ...other }: TableRowProps) {
         </Stack>
       </TableCell>
     </TableRow>
-  );
+  )
 }

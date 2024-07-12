@@ -1,35 +1,35 @@
-import type { ButtonGroupProps } from '@mui/material/ButtonGroup';
-import type { Theme, CSSObject, Components, ComponentsVariants } from '@mui/material/styles';
+import type { ButtonGroupProps } from '@mui/material/ButtonGroup'
+import type { Theme, CSSObject, Components, ComponentsVariants } from '@mui/material/styles'
 
-import { buttonGroupClasses } from '@mui/material/ButtonGroup';
+import { buttonGroupClasses } from '@mui/material/ButtonGroup'
 
-import { varAlpha, stylesMode } from '../../styles';
+import { varAlpha, stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
 // NEW VARIANT
 declare module '@mui/material/ButtonGroup' {
   interface ButtonGroupPropsVariantOverrides {
-    soft: true;
+    soft: true
   }
 }
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const;
+const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const
 
-type ColorType = (typeof COLORS)[number];
+type ColorType = (typeof COLORS)[number]
 
 function styleColors(ownerState: ButtonGroupProps, styles: (val: ColorType) => CSSObject) {
   const outputStyle = COLORS.reduce((acc, color) => {
     if (!ownerState.disabled && ownerState.color === color) {
-      acc = styles(color);
+      acc = styles(color)
     }
-    return acc;
-  }, {});
+    return acc
+  }, {})
 
-  return outputStyle;
+  return outputStyle
 }
 
-const buttonClasses = `& .${buttonGroupClasses.firstButton}, & .${buttonGroupClasses.middleButton}`;
+const buttonClasses = `& .${buttonGroupClasses.firstButton}, & .${buttonGroupClasses.middleButton}`
 
 const softVariant: Record<string, ComponentsVariants<Theme>['MuiButtonGroup']> = {
   colors: COLORS.map((color) => ({
@@ -72,7 +72,7 @@ const softVariant: Record<string, ComponentsVariants<Theme>['MuiButtonGroup']> =
       }),
     },
   ],
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -118,9 +118,9 @@ const MuiButtonGroup: Components<Theme>['MuiButtonGroup'] = {
             },
           }),
         },
-      };
+      }
 
-      return { ...styled.inheritColor, ...styled.colors, ...styled.disabled };
+      return { ...styled.inheritColor, ...styled.colors, ...styled.disabled }
     },
     /**
      * @variant text
@@ -144,13 +144,13 @@ const MuiButtonGroup: Components<Theme>['MuiButtonGroup'] = {
             },
           }),
         },
-      };
+      }
 
-      return { ...styled.inheritColor, ...styled.colors, ...styled.disabled };
+      return { ...styled.inheritColor, ...styled.colors, ...styled.disabled }
     },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const buttonGroup = { MuiButtonGroup };
+export const buttonGroup = { MuiButtonGroup }

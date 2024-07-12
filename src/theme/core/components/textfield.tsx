@@ -1,10 +1,10 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { inputBaseClasses } from '@mui/material/InputBase';
-import { filledInputClasses } from '@mui/material/FilledInput';
-import { outlinedInputClasses } from '@mui/material/OutlinedInput';
+import { inputBaseClasses } from '@mui/material/InputBase'
+import { filledInputClasses } from '@mui/material/FilledInput'
+import { outlinedInputClasses } from '@mui/material/OutlinedInput'
 
-import { varAlpha } from '../../styles';
+import { varAlpha } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ const MuiInputBase: Components<Theme>['MuiInputBase'] = {
       },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -44,7 +44,7 @@ const MuiInput: Components<Theme>['MuiInput'] = {
       '&::after': { borderBottomColor: theme.vars.palette.text.primary },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -77,7 +77,7 @@ const MuiOutlinedInput: Components<Theme>['MuiOutlinedInput'] = {
       }),
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ const MuiFilledInput: Components<Theme>['MuiFilledInput'] = {
       },
     }),
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
@@ -118,4 +118,4 @@ export const textfield = {
   MuiInputBase,
   MuiFilledInput,
   MuiOutlinedInput,
-};
+}

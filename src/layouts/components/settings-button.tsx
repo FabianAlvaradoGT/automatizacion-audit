@@ -1,19 +1,19 @@
-import type { IconButtonProps } from '@mui/material/IconButton';
+import type { IconButtonProps } from '@mui/material/IconButton'
 
-import { m } from 'framer-motion';
+import { m } from 'framer-motion'
 
-import Badge from '@mui/material/Badge';
-import SvgIcon from '@mui/material/SvgIcon';
-import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge'
+import SvgIcon from '@mui/material/SvgIcon'
+import IconButton from '@mui/material/IconButton'
 
-import { useSettingsContext } from 'src/components/settings/context';
+import { useSettingsContext } from 'src/components/settings/context'
 
 // ----------------------------------------------------------------------
 
-export type SettingsButtonProps = IconButtonProps;
+export type SettingsButtonProps = IconButtonProps
 
 export function SettingsButton({ sx, ...other }: SettingsButtonProps) {
-  const settings = useSettingsContext();
+  const settings = useSettingsContext()
 
   return (
     <IconButton
@@ -43,5 +43,5 @@ export function SettingsButton({ sx, ...other }: SettingsButtonProps) {
         </SvgIcon>
       </Badge>
     </IconButton>
-  );
+  )
 }

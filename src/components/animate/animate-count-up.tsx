@@ -1,22 +1,22 @@
-import type { UseInViewOptions } from 'framer-motion';
-import type { TypographyProps } from '@mui/material/Typography';
+import type { UseInViewOptions } from 'framer-motion'
+import type { TypographyProps } from '@mui/material/Typography'
 
-import { useRef, useEffect } from 'react';
-import { m, animate, useInView, useTransform, useMotionValue } from 'framer-motion';
+import { useRef, useEffect } from 'react'
+import { m, animate, useInView, useTransform, useMotionValue } from 'framer-motion'
 
-import Typography from '@mui/material/Typography';
+import Typography from '@mui/material/Typography'
 
 // ----------------------------------------------------------------------
 
 export type AnimateCountUpProps = TypographyProps & {
-  to: number;
-  from?: number;
-  toFixed?: number;
-  duration?: number;
-  unit?: 'k' | 'm' | 'b' | string;
-  once?: UseInViewOptions['once'];
-  amount?: UseInViewOptions['amount'];
-};
+  to: number
+  from?: number
+  toFixed?: number
+  duration?: number
+  unit?: 'k' | 'm' | 'b' | string
+  once?: UseInViewOptions['once']
+  amount?: UseInViewOptions['amount']
+}
 
 export function AnimateCountUp({
   to,
@@ -30,19 +30,19 @@ export function AnimateCountUp({
   component = 'p',
   ...other
 }: AnimateCountUpProps) {
-  const ref = useRef(null);
+  const ref = useRef(null)
 
-  const inView = useInView(ref, { once, amount });
+  const inView = useInView(ref, { once, amount })
 
-  const count = useMotionValue(from);
+  const count = useMotionValue(from)
 
-  const rounded = useTransform(count, (latest) => latest.toFixed(toFixed));
+  const rounded = useTransform(count, (latest) => latest.toFixed(toFixed))
 
   useEffect(() => {
     if (inView) {
-      animate(count, to, { duration });
+      animate(count, to, { duration })
     }
-  }, [count, duration, inView, to]);
+  }, [count, duration, inView, to])
 
   return (
     <Typography
@@ -58,5 +58,5 @@ export function AnimateCountUp({
       <m.span ref={ref}>{rounded}</m.span>
       {unit}
     </Typography>
-  );
+  )
 }

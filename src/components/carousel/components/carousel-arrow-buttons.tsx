@@ -1,18 +1,18 @@
-import type { StackProps } from '@mui/material/Stack';
-import type { CSSObject } from '@mui/material/styles';
-import type { ButtonBaseProps } from '@mui/material/ButtonBase';
+import type { StackProps } from '@mui/material/Stack'
+import type { CSSObject } from '@mui/material/styles'
+import type { ButtonBaseProps } from '@mui/material/ButtonBase'
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import SvgIcon from '@mui/material/SvgIcon';
-import { useTheme } from '@mui/material/styles';
-import ButtonBase, { buttonBaseClasses } from '@mui/material/ButtonBase';
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
+import SvgIcon from '@mui/material/SvgIcon'
+import { useTheme } from '@mui/material/styles'
+import ButtonBase, { buttonBaseClasses } from '@mui/material/ButtonBase'
 
-import { varAlpha, stylesMode } from 'src/theme/styles';
+import { varAlpha, stylesMode } from 'src/theme/styles'
 
-import { carouselClasses } from '../classes';
+import { carouselClasses } from '../classes'
 
-import type { CarouselArrowButtonProps, CarouselArrowButtonsProps } from '../types';
+import type { CarouselArrowButtonProps, CarouselArrowButtonsProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ export function CarouselArrowBasicButtons({
         sx={slotProps?.prevBtn?.sx}
       />
     </Stack>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -81,7 +81,7 @@ export function CarouselArrowNumberButtons({
   sx,
   ...other
 }: StackProps & CarouselArrowButtonsProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Stack
@@ -128,7 +128,7 @@ export function CarouselArrowNumberButtons({
         svgSize={slotProps?.prevBtn?.svgSize ?? 16}
       />
     </Stack>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -151,7 +151,7 @@ export function CarouselArrowFloatButtons({
     transform: 'translateY(-50%)',
     '&:hover': { opacity: 0.8 },
     [stylesMode.dark]: { color: 'grey.800' },
-  };
+  }
 
   return (
     <>
@@ -175,7 +175,7 @@ export function CarouselArrowFloatButtons({
         sx={{ right: -16, ...baseStyles, ...slotProps?.nextBtn?.sx }}
       />
     </>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -188,8 +188,8 @@ export function ArrowButton({
   variant,
   ...other
 }: ButtonBaseProps & CarouselArrowButtonProps) {
-  const arrowPrev = variant === 'prev';
-  const arrowNext = variant === 'next';
+  const arrowPrev = variant === 'prev'
+  const arrowNext = variant === 'next'
 
   const prevSvg = svgIcon || (
     <path
@@ -198,7 +198,7 @@ export function ArrowButton({
       d="M15.488 4.43a.75.75 0 0 1 .081 1.058L9.988 12l5.581 6.512a.75.75 0 1 1-1.138.976l-6-7a.75.75 0 0 1 0-.976l6-7a.75.75 0 0 1 1.057-.081"
       clipRule="evenodd"
     />
-  );
+  )
 
   const nextSvg = svgIcon || (
     <path
@@ -207,7 +207,7 @@ export function ArrowButton({
       d="M8.512 4.43a.75.75 0 0 1 1.057.082l6 7a.75.75 0 0 1 0 .976l-6 7a.75.75 0 0 1-1.138-.976L14.012 12L8.431 5.488a.75.75 0 0 1 .08-1.057"
       clipRule="evenodd"
     />
-  );
+  )
 
   return (
     <ButtonBase
@@ -245,5 +245,5 @@ export function ArrowButton({
         {arrowPrev ? prevSvg : nextSvg}
       </SvgIcon>
     </ButtonBase>
-  );
+  )
 }

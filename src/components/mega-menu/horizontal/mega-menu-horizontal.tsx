@@ -1,12 +1,12 @@
-import Stack from '@mui/material/Stack';
-import { useTheme } from '@mui/material/styles';
+import Stack from '@mui/material/Stack'
+import { useTheme } from '@mui/material/styles'
 
-import { NavList } from './nav-list';
-import { NavUl } from '../../nav-section';
-import { megaMenuClasses } from '../classes';
-import { megaMenuCssVars } from '../css-vars';
+import { NavList } from './nav-list'
+import { NavUl } from '../../nav-section'
+import { megaMenuClasses } from '../classes'
+import { megaMenuCssVars } from '../css-vars'
 
-import type { MegaMenuProps } from '../types';
+import type { MegaMenuProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -19,12 +19,12 @@ export function MegaMenuHorizontal({
   cssVars: overridesVars,
   ...other
 }: MegaMenuProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const cssVars = {
     ...megaMenuCssVars.horizontal(theme),
     ...overridesVars,
-  };
+  }
 
   return (
     <Stack
@@ -46,5 +46,5 @@ export function MegaMenuHorizontal({
         ))}
       </NavUl>
     </Stack>
-  );
+  )
 }

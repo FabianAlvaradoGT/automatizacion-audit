@@ -1,20 +1,20 @@
-import type { IconButtonProps } from '@mui/material/IconButton';
+import type { IconButtonProps } from '@mui/material/IconButton'
 
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
+import Box from '@mui/material/Box'
+import IconButton from '@mui/material/IconButton'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import { Iconify } from '../../iconify';
+import { Iconify } from '../../iconify'
 
-import type { SingleFilePreviewProps } from '../types';
+import type { SingleFilePreviewProps } from '../types'
 
 // ----------------------------------------------------------------------
 
 export function SingleFilePreview({ file }: SingleFilePreviewProps) {
-  const fileName = typeof file === 'string' ? file : file.name;
+  const fileName = typeof file === 'string' ? file : file.name
 
-  const previewUrl = typeof file === 'string' ? file : URL.createObjectURL(file);
+  const previewUrl = typeof file === 'string' ? file : URL.createObjectURL(file)
 
   return (
     <Box
@@ -39,7 +39,7 @@ export function SingleFilePreview({ file }: SingleFilePreviewProps) {
         }}
       />
     </Box>
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
@@ -62,5 +62,5 @@ export function DeleteButton({ sx, ...other }: IconButtonProps) {
     >
       <Iconify icon="mingcute:close-line" width={18} />
     </IconButton>
-  );
+  )
 }

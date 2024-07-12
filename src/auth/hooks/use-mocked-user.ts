@@ -1,4 +1,4 @@
-import { _mock } from 'src/_mock';
+import { _mock } from 'src/_mock'
 
 // To get the user from the <AuthContext/>, you can use
 
@@ -27,7 +27,7 @@ export function useMockedUser() {
     about: 'Praesent turpis. Phasellus viverra nulla ut metus varius laoreet. Phasellus tempus.',
     role: 'admin',
     isPublic: true,
-  };
+  }
 
-  return { user };
+  return { user }
 }

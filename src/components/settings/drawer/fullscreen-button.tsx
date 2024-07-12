@@ -1,26 +1,26 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react'
 
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
+import Tooltip from '@mui/material/Tooltip'
+import IconButton from '@mui/material/IconButton'
 
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
-import { SvgColor, svgColorClasses } from '../../svg-color';
+import { SvgColor, svgColorClasses } from '../../svg-color'
 
 // ----------------------------------------------------------------------
 
 export function FullScreenButton() {
-  const [fullscreen, setFullscreen] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false)
 
   const onToggleFullScreen = useCallback(() => {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-      setFullscreen(true);
+      document.documentElement.requestFullscreen()
+      setFullscreen(true)
     } else if (document.exitFullscreen) {
-      document.exitFullscreen();
-      setFullscreen(false);
+      document.exitFullscreen()
+      setFullscreen(false)
     }
-  }, []);
+  }, [])
 
   return (
     <Tooltip title={fullscreen ? 'Exit' : 'Full Screen'}>
@@ -43,5 +43,5 @@ export function FullScreenButton() {
         />
       </IconButton>
     </Tooltip>
-  );
+  )
 }

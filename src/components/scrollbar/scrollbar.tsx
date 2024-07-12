@@ -1,11 +1,11 @@
-import { forwardRef } from 'react';
-import SimpleBar from 'simplebar-react';
+import { forwardRef } from 'react'
+import SimpleBar from 'simplebar-react'
 
-import Box from '@mui/material/Box';
+import Box from '@mui/material/Box'
 
-import { scrollbarClasses } from './classes';
+import { scrollbarClasses } from './classes'
 
-import type { ScrollbarProps } from './types';
+import type { ScrollbarProps } from './types'
 
 // ----------------------------------------------------------------------
 
@@ -40,4 +40,4 @@ export const Scrollbar = forwardRef<HTMLDivElement, ScrollbarProps>(
       {children}
     </Box>
   )
-);
+)

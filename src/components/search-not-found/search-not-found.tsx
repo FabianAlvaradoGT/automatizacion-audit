@@ -1,13 +1,13 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
 
 // ----------------------------------------------------------------------
 
 type SearchNotFoundProps = BoxProps & {
-  query?: string;
-};
+  query?: string
+}
 
 export function SearchNotFound({ query, sx, ...other }: SearchNotFoundProps) {
   if (!query) {
@@ -15,7 +15,7 @@ export function SearchNotFound({ query, sx, ...other }: SearchNotFoundProps) {
       <Typography variant="body2" sx={sx}>
         Please enter keywords
       </Typography>
-    );
+    )
   }
 
   return (
@@ -29,5 +29,5 @@ export function SearchNotFound({ query, sx, ...other }: SearchNotFoundProps) {
         <br /> Try checking for typos or using complete words.
       </Typography>
     </Box>
-  );
+  )
 }

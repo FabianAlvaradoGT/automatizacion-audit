@@ -1,43 +1,43 @@
-import type { Country } from 'react-phone-number-input/input';
+import type { Country } from 'react-phone-number-input/input'
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react'
 
-import Box from '@mui/material/Box';
-import Popover from '@mui/material/Popover';
-import Divider from '@mui/material/Divider';
-import MenuList from '@mui/material/MenuList';
-import MenuItem from '@mui/material/MenuItem';
-import TextField from '@mui/material/TextField';
-import ButtonBase from '@mui/material/ButtonBase';
-import ListItemText from '@mui/material/ListItemText';
-import InputAdornment from '@mui/material/InputAdornment';
+import Box from '@mui/material/Box'
+import Popover from '@mui/material/Popover'
+import Divider from '@mui/material/Divider'
+import MenuList from '@mui/material/MenuList'
+import MenuItem from '@mui/material/MenuItem'
+import TextField from '@mui/material/TextField'
+import ButtonBase from '@mui/material/ButtonBase'
+import ListItemText from '@mui/material/ListItemText'
+import InputAdornment from '@mui/material/InputAdornment'
 
-import { countries } from 'src/assets/data/countries';
+import { countries } from 'src/assets/data/countries'
 
-import { Iconify, FlagIcon } from 'src/components/iconify';
-import { SearchNotFound } from 'src/components/search-not-found';
+import { Iconify, FlagIcon } from 'src/components/iconify'
+import { SearchNotFound } from 'src/components/search-not-found'
 
-import { usePopover } from '../custom-popover';
-import { getCountry, applyFilter } from './utils';
+import { usePopover } from '../custom-popover'
+import { getCountry, applyFilter } from './utils'
 
-import type { CountryListProps } from './types';
+import type { CountryListProps } from './types'
 
 // ----------------------------------------------------------------------
 
 export function CountryListPopover({ countryCode, onClickCountry }: CountryListProps) {
-  const popover = usePopover();
+  const popover = usePopover()
 
-  const selectedCountry = getCountry(countryCode);
+  const selectedCountry = getCountry(countryCode)
 
-  const [searchCountry, setSearchCountry] = useState('');
+  const [searchCountry, setSearchCountry] = useState('')
 
   const handleSearchCountry = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchCountry(event.target.value);
-  }, []);
+    setSearchCountry(event.target.value)
+  }, [])
 
-  const dataFiltered = applyFilter({ inputData: countries, query: searchCountry });
+  const dataFiltered = applyFilter({ inputData: countries, query: searchCountry })
 
-  const notFound = !dataFiltered.length && !!setSearchCountry;
+  const notFound = !dataFiltered.length && !!setSearchCountry
 
   const renderButton = (
     <ButtonBase disableRipple onClick={popover.onOpen}>
@@ -50,13 +50,13 @@ export function CountryListPopover({ countryCode, onClickCountry }: CountryListP
 
       <Divider orientation="vertical" flexItem sx={{ mr: 1 }} />
     </ButtonBase>
-  );
+  )
 
   const renderList = (
     <MenuList>
       {dataFiltered.map((country) => {
         if (!country.code) {
-          return null;
+          return null
         }
 
         return (
@@ -65,9 +65,9 @@ export function CountryListPopover({ countryCode, onClickCountry }: CountryListP
             selected={countryCode === country.code}
             autoFocus={countryCode === country.code}
             onClick={() => {
-              popover.onClose();
-              setSearchCountry('');
-              onClickCountry(country.code as Country);
+              popover.onClose()
+              setSearchCountry('')
+              onClickCountry(country.code as Country)
             }}
           >
             <FlagIcon
@@ -82,10 +82,10 @@ export function CountryListPopover({ countryCode, onClickCountry }: CountryListP
               secondaryTypographyProps={{ typography: 'caption' }}
             />
           </MenuItem>
-        );
+        )
       })}
     </MenuList>
-  );
+  )
 
   return (
     <>
@@ -96,8 +96,8 @@ export function CountryListPopover({ countryCode, onClickCountry }: CountryListP
         open={popover.open}
         anchorEl={popover.anchorEl}
         onClose={() => {
-          popover.onClose();
-          setSearchCountry('');
+          popover.onClose()
+          setSearchCountry('')
         }}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
         transformOrigin={{ vertical: 'top', horizontal: 'left' }}
@@ -135,5 +135,5 @@ export function CountryListPopover({ countryCode, onClickCountry }: CountryListP
         </Box>
       </Popover>
     </>
-  );
+  )
 }

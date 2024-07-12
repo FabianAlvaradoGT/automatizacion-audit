@@ -1,4 +1,4 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
@@ -12,8 +12,8 @@ const MuiLink: Components<Theme>['MuiLink'] = {
    * STYLE
    *************************************** */
   styleOverrides: {},
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const link = { MuiLink };
+export const link = { MuiLink }

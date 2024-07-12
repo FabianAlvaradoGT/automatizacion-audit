@@ -1,21 +1,21 @@
-import type { PopoverProps } from '@mui/material/Popover';
+import type { PopoverProps } from '@mui/material/Popover'
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react'
 
-import type { UsePopoverReturn } from './types';
+import type { UsePopoverReturn } from './types'
 
 // ----------------------------------------------------------------------
 
 export function usePopover(): UsePopoverReturn {
-  const [anchorEl, setAnchorEl] = useState<PopoverProps['anchorEl']>(null);
+  const [anchorEl, setAnchorEl] = useState<PopoverProps['anchorEl']>(null)
 
   const onOpen = useCallback((event: React.MouseEvent<PopoverProps['anchorEl']>) => {
-    setAnchorEl(event.currentTarget);
-  }, []);
+    setAnchorEl(event.currentTarget)
+  }, [])
 
   const onClose = useCallback(() => {
-    setAnchorEl(null);
-  }, []);
+    setAnchorEl(null)
+  }, [])
 
   return {
     open: !!anchorEl,
@@ -23,5 +23,5 @@ export function usePopover(): UsePopoverReturn {
     onOpen,
     onClose,
     setAnchorEl,
-  };
+  }
 }

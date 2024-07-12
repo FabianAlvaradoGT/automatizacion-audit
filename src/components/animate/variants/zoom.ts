@@ -1,15 +1,15 @@
-import { varTranExit, varTranEnter } from './transition';
+import { varTranExit, varTranEnter } from './transition'
 
-import type { VariantsType } from '../types';
+import type { VariantsType } from '../types'
 
 // ----------------------------------------------------------------------
 
 export const varZoom = (props?: VariantsType) => {
-  const distance = props?.distance || 720;
-  const durationIn = props?.durationIn;
-  const durationOut = props?.durationOut;
-  const easeIn = props?.easeIn;
-  const easeOut = props?.easeOut;
+  const distance = props?.distance || 720
+  const durationIn = props?.durationIn
+  const durationOut = props?.durationOut
+  const easeIn = props?.easeIn
+  const easeOut = props?.easeOut
 
   return {
     // IN
@@ -120,5 +120,5 @@ export const varZoom = (props?: VariantsType) => {
         transition: varTranEnter({ durationIn, easeIn }),
       },
     },
-  };
-};
+  }
+}

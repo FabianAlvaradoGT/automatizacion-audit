@@ -1,13 +1,13 @@
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles'
 
-import { varAlpha } from 'src/theme/styles';
+import { varAlpha } from 'src/theme/styles'
 
-import type { ChartOptions } from './types';
+import type { ChartOptions } from './types'
 
 // ----------------------------------------------------------------------
 
 export function useChart(options?: ChartOptions): ChartOptions {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const LABEL_TOTAL = {
     show: true,
@@ -15,14 +15,14 @@ export function useChart(options?: ChartOptions): ChartOptions {
     color: theme.vars.palette.text.secondary,
     fontSize: theme.typography.subtitle2.fontSize as string,
     fontWeight: theme.typography.subtitle2.fontWeight,
-  };
+  }
 
   const LABEL_VALUE = {
     offsetY: 8,
     color: theme.vars.palette.text.primary,
     fontSize: theme.typography.h4.fontSize as string,
     fontWeight: theme.typography.h4.fontWeight,
-  };
+  }
 
   const RESPONSIVE = [
     {
@@ -47,7 +47,7 @@ export function useChart(options?: ChartOptions): ChartOptions {
       },
     },
     ...(options?.responsive ?? []),
-  ];
+  ]
 
   return {
     ...options,
@@ -315,9 +315,9 @@ export function useChart(options?: ChartOptions): ChartOptions {
      *************************************** */
     responsive: RESPONSIVE.reduce((acc: typeof RESPONSIVE, cur) => {
       if (!acc.some((item) => item.breakpoint === cur.breakpoint)) {
-        acc.push(cur);
+        acc.push(cur)
       }
-      return acc;
+      return acc
     }, []),
-  };
+  }
 }

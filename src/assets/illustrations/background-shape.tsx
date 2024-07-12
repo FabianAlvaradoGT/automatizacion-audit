@@ -1,15 +1,15 @@
-import { useId } from 'react';
+import { useId } from 'react'
 
-import { useTheme } from '@mui/material/styles';
+import { useTheme } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
 export function BackgroundShape() {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const gradientId = useId();
+  const gradientId = useId()
 
-  const PRIMARY_MAIN = theme.vars.palette.primary.main;
+  const PRIMARY_MAIN = theme.vars.palette.primary.main
 
   return (
     <>
@@ -27,5 +27,5 @@ export function BackgroundShape() {
         opacity="0.2"
       />
     </>
-  );
+  )
 }

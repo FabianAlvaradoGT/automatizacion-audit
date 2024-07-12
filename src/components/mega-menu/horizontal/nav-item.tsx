@@ -1,13 +1,13 @@
-import { forwardRef } from 'react';
+import { forwardRef } from 'react'
 
-import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
-import ButtonBase from '@mui/material/ButtonBase';
+import Box from '@mui/material/Box'
+import { styled } from '@mui/material/styles'
+import ButtonBase from '@mui/material/ButtonBase'
 
-import { Iconify } from '../../iconify';
-import { useNavItem, stateClasses, sharedStyles, navSectionClasses } from '../../nav-section';
+import { Iconify } from '../../iconify'
+import { useNavItem, stateClasses, sharedStyles, navSectionClasses } from '../../nav-section'
 
-import type { NavItemProps, NavItemStateProps } from '../types';
+import type { NavItemProps, NavItemStateProps } from '../types'
 
 // ----------------------------------------------------------------------
 
@@ -39,7 +39,7 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
       hasChild,
       externalLink,
       enabledRootRedirect,
-    });
+    })
 
     return (
       <StyledNavItem
@@ -82,9 +82,9 @@ export const NavItem = forwardRef<HTMLButtonElement, NavItemProps>(
           <Iconify icon="eva:arrow-ios-downward-fill" className={navSectionClasses.item.arrow} />
         )}
       </StyledNavItem>
-    );
+    )
   }
-);
+)
 
 // ----------------------------------------------------------------------
 
@@ -121,4 +121,4 @@ const StyledNavItem = styled(ButtonBase, {
     backgroundColor: 'var(--nav-item-open-bg)',
   }),
   ...(disabled && sharedStyles.disabled),
-}));
+}))

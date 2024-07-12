@@ -1,18 +1,18 @@
-import { forwardRef } from 'react';
+import { forwardRef } from 'react'
 
-import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
 
-import { StyledLabel } from './styles';
-import { labelClasses } from './classes';
+import { StyledLabel } from './styles'
+import { labelClasses } from './classes'
 
-import type { LabelProps } from './types';
+import type { LabelProps } from './types'
 
 // ----------------------------------------------------------------------
 
 export const Label = forwardRef<HTMLSpanElement, LabelProps>(
   ({ children, color = 'default', variant = 'soft', startIcon, endIcon, sx, ...other }, ref) => {
-    const theme = useTheme();
+    const theme = useTheme()
 
     const iconStyles = {
       width: 16,
@@ -22,7 +22,7 @@ export const Label = forwardRef<HTMLSpanElement, LabelProps>(
         height: 1,
         objectFit: 'cover',
       },
-    };
+    }
 
     return (
       <StyledLabel
@@ -48,12 +48,12 @@ export const Label = forwardRef<HTMLSpanElement, LabelProps>(
           </Box>
         )}
       </StyledLabel>
-    );
+    )
   }
-);
+)
 
 // ----------------------------------------------------------------------
 
 function sentenceCase(string: string): string {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1)
 }

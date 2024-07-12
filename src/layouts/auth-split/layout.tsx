@@ -1,30 +1,30 @@
-import type { Theme, SxProps, Breakpoint } from '@mui/material/styles';
+import type { Theme, SxProps, Breakpoint } from '@mui/material/styles'
 
-import Alert from '@mui/material/Alert';
+import Alert from '@mui/material/Alert'
 
-import { useBoolean } from 'src/hooks/use-boolean';
+import { useBoolean } from 'src/hooks/use-boolean'
 
-import { Section } from './section';
-import { Main, Content } from './main';
-import { HeaderBase } from '../core/header-base';
-import { LayoutSection } from '../core/layout-section';
+import { Section } from './section'
+import { Main, Content } from './main'
+import { HeaderBase } from '../core/header-base'
+import { LayoutSection } from '../core/layout-section'
 
 // ----------------------------------------------------------------------
 
 export type AuthSplitLayoutProps = {
-  sx?: SxProps<Theme>;
-  children: React.ReactNode;
+  sx?: SxProps<Theme>
+  children: React.ReactNode
   section?: {
-    title?: string;
-    imgUrl?: string;
-    subtitle?: string;
-  };
-};
+    title?: string
+    imgUrl?: string
+    subtitle?: string
+  }
+}
 
 export function AuthSplitLayout({ sx, section, children }: AuthSplitLayoutProps) {
-  const mobileNavOpen = useBoolean();
+  const mobileNavOpen = useBoolean()
 
-  const layoutQuery: Breakpoint = 'md';
+  const layoutQuery: Breakpoint = 'md'
 
   return (
     <LayoutSection
@@ -80,5 +80,5 @@ export function AuthSplitLayout({ sx, section, children }: AuthSplitLayoutProps)
         <Content layoutQuery={layoutQuery}>{children}</Content>
       </Main>
     </LayoutSection>
-  );
+  )
 }

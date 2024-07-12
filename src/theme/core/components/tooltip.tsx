@@ -1,8 +1,8 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { tooltipClasses } from '@mui/material/Tooltip';
+import { tooltipClasses } from '@mui/material/Tooltip'
 
-import { stylesMode } from '../../styles';
+import { stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
@@ -38,8 +38,8 @@ const MuiTooltip: Components<Theme>['MuiTooltip'] = {
       },
     },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const tooltip = { MuiTooltip };
+export const tooltip = { MuiTooltip }

@@ -1,14 +1,14 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
-import { sliderClasses } from '@mui/material/Slider';
+import { sliderClasses } from '@mui/material/Slider'
 
-import { varAlpha, stylesMode } from '../../styles';
+import { varAlpha, stylesMode } from '../../styles'
 
 // ----------------------------------------------------------------------
 
 declare module '@mui/material/Slider' {
   interface SliderPropsColorOverrides {
-    inherit: true;
+    inherit: true
   }
 }
 
@@ -18,7 +18,7 @@ const SIZE = {
   rail: { small: 6, medium: 10 },
   thumb: { small: 16, medium: 20 },
   mark: { small: 4, medium: 6 },
-};
+}
 
 const MuiSlider: Components<Theme>['MuiSlider'] = {
   /** **************************************
@@ -113,10 +113,10 @@ const MuiSlider: Components<Theme>['MuiSlider'] = {
       [`& .${sliderClasses.mark}`]: { height: SIZE.mark.small },
     },
   },
-};
+}
 
 // ----------------------------------------------------------------------
 
 export const slider = {
   MuiSlider,
-};
+}

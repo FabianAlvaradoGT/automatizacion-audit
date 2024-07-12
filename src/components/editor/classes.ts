@@ -41,4 +41,4 @@ export const editorClasses = {
     bulletList: 'nml__editor__content__bullet__list',
     orderedList: 'nml__editor__content__ordered__list',
   },
-};
+}

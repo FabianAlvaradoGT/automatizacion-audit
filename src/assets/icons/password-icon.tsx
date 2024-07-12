@@ -1,18 +1,18 @@
-import type { BoxProps } from '@mui/material/Box';
+import type { BoxProps } from '@mui/material/Box'
 
-import { memo } from 'react';
+import { memo } from 'react'
 
-import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box'
+import { useTheme } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
 function PasswordIcon({ sx, ...other }: BoxProps) {
-  const theme = useTheme();
+  const theme = useTheme()
 
-  const PRIMARY_MAIN = theme.vars.palette.primary.main;
+  const PRIMARY_MAIN = theme.vars.palette.primary.main
 
-  const WARNING_LIGHT = theme.vars.palette.warning.light;
+  const WARNING_LIGHT = theme.vars.palette.warning.light
 
   return (
     <Box
@@ -104,7 +104,7 @@ function PasswordIcon({ sx, ...other }: BoxProps) {
         </filter>
       </defs>
     </Box>
-  );
+  )
 }
 
-export default memo(PasswordIcon);
+export default memo(PasswordIcon)

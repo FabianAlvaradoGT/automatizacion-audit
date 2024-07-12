@@ -1,4 +1,4 @@
-import type { Theme, Components } from '@mui/material/styles';
+import type { Theme, Components } from '@mui/material/styles'
 
 // ----------------------------------------------------------------------
 
@@ -11,8 +11,8 @@ const MuiStack: Components<Theme>['MuiStack'] = {
    * STYLE
    *************************************** */
   styleOverrides: {},
-};
+}
 
 // ----------------------------------------------------------------------
 
-export const stack = { MuiStack };
+export const stack = { MuiStack }

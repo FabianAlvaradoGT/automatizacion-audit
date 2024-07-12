@@ -1,34 +1,34 @@
-import type { ChipProps } from '@mui/material/Chip';
-import type { SelectProps } from '@mui/material/Select';
-import type { Theme, SxProps } from '@mui/material/styles';
-import type { CheckboxProps } from '@mui/material/Checkbox';
-import type { TextFieldProps } from '@mui/material/TextField';
-import type { InputLabelProps } from '@mui/material/InputLabel';
-import type { FormControlProps } from '@mui/material/FormControl';
-import type { FormHelperTextProps } from '@mui/material/FormHelperText';
+import type { ChipProps } from '@mui/material/Chip'
+import type { SelectProps } from '@mui/material/Select'
+import type { Theme, SxProps } from '@mui/material/styles'
+import type { CheckboxProps } from '@mui/material/Checkbox'
+import type { TextFieldProps } from '@mui/material/TextField'
+import type { InputLabelProps } from '@mui/material/InputLabel'
+import type { FormControlProps } from '@mui/material/FormControl'
+import type { FormHelperTextProps } from '@mui/material/FormHelperText'
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from 'react-hook-form'
 
-import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
-import Select from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import Checkbox from '@mui/material/Checkbox';
-import TextField from '@mui/material/TextField';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
+import Box from '@mui/material/Box'
+import Chip from '@mui/material/Chip'
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
+import Checkbox from '@mui/material/Checkbox'
+import TextField from '@mui/material/TextField'
+import InputLabel from '@mui/material/InputLabel'
+import FormControl from '@mui/material/FormControl'
+import FormHelperText from '@mui/material/FormHelperText'
 
 // ----------------------------------------------------------------------
 
 type RHFSelectProps = TextFieldProps & {
-  name: string;
-  native?: boolean;
-  children: React.ReactNode;
+  name: string
+  native?: boolean
+  children: React.ReactNode
   slotProps?: {
-    paper?: SxProps<Theme>;
-  };
-};
+    paper?: SxProps<Theme>
+  }
+}
 
 export function RHFSelect({
   name,
@@ -40,9 +40,9 @@ export function RHFSelect({
   InputLabelProps,
   ...other
 }: RHFSelectProps) {
-  const { control } = useFormContext();
+  const { control } = useFormContext()
 
-  const labelId = `${name}-select-label`;
+  const labelId = `${name}-select-label`
 
   return (
     <Controller
@@ -68,30 +68,30 @@ export function RHFSelect({
         </TextField>
       )}
     />
-  );
+  )
 }
 
 // ----------------------------------------------------------------------
 
 type RHFMultiSelectProps = FormControlProps & {
-  name: string;
-  label?: string;
-  chip?: boolean;
-  checkbox?: boolean;
-  placeholder?: string;
-  helperText?: React.ReactNode;
+  name: string
+  label?: string
+  chip?: boolean
+  checkbox?: boolean
+  placeholder?: string
+  helperText?: React.ReactNode
   options: {
-    label: string;
-    value: string;
-  }[];
+    label: string
+    value: string
+  }[]
   slotProps?: {
-    chip?: ChipProps;
-    select: SelectProps;
-    checkbox?: CheckboxProps;
-    inputLabel?: InputLabelProps;
-    formHelperText?: FormHelperTextProps;
-  };
-};
+    chip?: ChipProps
+    select: SelectProps
+    checkbox?: CheckboxProps
+    inputLabel?: InputLabelProps
+    formHelperText?: FormHelperTextProps
+  }
+}
 
 export function RHFMultiSelect({
   name,
@@ -104,9 +104,9 @@ export function RHFMultiSelect({
   helperText,
   ...other
 }: RHFMultiSelectProps) {
-  const { control } = useFormContext();
+  const { control } = useFormContext()
 
-  const labelId = `${name}-select-label`;
+  const labelId = `${name}-select-label`
 
   return (
     <Controller
@@ -128,10 +128,10 @@ export function RHFMultiSelect({
             renderValue={(selected) => {
               const selectedItems = options.filter((item) =>
                 (selected as string[]).includes(item.value)
-              );
+              )
 
               if (!selectedItems.length && placeholder) {
-                return <Box sx={{ color: 'text.disabled' }}>{placeholder}</Box>;
+                return <Box sx={{ color: 'text.disabled' }}>{placeholder}</Box>
               }
 
               if (chip) {
@@ -147,10 +147,10 @@ export function RHFMultiSelect({
                       />
                     ))}
                   </Box>
-                );
+                )
               }
 
-              return selectedItems.map((item) => item.label).join(', ');
+              return selectedItems.map((item) => item.label).join(', ')
             }}
             {...slotProps?.select}
             inputProps={{ id: labelId, ...slotProps?.select?.inputProps }}
@@ -179,5 +179,5 @@ export function RHFMultiSelect({
         </FormControl>
       )}
     />
-  );
+  )
 }
