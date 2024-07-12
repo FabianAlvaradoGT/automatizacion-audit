@@ -10,8 +10,7 @@ import { useTheme } from '@mui/material/styles'
 import Typography from '@mui/material/Typography'
 import IconButton from '@mui/material/IconButton'
 
-import { paths } from 'src/routes/paths'
-import { useRouter, usePathname } from 'src/routes/hooks'
+import { useRouter } from 'src/routes/hooks'
 
 import { varAlpha } from 'src/theme/styles'
 
@@ -40,8 +39,6 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
   const theme = useTheme()
 
   const router = useRouter()
-
-  const pathname = usePathname()
 
   // const { user } = useMockedUser()
   const { user } = useAuthContext()
@@ -150,36 +147,30 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
               borderBottom: `dashed 1px ${theme.vars.palette.divider}`,
             }}
           >
-            {data.map((option) => {
-              const rootLabel = pathname.includes('/dashboard') ? 'Home' : 'Dashboard'
+            {data.map((option) => (
+              <MenuItem
+                key={option.label}
+                onClick={() => handleClickItem(option.href)}
+                sx={{
+                  py: 1,
+                  color: 'text.secondary',
+                  '& svg': { width: 24, height: 24 },
+                  '&:hover': { color: 'text.primary' },
+                }}
+              >
+                {option.icon}
 
-              const rootHref = pathname.includes('/dashboard') ? '/' : paths.dashboard.root
+                <Box component="span" sx={{ ml: 2 }}>
+                  {option.label}
+                </Box>
 
-              return (
-                <MenuItem
-                  key={option.label}
-                  onClick={() => handleClickItem(option.label === 'Home' ? rootHref : option.href)}
-                  sx={{
-                    py: 1,
-                    color: 'text.secondary',
-                    '& svg': { width: 24, height: 24 },
-                    '&:hover': { color: 'text.primary' },
-                  }}
-                >
-                  {option.icon}
-
-                  <Box component="span" sx={{ ml: 2 }}>
-                    {option.label === 'Home' ? rootLabel : option.label}
-                  </Box>
-
-                  {option.info && (
-                    <Label color="error" sx={{ ml: 1 }}>
-                      {option.info}
-                    </Label>
-                  )}
-                </MenuItem>
-              )
-            })}
+                {option.info && (
+                  <Label color="error" sx={{ ml: 1 }}>
+                    {option.info}
+                  </Label>
+                )}
+              </MenuItem>
+            ))}
           </Stack>
 
           {/* <Box sx={{ px: 2.5, py: 3 }}>

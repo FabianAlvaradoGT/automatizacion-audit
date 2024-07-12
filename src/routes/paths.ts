@@ -57,5 +57,6 @@ export const paths = {
     list: `${ROOTS.USER}/list`,
     new: `${ROOTS.USER}/new`,
     edit: (id: string) => `${ROOTS.USER}/${id}/edit`,
+    profile: `${ROOTS.USER}/profile`,
   },
 }

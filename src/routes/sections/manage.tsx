@@ -13,6 +13,7 @@ import { AuthGuard } from 'src/auth/guard'
 const ListPage = lazy(() => import('src/pages/user/list'))
 const NewPage = lazy(() => import('src/pages/user/new'))
 const EditPage = lazy(() => import('src/pages/user/edit'))
+const ProfilePage = lazy(() => import('src/pages/user/account'))
 
 // ----------------------------------------------------------------------
 
@@ -32,6 +33,7 @@ export const manageRoutes = [
       { path: 'list', element: <ListPage /> },
       { path: 'new', element: <NewPage /> },
       { path: ':id/edit', element: <EditPage /> },
+      { path: 'profile', element: <ProfilePage /> },
     ],
   },
 ]

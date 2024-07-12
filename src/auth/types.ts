@@ -19,6 +19,8 @@ export type AuthUser = {
   name: string
   displayName: string
   role: string
+  area: string
+  status: string
   photoURL: string
 }
 

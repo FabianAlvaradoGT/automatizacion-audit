@@ -15,6 +15,8 @@ const initialState: AuthProps = {
     name: '',
     displayName: '',
     role: '',
+    area: '',
+    status: '',
     photoURL: '',
   },
   login: () => {},
@@ -57,7 +59,9 @@ export const UserProvider = ({ children }: { children: React.ReactElement }) => 
             email: responseGraph.mail,
             name: responseGraph.displayName,
             displayName: responseGraph.displayName,
-            role: responseGraph.jobTitle,
+            role: 'Desarrollador',
+            area: 'BPS',
+            status: 'Activo',
             photoURL: '',
           }
 
