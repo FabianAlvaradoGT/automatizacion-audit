@@ -37,8 +37,6 @@ export const UserProvider = ({ children }: { children: React.ReactElement }) => 
   const { instance, accounts, inProgress } = useMsal()
   const [apiData, setApiData] = useState(null)
 
-  // console.log('instance', instance.getAllAccounts())
-
   const login = () => {
     if (!apiData && inProgress === InteractionStatus.None) {
       instance
@@ -49,19 +47,23 @@ export const UserProvider = ({ children }: { children: React.ReactElement }) => 
         .then(async (accessTokenResponse) => {
           const { accessToken } = accessTokenResponse
 
-          sessionStorage.setItem('webApiAccessToken', accessTokenResponse.idToken)
+          localStorage.setItem('webApiAccessToken', accessTokenResponse.idToken)
 
           const responseGraph = await callMsGraph(accessToken)
           setApiData(responseGraph)
 
-          setUser({
+          const userData = {
             id: responseGraph.id,
             email: responseGraph.mail,
             name: responseGraph.displayName,
             displayName: responseGraph.displayName,
             role: responseGraph.jobTitle,
             photoURL: '',
-          })
+          }
+
+          setUser(userData)
+
+          localStorage.setItem('userData', JSON.stringify(userData))
 
           setInfoLogin({
             loading: false,
@@ -76,59 +78,11 @@ export const UserProvider = ({ children }: { children: React.ReactElement }) => 
               ...loginRequest,
               account: accounts[0],
             })
-            sessionStorage.setItem('webApiAccessToken', accessTokenResponse?.idToken)
+            localStorage.setItem('webApiAccessToken', accessTokenResponse?.idToken)
           }
           console.log(error)
         })
     }
-    // else {
-    //   console.log('else')
-    //   instance
-    //     .loginPopup(loginRequest)
-    //     .then(async (accessTokenResponse) => {
-    //       console.log('accessTokenResponse', accessTokenResponse)
-    //       // const { accessToken } = accessTokenResponse
-
-    //       // sessionStorage.setItem('webApiAccessToken', accessTokenResponse.idToken)
-
-    //       // const responseGraph = await callMsGraph(accessToken)
-
-    //       const responseGraph = {
-    //         id: 1,
-    //         mail: '',
-    //         displayName: '',
-    //         jobTitle: '',
-    //       }
-    //       setApiData((prev: any) => ({
-    //         ...prev,
-    //         ...responseGraph,
-    //       }))
-
-    //       setUser({
-    //         user: {
-    //           id: responseGraph.id,
-    //           email: responseGraph.mail,
-    //           nombre: responseGraph.displayName,
-    //           cargo: responseGraph.jobTitle,
-    //           loading: false,
-    //         },
-    //         loading: false,
-    //         authenticated: true,
-    //         unauthenticated: false,
-    //         login,
-    //       })
-    //     })
-    //     .catch((error) => {
-    //       if (error instanceof InteractionRequiredAuthError) {
-    //         const accessTokenResponse: any = instance.acquireTokenRedirect({
-    //           ...loginRequest,
-    //           account: accounts[0],
-    //         })
-    //         sessionStorage.setItem('webApiAccessToken', accessTokenResponse?.idToken)
-    //       }
-    //       console.log(error)
-    //     })
-    // }
   }
 
   useEffect(() => {
@@ -146,6 +100,7 @@ export const UserProvider = ({ children }: { children: React.ReactElement }) => 
         authenticated: infoLogin.authenticated,
         unauthenticated: infoLogin.unauthenticated,
         checkUserSession: infoLogin.checkUserSession,
+        setUser,
       }}
     >
       {children}

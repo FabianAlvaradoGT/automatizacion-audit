@@ -22,7 +22,7 @@ export function AuthGuard({ children }: Props) {
 
   const searchParams = useSearchParams()
 
-  const { authenticated, loading } = useAuthContext()
+  const { authenticated, loading, setUser } = useAuthContext()
 
   const [isChecking, setIsChecking] = useState<boolean>(true)
 
@@ -38,6 +38,19 @@ export function AuthGuard({ children }: Props) {
 
   const checkPermissions = async (): Promise<void> => {
     if (loading) {
+      return
+    }
+
+    const token = localStorage.getItem('webApiAccessToken')
+
+    if (token) {
+      setIsChecking(false)
+
+      const userDataJson = localStorage.getItem('userData')
+      const userData = JSON.parse(userDataJson || '{}')
+
+      setUser?.(userData)
+
       return
     }
 

@@ -29,4 +29,5 @@ export interface AuthProps {
   authenticated?: boolean
   unauthenticated?: boolean
   checkUserSession?: () => Promise<void>
+  setUser?: (user: AuthUser) => void
 }
