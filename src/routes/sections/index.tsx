@@ -1,10 +1,11 @@
-import { Navigate, useRoutes } from 'react-router-dom';
+import { Navigate, useRoutes } from 'react-router-dom'
 
-import { CONFIG } from 'src/config-global';
+import { CONFIG } from 'src/config-global'
 
-import { authRoutes } from './auth';
-import { mainRoutes } from './main';
-import { dashboardRoutes } from './dashboard';
+import { authRoutes } from './auth'
+import { mainRoutes } from './main'
+import { manageRoutes } from './manage'
+import { dashboardRoutes } from './dashboard'
 
 // ----------------------------------------------------------------------
 
@@ -24,7 +25,10 @@ export function Router() {
     // Main
     ...mainRoutes,
 
+    // Manage
+    ...manageRoutes,
+
     // No match
     { path: '*', element: <Navigate to="/404" replace /> },
-  ]);
+  ])
 }

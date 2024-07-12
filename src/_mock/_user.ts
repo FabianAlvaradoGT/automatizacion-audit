@@ -1,13 +1,19 @@
-import { _mock } from './_mock';
+import { _mock } from './_mock'
 
 // ----------------------------------------------------------------------
 
 export const USER_STATUS_OPTIONS = [
-  { value: 'active', label: 'Active' },
-  { value: 'pending', label: 'Pending' },
-  { value: 'banned', label: 'Banned' },
-  { value: 'rejected', label: 'Rejected' },
-];
+  { value: 'active', label: 'Activos' },
+  { value: 'pending', label: 'Pendientes' },
+  { value: 'banned', label: 'Baneados' },
+  { value: 'rejected', label: 'Rechazados' },
+]
+
+export const USER_ROLE_OPTIONS = [
+  { value: 'user', label: 'Usuario' },
+  { value: 'admin', label: 'Administrador' },
+  { value: 'developer', label: 'Desarrollador' },
+]
 
 export const _userAbout = {
   id: _mock.id(1),
@@ -27,28 +33,28 @@ export const _userAbout = {
     linkedin: `https://www.linkedin.com/in/caitlyn.kerluke`,
     twitter: `https://www.twitter.com/caitlyn.kerluke`,
   },
-};
+}
 
 export const _userFollowers = [...Array(18)].map((_, index) => ({
   id: _mock.id(index),
   name: _mock.fullName(index),
   country: _mock.countryNames(index),
   avatarUrl: _mock.image.avatar(index),
-}));
+}))
 
 export const _userFriends = [...Array(18)].map((_, index) => ({
   id: _mock.id(index),
   role: _mock.role(index),
   name: _mock.fullName(index),
   avatarUrl: _mock.image.avatar(index),
-}));
+}))
 
 export const _userGallery = [...Array(12)].map((_, index) => ({
   id: _mock.id(index),
   postedAt: _mock.time(index),
   title: _mock.postTitle(index),
   imageUrl: _mock.image.cover(index),
-}));
+}))
 
 export const _userFeeds = [...Array(3)].map((_, index) => ({
   id: _mock.id(index),
@@ -82,7 +88,7 @@ export const _userFeeds = [...Array(3)].map((_, index) => ({
         'Etiam rhoncus. Nullam vel sem. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Sed lectus.',
     },
   ],
-}));
+}))
 
 export const _userCards = [...Array(21)].map((_, index) => ({
   id: _mock.id(index),
@@ -93,14 +99,14 @@ export const _userCards = [...Array(21)].map((_, index) => ({
   totalFollowers: _mock.number.nativeL(index),
   totalPosts: _mock.number.nativeL(index + 2),
   totalFollowing: _mock.number.nativeL(index + 1),
-}));
+}))
 
 export const _userPayment = [...Array(3)].map((_, index) => ({
   id: _mock.id(index),
   cardNumber: ['**** **** **** 1234', '**** **** **** 5678', '**** **** **** 7878'][index],
   cardType: ['mastercard', 'visa', 'visa'][index],
   primary: index === 1,
-}));
+}))
 
 export const _userAddressBook = [...Array(4)].map((_, index) => ({
   id: _mock.id(index),
@@ -109,29 +115,32 @@ export const _userAddressBook = [...Array(4)].map((_, index) => ({
   phoneNumber: _mock.phoneNumber(index),
   fullAddress: _mock.fullAddress(index),
   addressType: (index === 0 && 'Home') || 'Office',
-}));
+}))
 
 export const _userInvoices = [...Array(10)].map((_, index) => ({
   id: _mock.id(index),
   invoiceNumber: `INV-199${index}`,
   createdAt: _mock.time(index),
   price: _mock.number.price(index),
-}));
+}))
 
 export const _userPlans = [
   { subscription: 'basic', price: 0, primary: false },
   { subscription: 'starter', price: 4.99, primary: true },
   { subscription: 'premium', price: 9.99, primary: false },
-];
+]
 
-export const _userList = [...Array(20)].map((_, index) => ({
+export const _userList = [...Array(10)].map((_, index) => ({
   id: _mock.id(index),
   zipCode: '85807',
-  state: 'Virginia',
-  city: 'Rancho Cordova',
-  role: _mock.role(index),
+  state: 'Región Metropolitana',
+  city: 'Santiago',
+  role:
+    (index % 2 && USER_ROLE_OPTIONS[0].label) ||
+    (index % 3 && USER_ROLE_OPTIONS[1].label) ||
+    USER_ROLE_OPTIONS[2].label,
   email: _mock.email(index),
-  address: '908 Jack Locks',
+  address: _mock.fullAddress(index),
   name: _mock.fullName(index),
   isVerified: _mock.boolean(index),
   company: _mock.companyNames(index),
@@ -140,4 +149,4 @@ export const _userList = [...Array(20)].map((_, index) => ({
   phoneNumber: _mock.phoneNumber(index),
   status:
     (index % 2 && 'pending') || (index % 3 && 'banned') || (index % 4 && 'rejected') || 'active',
-}));
+}))
