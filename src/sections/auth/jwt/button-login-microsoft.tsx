@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { useTheme } from '@mui/material/styles'
 import { Button, Typography, useMediaQuery } from '@mui/material'
 

@@ -27,9 +27,9 @@ export const useCarousel = (
 
   const _dots = useCarouselDots(mainApi)
 
-  const _autoplay = useCarouselAutoPlay(mainApi)
+  const _autoplay = useCarouselAutoPlay()
 
-  const _autoScroll = useCarouselAutoScroll(mainApi)
+  const _autoScroll = useCarouselAutoScroll()
 
   const _progress = useCarouselProgress(mainApi)
 

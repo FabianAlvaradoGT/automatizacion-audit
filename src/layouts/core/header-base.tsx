@@ -90,17 +90,17 @@ export function HeaderBase({
   onOpenNav,
   layoutQuery,
   slotsDisplay: {
-    signIn = true,
+    // signIn = true,
     account = true,
     helpLink = true,
     settings = true,
-    purchase = true,
-    contacts = true,
+    // purchase = true,
+    // contacts = true,
     searchbar = true,
-    workspaces = true,
+    // workspaces = true,
     menuButton = true,
-    localization = true,
-    notifications = true,
+    // localization = true,
+    // notifications = true,
   } = {},
   ...other
 }: HeaderBaseProps) {

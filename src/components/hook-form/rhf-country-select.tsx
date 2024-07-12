@@ -23,7 +23,7 @@ export function RHFCountrySelect({
         <CountrySelect
           id={`rhf-country-select-${name}`}
           value={field.value}
-          onChange={(event, newValue) => setValue(name, newValue, { shouldValidate: true })}
+          onChange={(_, newValue) => setValue(name, newValue, { shouldValidate: true })}
           error={!!error}
           helperText={error?.message ?? helperText}
           {...other}

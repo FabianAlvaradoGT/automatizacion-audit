@@ -118,7 +118,7 @@ export function UserListView() {
   )
 
   const handleFilterStatus = useCallback(
-    (event: React.SyntheticEvent, newValue: string) => {
+    (_: React.SyntheticEvent, newValue: string) => {
       table.onResetPage()
       filters.setState({ status: newValue })
     },

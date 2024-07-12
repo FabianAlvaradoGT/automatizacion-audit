@@ -1,5 +1,3 @@
-import React from 'react'
-
 const MicrosoftLogo = () => (
   <svg height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill="#f3f3f300" d="M0 0h23v23H0z" />

@@ -1,4 +1,4 @@
-import type { EmblaCarouselType } from 'embla-carousel'
+// import type { EmblaCarouselType } from 'embla-carousel'
 
 import { useState, useEffect, useCallback } from 'react'
 
@@ -6,7 +6,8 @@ import type { UseCarouselAutoPlayReturn } from '../types'
 
 // ----------------------------------------------------------------------
 
-export function useCarouselAutoPlay(mainApi?: EmblaCarouselType): UseCarouselAutoPlayReturn {
+// export function useCarouselAutoPlay(mainApi?: EmblaCarouselType): UseCarouselAutoPlayReturn {
+export function useCarouselAutoPlay(): UseCarouselAutoPlayReturn {
   const [isPlaying, setIsPlaying] = useState(false)
 
   const onClickAutoplay = useCallback(

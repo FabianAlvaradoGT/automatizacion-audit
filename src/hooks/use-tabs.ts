@@ -11,7 +11,7 @@ export type UseTabsReturn = {
 export function useTabs(defaultValue: string): UseTabsReturn {
   const [value, setValue] = useState(defaultValue)
 
-  const onChange = useCallback((event: React.SyntheticEvent, newValue: string) => {
+  const onChange = useCallback((_: React.SyntheticEvent, newValue: string) => {
     setValue(newValue)
   }, [])
 
