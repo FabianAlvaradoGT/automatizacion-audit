@@ -17,8 +17,20 @@ module.exports = {
       typescript: {
         project: './tsconfig.json',
       },
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
     },
   },
+  overrides: [
+    {
+      files: ['*.js', '*.jsx'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+      },
+    },
+  ],
   /**
    * 0 ~ 'off'
    * 1 ~ 'warn'
@@ -106,4 +118,4 @@ module.exports = {
       },
     ],
   },
-};
+}
