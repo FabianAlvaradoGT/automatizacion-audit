@@ -3,6 +3,7 @@
 const ROOTS = {
   AUTH: '/auth',
   DASHBOARD: '/dashboard',
+  USER: '/user',
 }
 
 // ----------------------------------------------------------------------
@@ -52,7 +53,9 @@ export const paths = {
     },
   },
   user: {
-    root: '/user',
-    list: '/user/list',
+    root: ROOTS.USER,
+    list: `${ROOTS.USER}/list`,
+    new: `${ROOTS.USER}/new`,
+    edit: (id: string) => `${ROOTS.USER}/${id}/edit`,
   },
 }

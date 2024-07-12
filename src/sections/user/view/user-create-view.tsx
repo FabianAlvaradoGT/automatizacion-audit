@@ -1,3 +1,5 @@
+import { paths } from 'src/routes/paths'
+
 import { DashboardContent } from 'src/layouts/dashboard'
 
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs'
@@ -10,14 +12,12 @@ export function UserCreateView() {
   return (
     <DashboardContent>
       <CustomBreadcrumbs
-        heading="Create a new user"
-        links={
-          [
-            // { name: 'Dashboard', href: paths.dashboard.root },
-            // { name: 'User', href: paths.dashboard.user.root },
-            // { name: 'New user' },
-          ]
-        }
+        heading="Nuevo Usuario"
+        links={[
+          { name: 'Home', href: paths.dashboard.root },
+          { name: 'Usuarios', href: paths.user.list },
+          { name: 'Nuevo' },
+        ]}
         sx={{ mb: { xs: 3, md: 5 } }}
       />
 

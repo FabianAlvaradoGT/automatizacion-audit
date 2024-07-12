@@ -1,5 +1,7 @@
 import type { IUserItem } from 'src/types/user'
 
+import { paths } from 'src/routes/paths'
+
 import { DashboardContent } from 'src/layouts/dashboard'
 
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs'
@@ -16,14 +18,12 @@ export function UserEditView({ user: currentUser }: Props) {
   return (
     <DashboardContent>
       <CustomBreadcrumbs
-        heading="Edit"
-        links={
-          [
-            // { name: 'Dashboard', href: paths.dashboard.root },
-            // { name: 'User', href: paths.dashboard.user.root },
-            // { name: currentUser?.name },
-          ]
-        }
+        heading="Editar Usuario"
+        links={[
+          { name: 'Home', href: paths.dashboard.root },
+          { name: 'Usuarios', href: paths.user.list },
+          { name: 'Editar' },
+        ]}
         sx={{ mb: { xs: 3, md: 5 } }}
       />
 

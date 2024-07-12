@@ -11,6 +11,8 @@ import { AuthGuard } from 'src/auth/guard'
 // ----------------------------------------------------------------------
 
 const ListPage = lazy(() => import('src/pages/user/list'))
+const NewPage = lazy(() => import('src/pages/user/new'))
+const EditPage = lazy(() => import('src/pages/user/edit'))
 
 // ----------------------------------------------------------------------
 
@@ -26,6 +28,10 @@ export const manageRoutes = [
   {
     path: 'user',
     element: CONFIG.auth.skip ? <>{layoutContent}</> : <AuthGuard>{layoutContent}</AuthGuard>,
-    children: [{ path: 'list', element: <ListPage /> }],
+    children: [
+      { path: 'list', element: <ListPage /> },
+      { path: 'new', element: <NewPage /> },
+      { path: ':id/edit', element: <EditPage /> },
+    ],
   },
 ]
