@@ -5,7 +5,7 @@ import { useParams } from 'src/routes/hooks'
 import { CONFIG } from 'src/config-global'
 import { _userList } from 'src/_mock/_user'
 
-import { UserEditView } from 'src/sections/user/view'
+import { UserEditView } from 'src/sections/user'
 
 // ----------------------------------------------------------------------
 

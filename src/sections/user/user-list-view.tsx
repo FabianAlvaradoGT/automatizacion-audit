@@ -41,9 +41,9 @@ import {
   TablePaginationCustom,
 } from 'src/components/table'
 
-import { UserTableRow } from '../user-table-row'
-import { UserTableToolbar } from '../user-table-toolbar'
-import { UserTableFiltersResult } from '../user-table-filters-result'
+import { UserTableRow } from './user-table-row'
+import { UserTableToolbar } from './user-table-toolbar'
+import { UserTableFiltersResult } from './user-table-filters-result'
 
 // ----------------------------------------------------------------------
 
