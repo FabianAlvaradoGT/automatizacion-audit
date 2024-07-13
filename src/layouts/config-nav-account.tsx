@@ -6,7 +6,7 @@ export const _account = [
   {
     label: 'Home',
     href: '/',
-    icon: <Iconify icon="solar:home-angle-bold-duotone" />,
+    icon: <Iconify icon="carbon:home" />,
   },
   {
     label: 'Perfil',

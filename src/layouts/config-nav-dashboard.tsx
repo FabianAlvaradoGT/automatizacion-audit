@@ -12,8 +12,8 @@ export const navData = [
   {
     subheader: 'Administración',
     items: [
-      { title: 'Usuarios', path: paths.user.list, icon: <Iconify icon="gg:profile" /> },
-      { title: 'Perfil', path: paths.user.profile, icon: <Iconify icon="clarity:users-line" /> },
+      { title: 'Usuarios', path: paths.user.list, icon: <Iconify icon="clarity:users-line" /> },
+      { title: 'Perfil', path: paths.user.profile, icon: <Iconify icon="gg:profile" /> },
     ],
   },
 ]

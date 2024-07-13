@@ -1,4 +1,4 @@
-import { defaultFont } from 'src/theme/core/typography'
+// import { defaultFont } from 'src/theme/core/typography'
 
 import type { SettingsState } from './types'
 
@@ -11,8 +11,8 @@ export const defaultSettings: SettingsState = {
   direction: 'ltr',
   contrast: 'default',
   navLayout: 'vertical',
-  primaryColor: 'default',
+  primaryColor: 'purple',
   navColor: 'integrate',
-  compactLayout: true,
-  fontFamily: defaultFont,
+  compactLayout: false,
+  fontFamily: 'Nunito Sans',
 } as const
