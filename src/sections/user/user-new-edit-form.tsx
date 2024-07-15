@@ -139,7 +139,7 @@ export function UserNewEditForm({ currentUser }: Props) {
                   Cancelar
                 </Button>
                 <Stack justifyContent="center" alignItems="center" direction="row" gap={2}>
-                  {true && (
+                  {currentUser && (
                     <LoadingButton
                       variant="soft"
                       color="error"
@@ -156,7 +156,7 @@ export function UserNewEditForm({ currentUser }: Props) {
                     loading={isSubmitting}
                     startIcon={<Iconify icon="mingcute:add-line" />}
                   >
-                    {!currentUser ? 'Crear usuario' : 'Guardar usuario'}
+                    {currentUser ? 'Actualizar usuario' : 'Crear usuario'}
                   </LoadingButton>
                 </Stack>
               </Stack>
