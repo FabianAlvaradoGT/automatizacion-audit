@@ -6,6 +6,7 @@ import {
   _id,
   _ages,
   _roles,
+  _years,
   _prices,
   _emails,
   _ratings,
@@ -42,6 +43,7 @@ export const _mock = {
   time: (index: number) => fSub({ days: index, hours: index }),
   boolean: (index: number) => _booleans[index],
   role: (index: number) => _roles[index],
+  year: (index: number) => _years[index],
   // Text
   courseNames: (index: number) => _courseNames[index],
   fileNames: (index: number) => _fileNames[index],

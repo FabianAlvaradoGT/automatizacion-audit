@@ -5,6 +5,7 @@ import { CONFIG } from 'src/config-global'
 import { authRoutes } from './auth'
 import { mainRoutes } from './main'
 import { manageRoutes } from './manage'
+import { processRoutes } from './process'
 import { dashboardRoutes } from './dashboard'
 
 // ----------------------------------------------------------------------
@@ -27,6 +28,9 @@ export function Router() {
 
     // Manage
     ...manageRoutes,
+
+    // Process
+    ...processRoutes,
 
     // No match
     { path: '*', element: <Navigate to="/404" replace /> },

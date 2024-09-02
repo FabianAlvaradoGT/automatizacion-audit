@@ -4,6 +4,7 @@ const ROOTS = {
   AUTH: '/auth',
   DASHBOARD: '/dashboard',
   USER: '/user',
+  PROCESS: '/process',
 }
 
 // ----------------------------------------------------------------------
@@ -51,6 +52,11 @@ export const paths = {
       five: `${ROOTS.DASHBOARD}/group/five`,
       six: `${ROOTS.DASHBOARD}/group/six`,
     },
+  },
+  process: {
+    list: `${ROOTS.PROCESS}/list`,
+    new: `${ROOTS.PROCESS}/new`,
+    edit: (id: string) => `${ROOTS.PROCESS}/${id}/edit`,
   },
   user: {
     root: ROOTS.USER,
